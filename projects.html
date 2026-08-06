@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Projects — The Domus Interior Architecture</title>
+<meta name="description" content="A portfolio of residential and hospitality interiors from The Domus studio — Mumbai, Goa and Alibaug." />
+<link rel="canonical" href="https://www.thedomus.studio/projects.html" />
+<meta property="og:title" content="Projects — The Domus" />
+<meta property="og:description" content="Private residences and hospitality interiors designed around material, light and proportion." />
+<meta property="og:image" content="assets/images/Cam 2_R1.webp" />
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/animations.css" />
+<link rel="stylesheet" href="css/responsive.css" />
+<style>
+  /* Projects page masonry */
+  .projects-masonry {
+    columns: 2;
+    column-gap: 1.2rem;
+    margin-top: 0;
+  }
+  .projects-masonry .masonry-item { margin-bottom: 1.2rem; }
+  .proj-item-inner {
+    position: relative;
+    overflow: hidden;
+    display: block;
+  }
+  .proj-item-inner img { display: block; width: 100%; object-fit: cover; transition: transform 0.8s var(--ease-out); }
+  .proj-item-inner:hover img { transform: scale(1.04); }
+  .proj-caption {
+    padding: 1.2rem 1rem 1rem;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+  }
+  .proj-caption .cat {
+    font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem;
+  }
+  .proj-caption h3 { font-size: 1.1rem; font-weight: 400; color: var(--charcoal); }
+  .proj-caption .meta { font-size: 0.82rem; color: var(--charcoal-dim); margin-top: 0.25rem; }
+</style>
+</head>
+<body>
+
+<div class="loader" aria-hidden="true">
+  <div class="loader-brand"><span>The&nbsp;Domus</span></div>
+  <div class="loader-line"></div>
+  <div class="loader-sub">Interior Architecture Studio</div>
+</div>
+<div class="page-transition" aria-hidden="true"></div>
+<div class="scroll-progress" aria-hidden="true"></div>
+
+<header class="site-header" role="banner">
+  <nav class="nav-links nav-left" aria-label="Primary navigation left">
+    <a href="about.html">Studio</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="services.html">Services</a>
+  </nav>
+
+  <a href="index.html" class="logo" aria-label="The Domus — Home">
+    The <em>Domus</em>
+  </a>
+
+  <div class="nav-right-wrap">
+    <nav class="nav-links nav-right" aria-label="Primary navigation right">
+      <a href="projects.html" class="active">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-utilities">
+      <button class="icon-btn" aria-label="Search" title="Search">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg>
+      </button>
+      <button class="lang-pill" aria-label="Language selection">
+        🇮🇳 EN <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <a href="contact.html" class="btn-pill-header" id="header-enquire">
+        Enquire
+      </a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false" id="hamburger-btn">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<nav class="mobile-nav" aria-label="Mobile navigation">
+  <a href="index.html">Home</a><a href="about.html">Studio</a><a href="projects.html">Projects</a><a href="services.html">Services</a><a href="contact.html">Contact</a>
+  <div class="mobile-nav-footer">Est. 2014 — Mumbai</div>
+</nav>
+
+<main id="main">
+
+  <!-- Page Hero -->
+  <div class="page-hero" aria-label="Projects page header">
+    <div class="page-hero-image">
+      <img src="assets/images/Cam 4_R1.webp" alt="" aria-hidden="true" loading="eager" />
+    </div>
+    <div class="page-hero-content container">
+      <span class="eyebrow">Portfolio</span>
+      <h1 style="font-size:var(--step-h1);margin-top:0.8rem;max-width:24rem;" data-split="words">
+        Work we are proud of.
+      </h1>
+      <p style="margin-top:1rem;color:var(--charcoal-dim);max-width:26rem;">
+        Residential and hospitality commissions across Mumbai, Goa and Alibaug.
+      </p>
+    </div>
+  </div>
+
+  <!-- Projects -->
+  <section class="section-pad bg-white" id="projects">
+    <div class="container">
+
+      <!-- Filters -->
+      <div class="gallery-filters" role="group" aria-label="Filter projects">
+        <button class="active" data-filter="all" aria-pressed="true">All</button>
+        <button data-filter="residential" aria-pressed="false">Residential</button>
+        <button data-filter="hospitality" aria-pressed="false">Hospitality</button>
+        <button data-filter="material-study" aria-pressed="false">Material Studies</button>
+      </div>
+
+      <div class="projects-masonry" role="list" data-reveal>
+
+        <div class="masonry-item" data-category="residential" role="listitem" data-lightbox>
+          <div class="proj-item-inner">
+            <img src="assets/images/Cam 1_R1.webp" alt="Residence Alta — Coastal Villa living area" loading="lazy" style="aspect-ratio:4/3;"/>
+          </div>
+          <div class="proj-caption">
+            <p class="cat">Residential · Alibaug</p>
+            <h3>Residence Alta</h3>
+            <p class="meta">4,200 sq.ft · Coastal Villa · 2023</p>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="hospitality" role="listitem" data-lightbox>
+          <div class="proj-item-inner">
+            <img src="assets/images/Cam 6_R1.webp" alt="Sable Bay Inn — Boutique Hotel Goa" loading="lazy" style="aspect-ratio:3/4;"/>
+          </div>
+          <div class="proj-caption">
+            <p class="cat">Hospitality · Goa</p>
+            <h3>Sable Bay Inn</h3>
+            <p class="meta">9 Rooms · Coastal Hotel · 2022</p>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="residential" role="listitem" data-lightbox>
+          <div class="proj-item-inner">
+            <img src="assets/images/Cam 3_R1.webp" alt="The Byculla Loft — Urban Residence Mumbai" loading="lazy" style="aspect-ratio:4/3;"/>
+          </div>
+          <div class="proj-caption">
+            <p class="cat">Residential · Mumbai</p>
+            <h3>The Byculla Loft</h3>
+            <p class="meta">1,850 sq.ft · Urban Loft · 2021</p>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="residential" role="listitem" data-lightbox>
+          <div class="proj-item-inner">
+            <img src="assets/images/Cam 4_R1.webp" alt="Villa Meridian — Private Estate Alibaug" loading="lazy" style="aspect-ratio:4/5;"/>
+          </div>
+          <div class="proj-caption">
+            <p class="cat">Residential · Alibaug</p>
+            <h3>Villa Meridian</h3>
+            <p class="meta">6,400 sq.ft · Private Estate · 2022</p>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="hospitality" role="listitem" data-lightbox>
+          <div class="proj-item-inner">
+            <img src="assets/images/Cam 7_R1.webp" alt="Veranda Club — Members Club Mumbai" loading="lazy" style="aspect-ratio:16/9;"/>
+          </div>
+          <div class="proj-caption">
+            <p class="cat">Hospitality · Mumbai</p>
+            <h3>Veranda Club</h3>
+            <p class="meta">Members Club · 3,200 sq.ft · 2023</p>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="material-study" role="listitem" data-lightbox>
+          <div class="proj-item-inner">
+            <img src="assets/images/View 1.webp" alt="Brass and Plaster Study — Material palette" loading="lazy" style="aspect-ratio:1/1;"/>
+          </div>
+          <div class="proj-caption">
+            <p class="cat">Material Study</p>
+            <h3>Brass &amp; Plaster Study</h3>
+            <p class="meta">Material exploration · 2023</p>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="residential" role="listitem" data-lightbox>
+          <div class="proj-item-inner">
+            <img src="assets/images/Cam 2_R1.webp" alt="The Sea House — Waterfront Residence Goa" loading="lazy" style="aspect-ratio:4/3;"/>
+          </div>
+          <div class="proj-caption">
+            <p class="cat">Residential · Goa</p>
+            <h3>The Sea House</h3>
+            <p class="meta">2,800 sq.ft · Waterfront Residence · 2024</p>
+          </div>
+        </div>
+
+        <div class="masonry-item" data-category="material-study" role="listitem" data-lightbox>
+          <div class="proj-item-inner">
+            <img src="assets/images/View 2.webp" alt="Kota Stone and Oak — Material exploration" loading="lazy" style="aspect-ratio:5/4;"/>
+          </div>
+          <div class="proj-caption">
+            <p class="cat">Material Study</p>
+            <h3>Kota Stone &amp; Oak</h3>
+            <p class="meta">Flooring material study · 2022</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" aria-label="Close">✕</button>
+    <button class="lightbox-prev" aria-label="Previous">←</button>
+    <div class="lightbox-inner"></div>
+    <button class="lightbox-next" aria-label="Next">→</button>
+    <div class="lightbox-counter" aria-live="polite"></div>
+  </div>
+
+  <!-- CTA -->
+  <section class="section-pad bg-stone" style="text-align:center;" data-reveal>
+    <span class="eyebrow">Commission a project</span>
+    <h2 style="margin-top:1rem;max-width:22rem;margin-inline:auto;">Have a space that needs considered design?</h2>
+    <p style="margin-top:1rem;color:var(--charcoal-dim);max-width:30rem;margin-inline:auto;line-height:1.8;">We take on a limited number of new projects each year. Contact us early — commissions are allocated on a waiting-list basis.</p>
+    <div style="margin-top:2.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn-primary magnetic ripple-el">Begin a Conversation</a>
+      <a href="services.html" class="btn btn-ghost magnetic">Our Services</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand"><h3>The <em>Domus</em></h3><p>Interior architecture studio. Mumbai · Goa · Alibaug. Est. 2014.</p></div>
+      <div class="footer-col"><h5>Studio</h5><ul><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html#residential">Residential</a></li><li><a href="services.html#hospitality">Hospitality</a></li><li><a href="services.html#materials">Materials</a></li></ul></div>
+      <div class="footer-col"><h5>Contact</h5><ul><li>studio@thedomus.in</li><li>+91 22 0000 0000</li><li>Byculla, Mumbai</li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 The Domus Interior Architecture. All rights reserved.</span>
+      <div class="footer-social"><a href="#" aria-label="Instagram">Instagram</a><a href="#" aria-label="Pinterest">Pinterest</a><a href="#" aria-label="LinkedIn">LinkedIn</a></div>
+    </div>
+  </div>
+</footer>
+<button class="back-to-top" aria-label="Back to top">↑</button>
+<script src="js/noise.js"></script><script src="js/cursor.js"></script><script src="js/text-split.js"></script><script src="js/scroll.js"></script><script src="js/animations.js"></script><script src="js/main.js"></script>
+</body>
+</html>
