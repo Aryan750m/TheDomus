@@ -528,17 +528,17 @@ ul { list-style: none; }
   transform: translateZ(0);
 }
 .site-header.scrolled {
-  background: rgba(255, 255, 255, 0.80);
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 0 rgba(0, 0, 0, 0.04);
+  background: rgba(21, 21, 21, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
 }
 
 /* Graceful fallback — backdrop-filter not supported */
 @supports not (backdrop-filter: blur(1px)) {
   .site-header.scrolled {
-    background: rgba(255, 255, 255, 0.96);
+    background: rgba(21, 21, 21, 0.95);
   }
 }
 
@@ -573,23 +573,6 @@ ul { list-style: none; }
 .logo em {
   font-style: italic;
   color: var(--gold);
-}
-.site-header.scrolled .logo {
-  color: var(--charcoal);
-}
-
-/* Nav links — white over hero, charcoal over frosted surface */
-.site-header.scrolled .nav-links a {
-  color: var(--charcoal);
-}
-.site-header.scrolled .nav-links a:hover,
-.site-header.scrolled .nav-links a.active {
-  color: var(--gold);
-}
-
-/* Hamburger lines on mobile frosted header */
-.site-header.scrolled .hamburger .bar {
-  background: var(--charcoal);
 }
 
 /* Column 3: Right Nav & Utilities — pushed toward logo */
@@ -849,9 +832,6 @@ ul { list-style: none; }
   padding: 4px;
   transition: color 0.3s;
 }
-.site-header.scrolled .icon-btn {
-  color: var(--charcoal);
-}
 .lang-pill {
   display: flex;
   align-items: center;
@@ -868,11 +848,6 @@ ul { list-style: none; }
   letter-spacing: 0.08em;
   cursor: pointer;
   transition: all 0.3s;
-}
-.site-header.scrolled .lang-pill {
-  border-color: var(--border);
-  background: var(--stone);
-  color: var(--charcoal);
 }
 .btn-pill-header {
   padding: 6px 18px;
@@ -891,11 +866,7 @@ ul { list-style: none; }
   background: var(--gold);
   color: var(--white);
 }
-/* ENQUIRE pill — needs border in frosted state so it reads against white surface */
-.site-header.scrolled .btn-pill-header {
-  border: 1px solid rgba(28, 28, 30, 0.20);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-}
+
 
 /* ── Reduced motion — keep frosted effect, remove animation */
 @media (prefers-reduced-motion: reduce) {
