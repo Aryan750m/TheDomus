@@ -24,7 +24,7 @@
   function updateHeader() {
     const y = window.scrollY;
     if (header) {
-      header.classList.toggle('scrolled', y > 40);
+      header.classList.toggle('scrolled', y > 12);
     }
     if (backToTop) backToTop.classList.toggle('visible', y > 800);
     if (progressBar) {

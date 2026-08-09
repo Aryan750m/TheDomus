@@ -518,17 +518,28 @@ ul { list-style: none; }
   align-items: center;
   padding: 0.7rem clamp(1rem, 3vw, 3.5rem);
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 100%);
-  transition: background 0.4s var(--ease-out), border-bottom-color 0.4s, box-shadow 0.4s;
+  transition:
+    background 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    backdrop-filter 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    -webkit-backdrop-filter 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 420ms ease,
+    box-shadow 420ms ease;
   will-change: background, box-shadow;
   transform: translateZ(0);
 }
 .site-header.scrolled {
-  background: rgb(33, 37, 41);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  /* padding intentionally NOT set here — stays 1.4rem always */
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.80);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+/* Graceful fallback — backdrop-filter not supported */
+@supports not (backdrop-filter: blur(1px)) {
+  .site-header.scrolled {
+    background: rgba(255, 255, 255, 0.96);
+  }
 }
 
 /* Column 1: Left Nav */
@@ -565,6 +576,20 @@ ul { list-style: none; }
 }
 .site-header.scrolled .logo {
   color: var(--charcoal);
+}
+
+/* Nav links — white over hero, charcoal over frosted surface */
+.site-header.scrolled .nav-links a {
+  color: var(--charcoal);
+}
+.site-header.scrolled .nav-links a:hover,
+.site-header.scrolled .nav-links a.active {
+  color: var(--gold);
+}
+
+/* Hamburger lines on mobile frosted header */
+.site-header.scrolled .hamburger .bar {
+  background: var(--charcoal);
 }
 
 /* Column 3: Right Nav & Utilities — pushed toward logo */
@@ -865,6 +890,18 @@ ul { list-style: none; }
 .btn-pill-header:hover {
   background: var(--gold);
   color: var(--white);
+}
+/* ENQUIRE pill — needs border in frosted state so it reads against white surface */
+.site-header.scrolled .btn-pill-header {
+  border: 1px solid rgba(28, 28, 30, 0.20);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* ── Reduced motion — keep frosted effect, remove animation */
+@media (prefers-reduced-motion: reduce) {
+  .site-header {
+    transition: none;
+  }
 }
 
 /* Hamburger */
