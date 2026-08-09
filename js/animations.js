@@ -269,20 +269,5 @@
      ===================================================== */
   // CSS animation handles this via .hover-shimmer:hover::after
 
-  /* =====================================================
-     MOBILE NAV LINK STAGGER (on open)
-     ===================================================== */
-  const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
-  const hamburger = document.querySelector('.hamburger');
-  if (hamburger) {
-    hamburger.addEventListener('click', () => {
-      const isOpen = hamburger.classList.contains('open');
-      mobileNavLinks.forEach((link, i) => {
-        link.style.transitionDelay = isOpen ? `${i * 0.07}s` : '0s';
-        link.style.opacity         = isOpen ? '1' : '0';
-        link.style.transform       = isOpen ? 'translateX(0)' : 'translateX(-20px)';
-      });
-    });
-  }
-
+  /* Mobile Nav Link Stagger is handled cleanly via CSS transitions to avoid JS race conditions */
 })();

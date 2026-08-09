@@ -229,7 +229,6 @@
 
     ScrollTrigger.refresh();
   }
-
   /* =====================================================
      3D GALLERY CAROUSEL (from backup)
      ===================================================== */
@@ -254,6 +253,11 @@
       if (activeIdx < 0) activeIdx = slides.length - 1;
       if (activeIdx >= slides.length) activeIdx = 0;
 
+      const isMobile = window.innerWidth <= 768;
+      const transX = isMobile ? 78 : 62;
+      const scaleVal = isMobile ? 0.82 : 0.88;
+      const outX = isMobile ? 150 : 120;
+
       slides.forEach((slide, i) => {
         let diff = i - activeIdx;
 
@@ -266,28 +270,45 @@
 
         slide.classList.remove('active');
 
+        // Remove any old click listener to avoid duplicates
+        if (slide._clickNav) {
+          slide.removeEventListener('click', slide._clickNav);
+        }
+
         if (diff === 0) {
-          slide.style.transform = 'translate3d(0, 0, 100px) rotateY(0deg) scale(1.05)';
+          slide.style.transform = 'translate3d(0, 0, 0) scale(1)';
           slide.style.opacity = '1';
           slide.style.zIndex = '10';
           slide.style.filter = 'none';
           slide.classList.add('active');
         } else if (diff === 1 || (slides.length === 2 && diff === -1 && i > activeIdx)) {
-          slide.style.transform = 'translate3d(80%, 0, -200px) rotateY(-28deg) scale(0.84)';
-          slide.style.opacity = '0.7';
+          slide.style.transform = `translate3d(${transX}vw, 0, 0) scale(${scaleVal})`;
+          slide.style.opacity = '0.9';
           slide.style.zIndex = '5';
-          slide.style.filter = 'blur(4px)';
+          slide.style.filter = 'none';
+          
+          slide._clickNav = () => {
+            activeIdx = i;
+            updatePositions();
+          };
+          slide.addEventListener('click', slide._clickNav);
         } else if (diff === -1 || (slides.length === 2 && diff === 1 && i < activeIdx)) {
-          slide.style.transform = 'translate3d(-80%, 0, -200px) rotateY(28deg) scale(0.84)';
-          slide.style.opacity = '0.7';
+          slide.style.transform = `translate3d(-${transX}vw, 0, 0) scale(${scaleVal})`;
+          slide.style.opacity = '0.9';
           slide.style.zIndex = '5';
-          slide.style.filter = 'blur(4px)';
+          slide.style.filter = 'none';
+
+          slide._clickNav = () => {
+            activeIdx = i;
+            updatePositions();
+          };
+          slide.addEventListener('click', slide._clickNav);
         } else {
           const dir = diff > 0 ? 1 : -1;
-          slide.style.transform = `translate3d(${dir * 160}%, 0, -400px) rotateY(${-dir * 35}deg) scale(0.65)`;
+          slide.style.transform = `translate3d(${dir * outX}vw, 0, 0) scale(0.8)`;
           slide.style.opacity = '0';
           slide.style.zIndex = '1';
-          slide.style.filter = 'blur(10px)';
+          slide.style.filter = 'none';
         }
       });
     }
@@ -359,7 +380,122 @@
       }
     });
 
+    window.addEventListener('resize', updatePositions);
+
     updatePositions();
+  }
+
+  /* =====================================================
+     MEGA DROPDOWN — Projects nav (floating panel)
+     ===================================================== */
+  function initMegaDropdown() {
+    const wrap    = document.getElementById('projects-dropdown-wrap');
+    if (!wrap) return;
+
+    const mega    = document.getElementById('projects-mega');
+    const overlay = document.getElementById('mega-overlay');
+    const trigger = document.getElementById('projects-trigger');
+    const header  = document.querySelector('.site-header');
+
+    // All link items (not the "View All" one)
+    const megaLinks = wrap.querySelectorAll('.mega-link[data-key]');
+    // All stacked images in the image column
+    const megaImgs  = mega.querySelectorAll('.mega-img[data-key]');
+
+    // -- Sync --header-h so the panel sits exactly below header ------
+    function updateHeaderHeight() {
+      if (header) {
+        document.documentElement.style.setProperty(
+          '--header-h', header.offsetHeight + 'px'
+        );
+      }
+    }
+    updateHeaderHeight();
+    window.addEventListener('resize', updateHeaderHeight, { passive: true });
+
+    // -- Preload all images immediately --------------------------------
+    megaImgs.forEach(img => {
+      const src = img.getAttribute('src');
+      if (src) { const p = new Image(); p.src = src; }
+    });
+
+    // -- Image crossfade -----------------------------------------------
+    function showImage(key) {
+      megaImgs.forEach(img => {
+        if (img.dataset.key === key) {
+          img.classList.add('is-active');
+        } else {
+          img.classList.remove('is-active');
+        }
+      });
+    }
+
+    // -- Open / close helpers ------------------------------------------
+    let closeTimer = null;
+
+    function openMenu() {
+      clearTimeout(closeTimer);
+      wrap.classList.add('open');
+      if (overlay) overlay.classList.add('is-open');
+      if (trigger) trigger.setAttribute('aria-expanded', 'true');
+      // Highlight the first link as default active
+      megaLinks.forEach((l, i) => l.classList.toggle('is-active', i === 0));
+      showImage(megaLinks[0] ? megaLinks[0].dataset.key : '');
+    }
+
+    function closeMenu() {
+      wrap.classList.remove('open');
+      if (overlay) overlay.classList.remove('is-open');
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+      megaLinks.forEach(l => l.classList.remove('is-active'));
+    }
+
+    // -- Desktop: hover with safe bridge --------------------------------
+    const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+
+    // mouseleave on the whole wrap (trigger + dropdown) closes with a
+    // short delay — cancelled if re-entering before it fires.
+    wrap.addEventListener('mouseenter', () => {
+      if (isMobile()) return;
+      openMenu();
+    });
+    wrap.addEventListener('mouseleave', () => {
+      if (isMobile()) return;
+      closeTimer = setTimeout(closeMenu, 120);
+    });
+
+    // Overlay click also closes (in case the panel is open)
+    if (overlay) {
+      overlay.addEventListener('click', closeMenu);
+    }
+
+    // -- Link hover: switch image -------------------------------------
+    megaLinks.forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        megaLinks.forEach(l => l.classList.remove('is-active'));
+        link.classList.add('is-active');
+        showImage(link.dataset.key);
+      });
+    });
+
+    // -- Mobile: tap to toggle ----------------------------------------
+    if (trigger) {
+      trigger.addEventListener('click', (e) => {
+        if (!isMobile()) return; // desktop handled by CSS + hover
+        e.preventDefault();
+        const isOpen = wrap.classList.contains('open');
+        if (isOpen) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+    }
+
+    // -- ESC key -------------------------------------------------------
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
   }
 
   // Initialize Scenes
@@ -367,10 +503,12 @@
     document.addEventListener('DOMContentLoaded', () => {
       initAboutScene();
       initGalleryCarousel3D();
+      initMegaDropdown();
     });
   } else {
     initAboutScene();
     initGalleryCarousel3D();
+    initMegaDropdown();
   }
 
 })();

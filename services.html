@@ -9,7 +9,7 @@
 <meta property="og:title"       content="Services — The Domus" />
 <meta property="og:description" content="Residential interiors, hospitality design, and material consultancy." />
 <meta property="og:image"       content="assets/images/interior.webp" />
-<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/images/favicon.png" type="image/png" />
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/animations.css" />
 <link rel="stylesheet" href="css/responsive.css" />
@@ -26,27 +26,50 @@
 
 <header class="site-header" role="banner">
   <nav class="nav-links nav-left" aria-label="Primary navigation left">
-    <a href="about.html">Studio</a>
-    <a href="projects.html">Projects</a>
-    <a href="services.html" class="active">Services</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <div class="nav-dropdown-wrap" id="projects-dropdown-wrap">
+      <a href="projects.html" class="nav-dropdown-trigger" id="projects-trigger" aria-haspopup="true" aria-expanded="false">
+        Projects
+        <svg class="dropdown-chevron" viewBox="0 0 10 6" width="10" height="6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div class="mega-dropdown" id="projects-mega" role="region" aria-label="Projects menu">
+        <div class="mega-inner">
+          <div class="mega-links">
+            <a href="projects.html?type=residential" class="mega-link" data-img="assets/images/Cam 1_R1.webp">
+              <span class="mega-link-num">01</span>Residential Interiors
+            </a>
+            <a href="projects.html?type=hospitality" class="mega-link" data-img="assets/images/Cam 6_R1.webp">
+              <span class="mega-link-num">02</span>Hospitality Design
+            </a>
+            <a href="projects.html?type=villas" class="mega-link" data-img="assets/images/Cam 4_R1.webp">
+              <span class="mega-link-num">03</span>Private Villas
+            </a>
+            <a href="projects.html?type=lofts" class="mega-link" data-img="assets/images/Cam 3_R1.webp">
+              <span class="mega-link-num">04</span>Urban Lofts
+            </a>
+            <a href="projects.html" class="mega-link mega-link-all">
+              View All Projects →
+            </a>
+          </div>
+          <div class="mega-image-col">
+            <img src="assets/images/Cam 1_R1.webp" alt="Featured project" class="mega-img" id="mega-featured-img" />
+          </div>
+        </div>
+      </div>
+    </div>
   </nav>
 
   <a href="index.html" class="logo" aria-label="The Domus — Home">
-    The <em>Domus</em>
+    <img src="assets/images/logo.webp" alt="The Domus Logo" class="logo-img" />
   </a>
 
   <div class="nav-right-wrap">
     <nav class="nav-links nav-right" aria-label="Primary navigation right">
-      <a href="projects.html">Gallery</a>
+      <a href="services.html" class="active">Life at The Domus</a>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="header-utilities">
-      <button class="icon-btn" aria-label="Search" title="Search">
-        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg>
-      </button>
-      <button class="lang-pill" aria-label="Language selection">
-        🇮🇳 EN <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
       <a href="contact.html" class="btn-pill-header" id="header-enquire">
         Enquire
       </a>
@@ -58,7 +81,7 @@
 </header>
 
 <nav class="mobile-nav" aria-label="Mobile navigation">
-  <a href="index.html">Home</a><a href="about.html">Studio</a><a href="projects.html">Projects</a><a href="services.html">Services</a><a href="contact.html">Contact</a>
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="services.html" class="active">Life at The Domus</a><a href="contact.html">Contact</a>
   <div class="mobile-nav-footer">Est. 2014 — Mumbai</div>
 </nav>
 

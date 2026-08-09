@@ -18,11 +18,104 @@
 <meta name="twitter:image"       content="assets/images/Cam 2_R1.webp" />
 
 <link rel="canonical" href="https://www.thedomus.studio/" />
-<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/images/favicon.png" type="image/png" />
 
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/animations.css" />
 <link rel="stylesheet" href="css/responsive.css" />
+
+
+<style>
+  /* Flat Carousel Layout Override */
+  .carousel-3d-container {
+    margin-top: 15px !important;
+    gap: 15px !important;
+  }
+  .carousel-3d-stage {
+    perspective: none !important;
+    height: 480px !important;
+  }
+  .carousel-3d-track {
+    transform-style: flat !important;
+  }
+  .carousel-3d-slide {
+    width: 60vw !important;
+    max-width: 800px !important;
+    height: 400px !important;
+    transform-style: flat !important;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), z-index 0.8s step-end !important;
+  }
+  .carousel-3d-image-wrapper {
+    border-radius: 16px !important;
+    border: none !important;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12) !important;
+  }
+  .carousel-3d-slide:not(.active) {
+    cursor: pointer;
+  }
+  .carousel-3d-slide:not(.active) .carousel-3d-image-wrapper {
+    opacity: 0.8;
+  }
+  .carousel-3d-shadow-mask {
+    display: none !important;
+  }
+  
+  /* Positioning controls overlaid on the side slides */
+  .carousel-3d-controls {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding-inline: 12vw !important;
+    pointer-events: none !important;
+    z-index: 20 !important;
+    margin-top: 0 !important;
+  }
+  .carousel-3d-btn {
+    pointer-events: auto !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #ffffff !important;
+    width: 80px !important;
+    height: 80px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: transform 0.3s !important;
+  }
+  .carousel-3d-btn svg {
+    width: 48px !important;
+    height: 48px !important;
+    stroke-width: 1.5 !important;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4)) !important;
+  }
+  .carousel-3d-btn:hover {
+    transform: scale(1.15) !important;
+  }
+
+  @media (max-width: 768px) {
+    .carousel-3d-stage {
+      height: 350px !important;
+    }
+    .carousel-3d-slide {
+      width: 85vw !important;
+      height: 300px !important;
+    }
+    .carousel-3d-btn {
+      width: 40px !important;
+      height: 40px !important;
+    }
+    .carousel-3d-btn svg {
+      width: 32px !important;
+      height: 32px !important;
+    }
+  }
+</style>
 
 <script type="application/ld+json">
 {
@@ -64,29 +157,61 @@
 <!-- ============================================================
      HEADER
      ============================================================ -->
+<!-- Dark overlay — sits behind mega panel, above page -->
+<div class="mega-overlay" id="mega-overlay" aria-hidden="true"></div>
+
 <header class="site-header" role="banner">
   <nav class="nav-links nav-left" aria-label="Primary navigation left">
-    <a href="about.html">Studio</a>
-    <a href="projects.html">Projects</a>
-    <a href="services.html">Services</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <div class="nav-dropdown-wrap" id="projects-dropdown-wrap">
+      <a href="projects.html" class="nav-dropdown-trigger" id="projects-trigger" aria-haspopup="true" aria-expanded="false">
+        Projects
+        <svg class="dropdown-chevron" viewBox="0 0 10 6" width="10" height="6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div class="mega-dropdown" id="projects-mega" role="region" aria-label="Projects menu">
+        <div class="mega-inner">
+          <!-- LEFT: project list -->
+          <div class="mega-links">
+            <span class="mega-links-label">Our Work</span>
+            <a href="projects.html?type=residential" class="mega-link" data-key="residential">
+              <span class="mega-link-num">01</span>Residential Interiors
+            </a>
+            <a href="projects.html?type=hospitality" class="mega-link" data-key="hospitality">
+              <span class="mega-link-num">02</span>Hospitality Design
+            </a>
+            <a href="projects.html?type=villas" class="mega-link" data-key="villas">
+              <span class="mega-link-num">03</span>Private Villas
+            </a>
+            <a href="projects.html?type=lofts" class="mega-link" data-key="lofts">
+              <span class="mega-link-num">04</span>Urban Lofts
+            </a>
+            <a href="projects.html" class="mega-link mega-link-all">
+              View All Projects →
+            </a>
+          </div>
+          <!-- RIGHT: stacked crossfade images -->
+          <div class="mega-image-col">
+            <img src="assets/images/Cam 1_R1.webp" alt="Residential Interiors" class="mega-img is-active" data-key="residential" />
+            <img src="assets/images/Cam 6_R1.webp" alt="Hospitality Design"    class="mega-img"           data-key="hospitality" />
+            <img src="assets/images/Cam 4_R1.webp" alt="Private Villas"        class="mega-img"           data-key="villas" />
+            <img src="assets/images/Cam 3_R1.webp" alt="Urban Lofts"           class="mega-img"           data-key="lofts" />
+          </div>
+        </div>
+      </div>
+    </div>
   </nav>
 
   <a href="index.html" class="logo" aria-label="The Domus — Home">
-    The <em>Domus</em>
+    <img src="assets/images/logo.webp" alt="The Domus Logo" class="logo-img" />
   </a>
 
   <div class="nav-right-wrap">
     <nav class="nav-links nav-right" aria-label="Primary navigation right">
-      <a href="projects.html">Gallery</a>
+      <a href="services.html">Life at The Domus</a>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="header-utilities">
-      <button class="icon-btn" aria-label="Search" title="Search">
-        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg>
-      </button>
-      <button class="lang-pill" aria-label="Language selection">
-        🇮🇳 EN <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
       <a href="contact.html" class="btn-pill-header" id="header-enquire">
         Enquire
       </a>
@@ -100,9 +225,9 @@
 <!-- Mobile nav -->
 <nav class="mobile-nav" aria-label="Mobile navigation" id="mobile-nav">
   <a href="index.html">Home</a>
-  <a href="about.html">Studio</a>
+  <a href="about.html">About</a>
   <a href="projects.html">Projects</a>
-  <a href="services.html">Services</a>
+  <a href="services.html">Life at The Domus</a>
   <a href="contact.html">Contact</a>
   <div class="mobile-nav-footer">Est. 2014 — Mumbai</div>
 </nav>
@@ -134,9 +259,6 @@
     <!-- Centered Content overlay -->
     <div class="hero-center-container">
       <div class="hero-center-content">
-        <div class="hero-eyebrow" aria-hidden="true">
-          RESIDENTIAL ARCHITECTURE &amp; INTERIORS
-        </div>
 
         <h1 class="hero-headline-sobha" id="hero-headline">
           The Domus
@@ -152,12 +274,6 @@
           </a>
         </div>
       </div>
-    </div>
-
-    <div class="hero-caption-sobha" aria-hidden="true">Residence Alta — Alibaug</div>
-    
-    <div class="hero-scroll-sobha" aria-hidden="true">
-      <span class="scroll-line"></span>SCROLL
     </div>
 
     <!-- About Scroll Panel (from backup) -->
@@ -190,7 +306,7 @@
     <div class="container">
       <div class="section-head" data-reveal>
         <span class="eyebrow">Gallery</span>
-        <h2 id="gallery-heading">Gallery</h2>
+        <h2 id="gallery-heading">A Selection of Spaces</h2>
       </div>
 
       <!-- 3D Gallery Carousel Container -->
@@ -270,14 +386,12 @@
         <div class="carousel-3d-controls">
           <button class="carousel-3d-btn carousel-3d-btn--prev" aria-label="Previous Image">
             <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="19" y1="12" x2="5" y2="12"></line>
-              <polyline points="12 19 5 12 12 5"></polyline>
+              <polyline points="15 18 9 12 15 6"></polyline>
             </svg>
           </button>
           <button class="carousel-3d-btn carousel-3d-btn--next" aria-label="Next Image">
             <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
+              <polyline points="9 18 15 12 9 6"></polyline>
             </svg>
           </button>
         </div>
@@ -288,59 +402,56 @@
 
 
   <!-- ==========================================================
-       ABOUT — Editorial split
+       THE DOMUS — Architectural Introduction
        ========================================================== -->
-  <section class="section-pad bg-white" id="about" aria-labelledby="about-heading">
-    <div class="container split">
-      <div class="split-media">
-        <div class="media-block" data-reveal="scale">
-          <img
-            src="assets/images/Cam 1_R1.webp"
-            alt="The Domus — coastal villa interior with natural materials"
-            loading="lazy"
-          />
-          <span class="media-caption">Residence Alta — Alibaug, 2023</span>
-        </div>
-        <div class="media-offset" data-reveal="scale">
-          <img
-            src="assets/images/about-conf.webp"
-            alt="Studio material review session"
-            loading="lazy"
-          />
-        </div>
+  <section class="domus-intro" id="about" aria-labelledby="about-heading">
+    <div class="container domus-intro-grid">
+
+      <!-- LEFT: large architectural image -->
+      <div class="domus-intro-media" data-reveal>
+        <img
+          src="assets/images/Cam 1_R1.webp"
+          alt="The Domus — a considered architectural space"
+          loading="lazy"
+        />
       </div>
-      <div>
-        <span class="eyebrow">The Studio</span>
-        <h2 id="about-heading" data-reveal>
-          A decade spent restoring the discipline of interior design.
+
+      <!-- RIGHT: content -->
+      <div class="domus-intro-content">
+        <span class="eyebrow" data-reveal>The Domus</span>
+        <h2 id="about-heading" class="domus-intro-headline" data-reveal>
+          Spaces Designed<br>For The Way<br>Life Unfolds.
         </h2>
-        <span class="gold-rule" aria-hidden="true"></span>
-        <p data-reveal style="color:var(--charcoal-dim);max-width:34rem;line-height:1.85;">
-          The Domus was founded on a simple premise — that a room should be legible before it is decorated. We work closely with architects, artisans and clients across three cities, favouring a small number of considered materials over an abundance of finishes.
+        <span class="domus-intro-rule" aria-hidden="true"></span>
+        <p class="domus-intro-body" data-reveal>
+          The Domus is a study in architecture, material and atmosphere. We create considered spaces where proportion, light and detail come together to shape a timeless way of living.
         </p>
 
-        <div class="counters" data-reveal-stagger>
-          <div class="counter">
-            <span class="num" data-count="120" data-suffix="+">0</span>
-            <span class="label">Residences</span>
+        <!-- Stats -->
+        <div class="domus-stats" data-reveal-stagger>
+          <div class="domus-stat counter">
+            <span class="num domus-stat-num" data-count="120" data-suffix="+">0</span>
+            <span class="domus-stat-label">Projects</span>
           </div>
-          <div class="counter">
-            <span class="num" data-count="12">0</span>
-            <span class="label">Years Practising</span>
+          <div class="domus-stat counter">
+            <span class="num domus-stat-num" data-count="12">0</span>
+            <span class="domus-stat-label">Years</span>
           </div>
-          <div class="counter">
-            <span class="num" data-count="34" data-suffix="+">0</span>
-            <span class="label">Craftsmen Network</span>
+          <div class="domus-stat counter">
+            <span class="num domus-stat-num" data-count="34" data-suffix="+">0</span>
+            <span class="domus-stat-label">Craft &amp; Design Partners</span>
           </div>
         </div>
 
-        <div style="margin-top:3rem;" data-reveal>
-          <a href="about.html" class="link">
-            Our Story
+        <!-- CTA -->
+        <div class="domus-intro-cta" data-reveal>
+          <a href="about.html" class="domus-editorial-link" aria-label="Explore The Domus">
+            Explore The Domus
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.4"/></svg>
           </a>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -641,109 +752,6 @@
     </blockquote>
     <cite>— Design principle, The Domus Studio</cite>
   </div>
-
-  <!-- ==========================================================
-       3D GALLERY CAROUSEL (from backup)
-       ========================================================== -->
-  <section class="section-pad bg-white" id="gallery" aria-labelledby="gallery-heading">
-    <div class="container">
-      <div class="section-head" data-reveal>
-        <span class="eyebrow">Gallery</span>
-        <h2 id="gallery-heading">Gallery</h2>
-      </div>
-
-      <!-- 3D Gallery Carousel Container -->
-      <div class="carousel-3d-container" id="galleryCarousel3d">
-        <div class="carousel-3d-stage">
-          <div class="carousel-3d-track">
-            <div class="carousel-3d-slide" data-index="0">
-              <div class="carousel-3d-image-wrapper">
-                <img src="assets/images/1.webp" alt="Gallery Image 1" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <div class="carousel-3d-slide" data-index="1">
-              <div class="carousel-3d-image-wrapper">
-                <img src="assets/images/2.webp" alt="Gallery Image 2" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <div class="carousel-3d-slide" data-index="2">
-              <div class="carousel-3d-image-wrapper">
-                <img src="assets/images/3.webp" alt="Gallery Image 3" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <div class="carousel-3d-slide" data-index="3">
-              <div class="carousel-3d-image-wrapper">
-                <img src="assets/images/4.webp" alt="Gallery Image 4" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <div class="carousel-3d-slide" data-index="4">
-              <div class="carousel-3d-image-wrapper">
-                <img src="assets/images/5.webp" alt="Gallery Image 5" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <div class="carousel-3d-slide" data-index="5">
-              <div class="carousel-3d-image-wrapper">
-                <img src="assets/images/6.webp" alt="Gallery Image 6" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <div class="carousel-3d-slide" data-index="6">
-              <div class="carousel-3d-image-wrapper">
-                <img src="assets/images/7.webp" alt="Gallery Image 7" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <div class="carousel-3d-slide" data-index="7">
-              <div class="carousel-3d-image-wrapper">
-                <img src="assets/images/8.webp" alt="Gallery Image 8" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <div class="carousel-3d-slide" data-index="8">
-              <div class="carousel-3d-image-wrapper">
-                <img src="assets/images/9.webp" alt="Gallery Image 9" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <div class="carousel-3d-slide" data-index="9">
-              <div class="carousel-3d-image-wrapper">
-                <img src="assets/images/10.webp" alt="Gallery Image 10" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <div class="carousel-3d-slide" data-index="10">
-              <div class="carousel-3d-image-wrapper">
-                <img src="assets/images/11.webp" alt="Gallery Image 11" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <div class="carousel-3d-slide" data-index="11">
-              <div class="carousel-3d-image-wrapper">
-                <img src="assets/images/12.webp" alt="Gallery Image 12" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <div class="carousel-3d-slide" data-index="12">
-              <div class="carousel-3d-image-wrapper">
-                <img src="assets/images/13.webp" alt="Gallery Image 13" loading="lazy" decoding="async">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="carousel-3d-shadow-mask"></div>
-
-        <div class="carousel-3d-controls">
-          <button class="carousel-3d-btn carousel-3d-btn--prev" aria-label="Previous Image">
-            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="19" y1="12" x2="5" y2="12"></line>
-              <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
-          </button>
-          <button class="carousel-3d-btn carousel-3d-btn--next" aria-label="Next Image">
-            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Lightbox -->
   <div class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
     <button class="lightbox-close" aria-label="Close image viewer">✕</button>
@@ -756,7 +764,7 @@
   <!-- ==========================================================
        AWARDS & RECOGNITION
        ========================================================== -->
-  <section class="section-pad bg-stone" id="awards" aria-labelledby="awards-heading">
+  <section class="section-pad bg-warm" id="awards" aria-labelledby="awards-heading">
     <div class="container">
       <div class="section-head" data-reveal>
         <span class="eyebrow">Recognition</span>
