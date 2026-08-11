@@ -525,6 +525,7 @@ ul { list-style: none; }
   left: 0;
   width: 100%;
   z-index: 1000;
+  overflow: visible;
   display: grid;
   grid-template-columns: 1fr auto 1fr;  /* left | logo | right */
   column-gap: clamp(20px, 10vw, 200px); /* fluid gap: 200px on wide, 20px on small */

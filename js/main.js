@@ -34,6 +34,7 @@
   const mobileNav = document.querySelector('.mobile-nav');
   const subMenuToggle = document.querySelector('.mobile-nav-toggle');
   const subMenu = document.querySelector('.mobile-sub-links');
+  const projectsLinkMobile = mobileNav?.querySelector('.mobile-nav-item-wrap a');
 
   hamburger?.addEventListener('click', () => {
     const isOpen = hamburger.classList.toggle('open');
@@ -47,18 +48,28 @@
     }
   });
 
-  subMenuToggle?.addEventListener('click', () => {
-    const isExpanded = subMenuToggle.classList.toggle('is-active');
+  const toggleProjectsMenu = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    const isExpanded = subMenuToggle?.classList.toggle('is-active');
     subMenu?.classList.toggle('is-open', isExpanded);
-    subMenuToggle.setAttribute('aria-expanded', isExpanded.toString());
-  });
+    subMenuToggle?.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+  };
+
+  subMenuToggle?.addEventListener('click', toggleProjectsMenu);
+  projectsLinkMobile?.addEventListener('click', toggleProjectsMenu);
 
   mobileNav?.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
+      if (link === projectsLinkMobile) return;
       hamburger?.classList.remove('open');
       mobileNav.classList.remove('open');
       document.body.style.overflow = '';
       hamburger?.setAttribute('aria-expanded', 'false');
+      subMenuToggle?.classList.remove('is-active');
+      subMenu?.classList.remove('is-open');
+      subMenuToggle?.setAttribute('aria-expanded', 'false');
     });
   });
 
@@ -68,6 +79,10 @@
       hamburger?.classList.remove('open');
       mobileNav.classList.remove('open');
       document.body.style.overflow = '';
+      hamburger?.setAttribute('aria-expanded', 'false');
+      subMenuToggle?.classList.remove('is-active');
+      subMenu?.classList.remove('is-open');
+      subMenuToggle?.setAttribute('aria-expanded', 'false');
     }
   });
 
@@ -89,6 +104,7 @@
   if (transitionEl) {
     document.querySelectorAll('a[href$=".html"]').forEach(link => {
       link.addEventListener('click', e => {
+        if (link.closest('.mobile-nav-item-wrap')) return;
         const href = link.getAttribute('href');
         if (!href || link.target === '_blank' || href.startsWith('http') || href.startsWith('#')) return;
         e.preventDefault();
