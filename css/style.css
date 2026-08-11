@@ -127,14 +127,17 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   font-size: 16px;
-  /* Hide scrollbar visually but keep scroll functionality */
+  /* Hide scrollbar — keep scroll functional */
+  overflow-y: scroll;
   scrollbar-width: none;        /* Firefox */
   -ms-overflow-style: none;     /* IE / Edge */
 }
 
 /* Hide WebKit scrollbar (Chrome, Safari) */
-html::-webkit-scrollbar {
-  display: none;
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0 !important;
+  display: none !important;
 }
 
 body {
@@ -146,6 +149,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE / Edge */
 }
 
 body.no-scroll { overflow: hidden; }
