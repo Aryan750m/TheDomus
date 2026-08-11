@@ -32,12 +32,25 @@
      ===================================================== */
   const hamburger = document.querySelector('.hamburger');
   const mobileNav = document.querySelector('.mobile-nav');
+  const subMenuToggle = document.querySelector('.mobile-nav-toggle');
+  const subMenu = document.querySelector('.mobile-sub-links');
 
   hamburger?.addEventListener('click', () => {
     const isOpen = hamburger.classList.toggle('open');
     mobileNav?.classList.toggle('open', isOpen);
     document.body.style.overflow = isOpen ? 'hidden' : '';
     hamburger.setAttribute('aria-expanded', isOpen.toString());
+    if (!isOpen) {
+      subMenuToggle?.classList.remove('is-active');
+      subMenu?.classList.remove('is-open');
+      subMenuToggle?.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  subMenuToggle?.addEventListener('click', () => {
+    const isExpanded = subMenuToggle.classList.toggle('is-active');
+    subMenu?.classList.toggle('is-open', isExpanded);
+    subMenuToggle.setAttribute('aria-expanded', isExpanded.toString());
   });
 
   mobileNav?.querySelectorAll('a').forEach(link => {

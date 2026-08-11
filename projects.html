@@ -1,48 +1,388 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Projects — The Domus Interior Architecture</title>
-<meta name="description" content="A portfolio of residential and hospitality interiors from The Domus studio — Mumbai, Goa and Alibaug." />
-<link rel="canonical" href="https://www.thedomus.studio/projects.html" />
-<meta property="og:title" content="Projects — The Domus" />
-<meta property="og:description" content="Private residences and hospitality interiors designed around material, light and proportion." />
-<meta property="og:image" content="assets/images/Cam 2_R1.webp" />
-<link rel="icon" href="assets/images/favicon.png" type="image/png" />
-<link rel="stylesheet" href="css/style.css" />
-<link rel="stylesheet" href="css/animations.css" />
-<link rel="stylesheet" href="css/responsive.css" />
-<style>
-  /* Projects page masonry */
-  .projects-masonry {
-    columns: 2;
-    column-gap: 1.2rem;
-    margin-top: 0;
-  }
-  .projects-masonry .masonry-item { margin-bottom: 1.2rem; }
-  .proj-item-inner {
-    position: relative;
-    overflow: hidden;
-    display: block;
-  }
-  .proj-item-inner img { display: block; width: 100%; object-fit: cover; transition: transform 0.8s var(--ease-out); }
-  .proj-item-inner:hover img { transform: scale(1.04); }
-  .proj-caption {
-    padding: 1.2rem 1rem 1rem;
-    background: var(--white);
-    border-top: 1px solid var(--border);
-  }
-  .proj-caption .cat {
-    font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem;
-  }
-  .proj-caption h3 { font-size: 1.1rem; font-weight: 400; color: var(--charcoal); }
-  .proj-caption .meta { font-size: 0.82rem; color: var(--charcoal-dim); margin-top: 0.25rem; }
-</style>
-</head>
-<body>
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/images/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/mobile.css">
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/project-detail.css" />
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Arya:wght@400;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Pragati+Narrow:wght@400;700&family=Rubik+Microbe&display=swap"
+        rel="stylesheet">
+    <title>Projects | The Domus</title>
+    <meta name="description"
+        content="The Domus is a brand of Aramus Ventures LLP, developing premium residential & commercial spaces in Seawoods, Navi Mumbai." />
+
+    <!-- ============================================================
+       ART HERO — Premium editorial aesthetic
+    ============================================================ -->
+    <style>
+        .art-hero {
+            position: relative;
+            width: 100%;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 60px;
+            background: linear-gradient(180deg, #faf9f7 0%, #ffffff 100%);
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        /* Subtle background texture */
+        .art-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 80% 20%, rgba(199, 166, 106, 0.04), transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(199, 166, 106, 0.02), transparent 40%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .art-hero__inner {
+            width: var(--container);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 0.5fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            padding: 0 clamp(20px, 3vw, 48px);
+        }
+
+        /* ---- LEFT CONTENT ---- */
+        .art-hero__content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 18px;
+        }
+
+        .art-hero__badge {
+            font-size: 0.7rem;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--gold-deep, #9c7d49);
+            background: rgba(199, 166, 106, 0.10);
+            padding: 6px 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(199, 166, 106, 0.16);
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .art-hero__title {
+            display: flex;
+            flex-direction: column;
+            line-height: 0.9;
+            font-family: 'Arya', Georgia, serif;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .art-hero__title--top {
+            font-size: clamp(3.2rem, 6vw, 5.6rem);
+            color: var(--text, #1e1e1e);
+            letter-spacing: -0.02em;
+        }
+
+        .art-hero__title--bottom {
+            font-size: clamp(3.8rem, 7.5vw, 7.2rem);
+            color: var(--gold-deep, #9c7d49);
+            letter-spacing: -0.02em;
+            margin-top: -0.04em;
+        }
+
+        .art-hero__text {
+            font-size: clamp(1rem, 1.1vw, 1.12rem);
+            line-height: 1.85;
+            max-width: 520px;
+            color: var(--text-muted, rgba(30, 30, 30, 0.72));
+            margin: 4px 0 8px;
+            font-weight: 400;
+        }
+
+        .art-hero__actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 4px;
+        }
+
+        .art-hero__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0 32px 0 28px;
+            min-height: 50px;
+            border-radius: 999px;
+            background: var(--text, #1e1e1e);
+            color: #ffffff;
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .art-hero__btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(30, 30, 30, 0.18);
+            background: var(--gold-deep, #9c7d49);
+        }
+
+        .art-hero__btn svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .art-hero__btn:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* ---- RIGHT VISUAL ---- */
+        .art-hero__visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+        }
+
+        .art-hero__circle {
+            width: min(320px, 28vw);
+            height: min(320px, 28vw);
+            border-radius: 50%;
+            border: 1px solid rgba(199, 166, 106, 0.18);
+            position: relative;
+            background: radial-gradient(circle at 40% 40%, rgba(199, 166, 106, 0.06), transparent 70%);
+            animation: artPulse 6s ease-in-out infinite;
+        }
+
+        .art-hero__circle::after {
+            content: '';
+            position: absolute;
+            inset: 18%;
+            border-radius: 50%;
+            border: 1px solid rgba(199, 166, 106, 0.08);
+            background: rgba(199, 166, 106, 0.02);
+        }
+
+        .art-hero__line {
+            position: absolute;
+            width: 1px;
+            height: 60%;
+            background: linear-gradient(to bottom, transparent, rgba(199, 166, 106, 0.15), transparent);
+            left: 50%;
+            top: 20%;
+            transform: translateX(-50%);
+        }
+
+        .art-hero__dot-grid {
+            position: absolute;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            bottom: 10%;
+            right: 5%;
+            opacity: 0.6;
+        }
+
+        .art-hero__dot-grid span {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(199, 166, 106, 0.25);
+            transition: background 0.4s ease;
+        }
+
+        .art-hero__dot-grid span:nth-child(odd) {
+            background: rgba(199, 166, 106, 0.12);
+        }
+
+        .art-hero__dot-grid span:nth-child(3n) {
+            background: rgba(199, 166, 106, 0.18);
+        }
+
+        /* ---- KEYFRAMES ---- */
+        @keyframes artPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.03);
+                opacity: 0.85;
+            }
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 992px) {
+            .art-hero__inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .art-hero__content {
+                align-items: center;
+            }
+
+            .art-hero__text {
+                max-width: 100%;
+            }
+
+            .art-hero__visual {
+                min-height: 200px;
+            }
+
+            .art-hero__circle {
+                width: 200px;
+                height: 200px;
+            }
+
+            .art-hero__dot-grid {
+                bottom: 0;
+                right: 10%;
+            }
+
+            .art-hero__title--top {
+                font-size: clamp(2.6rem, 7vw, 3.6rem);
+            }
+
+            .art-hero__title--bottom {
+                font-size: clamp(3rem, 8.5vw, 4.8rem);
+            }
+
+            .art-hero__badge {
+                font-size: 0.65rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .art-hero {
+                min-height: 60vh;
+                padding: 100px 0 40px;
+            }
+
+            .art-hero__circle {
+                width: 140px;
+                height: 140px;
+            }
+
+            .art-hero__dot-grid {
+                gap: 8px;
+                bottom: -10%;
+                right: 5%;
+            }
+
+            .art-hero__dot-grid span {
+                width: 4px;
+                height: 4px;
+            }
+
+            .art-hero__btn {
+                padding: 0 24px 0 20px;
+                min-height: 44px;
+                font-size: 0.72rem;
+            }
+
+            .art-hero__text {
+                font-size: 0.95rem;
+                line-height: 1.7;
+            }
+
+            .art-hero__title--top {
+                font-size: 2rem;
+            }
+
+            .art-hero__title--bottom {
+                font-size: 2.6rem;
+            }
+        }
+
+        /* ---- REVEAL ANIMATION (GSAP or Intersection Observer) ---- */
+        .art-hero__content>*,
+        .art-hero__visual>* {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .art-hero.visible .art-hero__content>*,
+        .art-hero.visible .art-hero__visual>* {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .art-hero.visible .art-hero__badge {
+            transition-delay: 0.05s;
+        }
+
+        .art-hero.visible .art-hero__title--top {
+            transition-delay: 0.12s;
+        }
+
+        .art-hero.visible .art-hero__title--bottom {
+            transition-delay: 0.2s;
+        }
+
+        .art-hero.visible .art-hero__text {
+            transition-delay: 0.3s;
+        }
+
+        .art-hero.visible .art-hero__actions {
+            transition-delay: 0.4s;
+        }
+
+        .art-hero.visible .art-hero__circle {
+            transition-delay: 0.15s;
+        }
+
+        .art-hero.visible .art-hero__line {
+            transition-delay: 0.25s;
+        }
+
+        .art-hero.visible .art-hero__dot-grid {
+            transition-delay: 0.35s;
+        }
+
+        /* Spacing adjustment for project carousel when hero is present */
+        .art-hero~.desktop-proj-carousel {
+            padding-top: 80px;
+        }
+
+        .art-hero~.mobile-carousel {
+            padding-top: 40px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Fixed Header -->
+    
 <div class="loader" aria-hidden="true">
   <div class="loader-brand"><span>The&nbsp;Domus</span></div>
   <div class="loader-line"></div>
@@ -60,27 +400,29 @@
         Projects
         <svg class="dropdown-chevron" viewBox="0 0 10 6" width="10" height="6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <div class="mega-dropdown" id="projects-mega" role="region" aria-label="Projects menu">
+            <div class="mega-dropdown" id="projects-mega" role="region" aria-label="Projects menu">
         <div class="mega-inner">
+          <!-- LEFT: project list -->
           <div class="mega-links">
-            <a href="projects.html?type=residential" class="mega-link" data-img="assets/images/Cam 1_R1.webp">
-              <span class="mega-link-num">01</span>Residential Interiors
+            <span class="mega-links-label">Our Projects</span>
+            <a href="domus-prive.html" class="mega-link" data-key="prive">
+              <span class="mega-link-num">01</span>The Domus Prive
             </a>
-            <a href="projects.html?type=hospitality" class="mega-link" data-img="assets/images/Cam 6_R1.webp">
-              <span class="mega-link-num">02</span>Hospitality Design
+            <a href="domus-west.html" class="mega-link" data-key="west">
+              <span class="mega-link-num">02</span>The Domus 26 West
             </a>
-            <a href="projects.html?type=villas" class="mega-link" data-img="assets/images/Cam 4_R1.webp">
-              <span class="mega-link-num">03</span>Private Villas
-            </a>
-            <a href="projects.html?type=lofts" class="mega-link" data-img="assets/images/Cam 3_R1.webp">
-              <span class="mega-link-num">04</span>Urban Lofts
+            <a href="domus-east.html" class="mega-link" data-key="east">
+              <span class="mega-link-num">03</span>The Domus 26 East
             </a>
             <a href="projects.html" class="mega-link mega-link-all">
               View All Projects →
             </a>
           </div>
+          <!-- RIGHT: stacked crossfade images -->
           <div class="mega-image-col">
-            <img src="assets/images/Cam 1_R1.webp" alt="Featured project" class="mega-img" id="mega-featured-img" />
+            <img src="assets/images/prive-main.webp" alt="The Domus Prive" class="mega-img is-active" data-key="prive" />
+            <img src="assets/images/domus-west.webp" alt="The Domus 26 West" class="mega-img"           data-key="west" />
+            <img src="assets/images/domus-east.webp" alt="The Domus 26 East" class="mega-img"           data-key="east" />
           </div>
         </div>
       </div>
@@ -107,156 +449,202 @@
   </div>
 </header>
 <nav class="mobile-nav" aria-label="Mobile navigation">
-  <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html" class="active">Projects</a><a href="services.html">Life at The Domus</a><a href="contact.html">Contact</a>
+  <a href="index.html">Home</a><a href="about.html">About</a>
+  <div class="mobile-nav-item-wrap">
+    <a href="projects.html" class="active">Projects</a>
+    <button class="mobile-nav-toggle" aria-expanded="false" aria-label="Toggle projects menu">
+      <svg viewBox="0 0 10 6" width="12" height="8" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+  <div class="mobile-sub-links">
+    <a href="domus-prive.html" class="mobile-sub-link">The Domus Prive</a>
+    <a href="domus-west.html" class="mobile-sub-link">The Domus 26 West</a>
+    <a href="domus-east.html" class="mobile-sub-link">The Domus 26 East</a>
+  </div><a href="services.html">Life at The Domus</a><a href="contact.html">Contact</a>
   <div class="mobile-nav-footer">Est. 2014 — Mumbai</div>
 </nav>
 
-<main id="main">
 
-  <!-- Page Hero -->
-  <div class="page-hero" aria-label="Projects page header">
-    <div class="page-hero-image">
-      <img src="assets/images/Cam 4_R1.webp" alt="" aria-hidden="true" loading="eager" />
-    </div>
-    <div class="page-hero-content container">
-      <span class="eyebrow">Portfolio</span>
-      <h1 style="font-size:var(--step-h1);margin-top:0.8rem;max-width:24rem;" data-split="words">
-        Work we are proud of.
-      </h1>
-      <p style="margin-top:1rem;color:var(--charcoal-dim);max-width:26rem;">
-        Residential and hospitality commissions across Mumbai, Goa and Alibaug.
-      </p>
-    </div>
-  </div>
+    <!-- ============================================================
+       ART OF DETAIL — HERO SECTION FOR PROJECTS PAGE
+    ============================================================ -->
+    <section class="art-hero" id="artHero">
+        <div class="art-hero__inner">
 
-  <!-- Projects -->
-  <section class="section-pad bg-white" id="projects">
-    <div class="container">
+            <!-- LEFT CONTENT -->
+            <div class="art-hero__content">
+                <div class="art-hero__badge">
+                    <span>Our Philosophy</span>
+                </div>
 
-      <!-- Filters -->
-      <div class="gallery-filters" role="group" aria-label="Filter projects">
-        <button class="active" data-filter="all" aria-pressed="true">All</button>
-        <button data-filter="residential" aria-pressed="false">Residential</button>
-        <button data-filter="hospitality" aria-pressed="false">Hospitality</button>
-        <button data-filter="material-study" aria-pressed="false">Material Studies</button>
-      </div>
+                <h1 class="art-hero__title">
+                    <span class="art-hero__title--top">The Art</span>
+                    <span class="art-hero__title--bottom">of Detail</span>
+                </h1>
 
-      <div class="projects-masonry" role="list" data-reveal>
+                <p class="art-hero__text">
+                    At The Domus, we understand that true excellence lies in the meticulous
+                    attention to detail and the artistry of craftsmanship. Guided by a
+                    commitment to perfection, we craft not just homes but immersive
+                    experiences where every nuance is thoughtfully considered.
+                </p>
 
-        <div class="masonry-item" data-category="residential" role="listitem" data-lightbox>
-          <div class="proj-item-inner">
-            <img src="assets/images/Cam 1_R1.webp" alt="Residence Alta — Coastal Villa living area" loading="lazy" style="aspect-ratio:4/3;"/>
-          </div>
-          <div class="proj-caption">
-            <p class="cat">Residential · Alibaug</p>
-            <h3>Residence Alta</h3>
-            <p class="meta">4,200 sq.ft · Coastal Villa · 2023</p>
-          </div>
+                <div class="art-hero__actions">
+                    <a href="#projects" class="art-hero__btn">
+                        Discover More
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                            <polyline points="12 5 19 12 12 19" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- RIGHT DECORATIVE ELEMENT -->
+            <div class="art-hero__visual">
+                <div class="art-hero__circle"></div>
+                <div class="art-hero__line"></div>
+                <div class="art-hero__dot-grid">
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="projects-intro section-shell" id="projects">
+        <div class="container-narrow projects-intro__inner">
+            <div class="section-label">Projects</div>
+            <h2 class="section-title">A curated collection of landmark living.</h2>
+            <p class="section-copy">
+                The Domus creates residences and commercial spaces that are shaped from the inside out.
+            </p>
+        </div>
+        <div class="projects-showcase">
+            <a class="project-showcase-card" href="domus-prive.html">
+                <img src="assets/images/domus-prive.webp" alt="The Domus Prive">
+                <div class="project-showcase-card__content">
+                    <span>Seawoods</span>
+                    <strong>The Domus Prive</strong>
+                    <div class="project-showcase-card__explore">
+                        Explore Project <span>&rarr;</span>
+                    </div>
+                </div>
+            </a>
+            <a class="project-showcase-card" href="domus-west.html">
+                <img src="assets/images/domus-west.webp" alt="The Domus 26 West">
+                <div class="project-showcase-card__content">
+                    <span>Ulwe, Wahal</span>
+                    <strong>The Domus 26 West</strong>
+                    <div class="project-showcase-card__explore">
+                        Explore Project <span>&rarr;</span>
+                    </div>
+                </div>
+            </a>
+            <a class="project-showcase-card" href="domus-east.html">
+                <img src="assets/images/domus-east.webp" alt="The Domus 26 East">
+                <div class="project-showcase-card__content">
+                    <span>Ulwe, Wahal</span>
+                    <strong>The Domus 26 East</strong>
+                    <div class="project-showcase-card__explore">
+                        Explore Project <span>&rarr;</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="project-carousel desktop-proj-carousel">
+        <div class="project-carousel__container">
+
+            <button class="project-carousel__btn project-carousel__btn--prev">&#10094;</button>
+
+            <div class="project-carousel__viewport">
+                <div class="project-carousel__header">
+                    <h2 class="project-carousel__heading">Projects</h2>
+                    <div class="project-carousel__underline"></div>
+
+                    <h3 class="project-carousel__title" id="projectTitle">
+                        The Domus 26 West
+                    </h3>
+
+                    <a href="/" class="project-carousel__cta" id="projectLink">
+                        Know more
+                    </a>
+                </div>
+
+                <div class="project-carousel__track">
+                    <div class="project-carousel__slide" data-title="The Domus Prive" data-link="domus-prive.html"><img
+                            src="assets/images/domus-prive.webp" alt="">
+                    </div>
+                    <div class="project-carousel__slide" data-title="The Domus 26 West" data-link="domus-west.html"><img
+                            src="assets/images/domus-east.webp" alt=""></div>
+                    <div class="project-carousel__slide" data-title="The Domus 26 East" data-link="domus-east.html"><img
+                            src="assets/images/domus-west.webp" alt=""></div>
+                </div>
+            </div>
         </div>
 
-        <div class="masonry-item" data-category="hospitality" role="listitem" data-lightbox>
-          <div class="proj-item-inner">
-            <img src="assets/images/Cam 6_R1.webp" alt="Sable Bay Inn — Boutique Hotel Goa" loading="lazy" style="aspect-ratio:3/4;"/>
-          </div>
-          <div class="proj-caption">
-            <p class="cat">Hospitality · Goa</p>
-            <h3>Sable Bay Inn</h3>
-            <p class="meta">9 Rooms · Coastal Hotel · 2022</p>
-          </div>
+        <button class="project-carousel__btn project-carousel__btn--next">&#10095;</button>
+
         </div>
+    </section>
 
-        <div class="masonry-item" data-category="residential" role="listitem" data-lightbox>
-          <div class="proj-item-inner">
-            <img src="assets/images/Cam 3_R1.webp" alt="The Byculla Loft — Urban Residence Mumbai" loading="lazy" style="aspect-ratio:4/3;"/>
-          </div>
-          <div class="proj-caption">
-            <p class="cat">Residential · Mumbai</p>
-            <h3>The Byculla Loft</h3>
-            <p class="meta">1,850 sq.ft · Urban Loft · 2021</p>
-          </div>
+    <section class="project-carousel mobile-carousel">
+        <div class="mobile-carousel__wrapper">
+
+            <button class="mobile-carousel__arrow mobile-carousel__arrow--prev">&#10094;</button>
+
+            <div class="mobile-carousel__viewport">
+
+                <div class="mobile-carousel__header">
+                    <h2 class="mobile-carousel__heading">Projects</h2>
+                    <div class="mobile-carousel__divider"></div>
+
+                    <h3 class="mobile-carousel__title" id="mobileProjectTitle">
+                        The Domus 26 West
+                    </h3>
+
+                    <a href="/" class="mobile-carousel__cta" id="mobileProjectLink">
+                        Know more
+                    </a>
+                </div>
+
+                <div class="mobile-carousel__track">
+                    <div class="mobile-carousel__item" data-title="Domus Prive" data-link="domus-prive.html">
+                        <img src="assets/images/domus-prive.webp" alt="">
+                    </div>
+
+                    <div class="mobile-carousel__item" data-title="The Domus 26 West" data-link="domus-west.html">
+                        <img src="assets/images/domus-west.webp" alt="">
+                    </div>
+
+                    <div class="mobile-carousel__item" data-title="The Domus 26 East" data-link="domus-east.html">
+                        <img src="assets/images/domus-east.webp" alt="">
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="mobile-carousel__arrow mobile-carousel__arrow--next">&#10095;</button>
+
+    </section>
+
+    <!-- Premium CTA Section -->
+    <section class="premium-cta-section">
+        <div class="premium-cta-inner">
+            <h2 class="premium-cta-title">Let's Build Your Dream Space</h2>
+            <a href="contact.html" class="premium-cta-btn">Contact Us</a>
         </div>
+    </section>
 
-        <div class="masonry-item" data-category="residential" role="listitem" data-lightbox>
-          <div class="proj-item-inner">
-            <img src="assets/images/Cam 4_R1.webp" alt="Villa Meridian — Private Estate Alibaug" loading="lazy" style="aspect-ratio:4/5;"/>
-          </div>
-          <div class="proj-caption">
-            <p class="cat">Residential · Alibaug</p>
-            <h3>Villa Meridian</h3>
-            <p class="meta">6,400 sq.ft · Private Estate · 2022</p>
-          </div>
-        </div>
 
-        <div class="masonry-item" data-category="hospitality" role="listitem" data-lightbox>
-          <div class="proj-item-inner">
-            <img src="assets/images/Cam 7_R1.webp" alt="Veranda Club — Members Club Mumbai" loading="lazy" style="aspect-ratio:16/9;"/>
-          </div>
-          <div class="proj-caption">
-            <p class="cat">Hospitality · Mumbai</p>
-            <h3>Veranda Club</h3>
-            <p class="meta">Members Club · 3,200 sq.ft · 2023</p>
-          </div>
-        </div>
 
-        <div class="masonry-item" data-category="material-study" role="listitem" data-lightbox>
-          <div class="proj-item-inner">
-            <img src="assets/images/View 1.webp" alt="Brass and Plaster Study — Material palette" loading="lazy" style="aspect-ratio:1/1;"/>
-          </div>
-          <div class="proj-caption">
-            <p class="cat">Material Study</p>
-            <h3>Brass &amp; Plaster Study</h3>
-            <p class="meta">Material exploration · 2023</p>
-          </div>
-        </div>
 
-        <div class="masonry-item" data-category="residential" role="listitem" data-lightbox>
-          <div class="proj-item-inner">
-            <img src="assets/images/Cam 2_R1.webp" alt="The Sea House — Waterfront Residence Goa" loading="lazy" style="aspect-ratio:4/3;"/>
-          </div>
-          <div class="proj-caption">
-            <p class="cat">Residential · Goa</p>
-            <h3>The Sea House</h3>
-            <p class="meta">2,800 sq.ft · Waterfront Residence · 2024</p>
-          </div>
-        </div>
-
-        <div class="masonry-item" data-category="material-study" role="listitem" data-lightbox>
-          <div class="proj-item-inner">
-            <img src="assets/images/View 2.webp" alt="Kota Stone and Oak — Material exploration" loading="lazy" style="aspect-ratio:5/4;"/>
-          </div>
-          <div class="proj-caption">
-            <p class="cat">Material Study</p>
-            <h3>Kota Stone &amp; Oak</h3>
-            <p class="meta">Flooring material study · 2022</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Lightbox -->
-  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
-    <button class="lightbox-close" aria-label="Close">✕</button>
-    <button class="lightbox-prev" aria-label="Previous">←</button>
-    <div class="lightbox-inner"></div>
-    <button class="lightbox-next" aria-label="Next">→</button>
-    <div class="lightbox-counter" aria-live="polite"></div>
-  </div>
-
-  <!-- CTA -->
-  <section class="section-pad bg-stone" style="text-align:center;" data-reveal>
-    <span class="eyebrow">Commission a project</span>
-    <h2 style="margin-top:1rem;max-width:22rem;margin-inline:auto;">Have a space that needs considered design?</h2>
-    <p style="margin-top:1rem;color:var(--charcoal-dim);max-width:30rem;margin-inline:auto;line-height:1.8;">We take on a limited number of new projects each year. Contact us early — commissions are allocated on a waiting-list basis.</p>
-    <div style="margin-top:2.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-      <a href="contact.html" class="btn btn-primary magnetic ripple-el">Begin a Conversation</a>
-      <a href="services.html" class="btn btn-ghost magnetic">Our Services</a>
-    </div>
-  </section>
-
-</main>
-
+    
 <footer class="site-footer" role="contentinfo">
   <div class="container">
     <div class="footer-top">
@@ -272,6 +660,183 @@
   </div>
 </footer>
 <button class="back-to-top" aria-label="Back to top">↑</button>
-<script src="js/noise.js"></script><script src="js/cursor.js"></script><script src="js/text-split.js"></script><script src="js/scroll.js"></script><script src="js/animations.js"></script><script src="js/main.js"></script>
+
+
+    
+<script src="js/noise.js"></script>
+<script src="js/cursor.js"></script>
+<script src="js/text-split.js"></script>
+<script src="js/scroll.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/project-detail.js"></script>
+
+    <script>
+        function initProjectCarousel() {
+
+            const track = document.querySelector(".project-carousel__track");
+            const slides = document.querySelectorAll(".project-carousel__slide");
+            const prevBtn = document.querySelector(".project-carousel__btn--prev");
+            const nextBtn = document.querySelector(".project-carousel__btn--next");
+
+            const titleEl = document.getElementById("projectTitle");
+            const linkEl = document.getElementById("projectLink");
+
+            if (!track || !slides.length || !prevBtn || !nextBtn) return;
+
+            let activeIndex = 1; // start from middle slide
+
+            // const gap = 24;
+            function getGap() {
+                return window.innerWidth > 768 ? 24 : 0;
+            }
+            function slideWidth() {
+                return slides[0].offsetWidth + getGap();
+            }
+
+
+            // function slideWidth() {
+            //     return slides[0].offsetWidth + gap;
+            // }
+
+            function centerSlide(index) {
+
+                const viewportWidth = document.querySelector(".project-carousel__viewport").offsetWidth;
+                const slideW = slideWidth();
+
+                // calculate center position of selected slide
+                const slideCenter = (slideW * index) + (slideW / 2);
+
+                // calculate how much to shift so it sits in center of viewport
+                const viewportCenter = viewportWidth / 2;
+
+                const translateAmount = slideCenter - viewportCenter;
+
+                track.style.transform = `translateX(-${translateAmount}px)`;
+            }
+
+            function update() {
+
+                // CENTER ACTIVE SLIDE
+                centerSlide(activeIndex);
+
+                // ACTIVE CLASS (desktop only)
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle("is-active", i === activeIndex && window.innerWidth > 768);
+                });
+
+                // UPDATE TITLE + CTA
+                const activeSlide = slides[activeIndex];
+                if (activeSlide) {
+                    const newTitle = activeSlide.dataset.title;
+                    const newLink = activeSlide.dataset.link;
+
+                    if (newTitle && titleEl) titleEl.textContent = newTitle;
+                    if (newLink && linkEl) linkEl.setAttribute("href", newLink);
+                }
+
+                // BUTTON STATES
+                prevBtn.disabled = activeIndex === 0;
+                nextBtn.disabled = activeIndex === slides.length - 1;
+            }
+
+            nextBtn.addEventListener("click", () => {
+                if (activeIndex < slides.length - 1) {
+                    activeIndex++;
+                    update();
+                }
+            });
+
+            prevBtn.addEventListener("click", () => {
+                if (activeIndex > 0) {
+                    activeIndex--;
+                    update();
+                }
+            });
+
+            window.addEventListener("resize", update);
+
+            update();
+        }
+
+
+        function initMobileCarousel() {
+
+            if (window.innerWidth > 768) return;
+
+            const trackMobile = document.querySelector(".mobile-carousel__track");
+            const slidesMobile = document.querySelectorAll(".mobile-carousel__item");
+            const prevMobile = document.querySelector(".mobile-carousel__arrow--prev");
+            const nextMobile = document.querySelector(".mobile-carousel__arrow--next");
+
+            const titleMobile = document.getElementById("mobileProjectTitle");
+            const linkMobile = document.getElementById("mobileProjectLink");
+
+            if (!trackMobile || !slidesMobile.length) return;
+
+            let mobileIndex = 0;
+
+            function updateMobileCarousel() {
+
+                trackMobile.style.transform =
+                    `translateX(-${mobileIndex * 100}%)`;
+
+                const activeSlide = slidesMobile[mobileIndex];
+
+                if (activeSlide) {
+                    const newTitle = activeSlide.dataset.title;
+                    const newLink = activeSlide.dataset.link;
+
+                    if (titleMobile) titleMobile.textContent = newTitle;
+                    if (linkMobile) linkMobile.setAttribute("href", newLink);
+                }
+
+                prevMobile.disabled = mobileIndex === 0;
+                nextMobile.disabled = mobileIndex === slidesMobile.length - 1;
+            }
+
+            nextMobile.addEventListener("click", () => {
+                if (mobileIndex < slidesMobile.length - 1) {
+                    mobileIndex++;
+                    updateMobileCarousel();
+                }
+            });
+
+            prevMobile.addEventListener("click", () => {
+                if (mobileIndex > 0) {
+                    mobileIndex--;
+                    updateMobileCarousel();
+                }
+            });
+
+            updateMobileCarousel();
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const artHero = document.getElementById('artHero');
+            if (artHero) {
+                // Use Intersection Observer for the reveal
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            artHero.classList.add('visible');
+                            observer.unobserve(artHero);
+                        }
+                    });
+                }, {
+                    threshold: 0.15,
+                    rootMargin: '0px 0px -40px 0px'
+                });
+
+                observer.observe(artHero);
+            }
+
+            initProjectCarousel();
+            initMobileCarousel();
+        });
+    </script>
 </body>
+
 </html>

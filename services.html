@@ -3,16 +3,18 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Services — The Domus Interior Architecture</title>
-<meta name="description" content="The Domus offers residential interior design, hospitality design, and material consultancy services — each grounded in site, light, and material honesty." />
-<link rel="canonical" href="https://www.thedomus.studio/services.html" />
-<meta property="og:title"       content="Services — The Domus" />
-<meta property="og:description" content="Residential interiors, hospitality design, and material consultancy." />
-<meta property="og:image"       content="assets/images/interior.webp" />
+<title>The Studio — The Domus Interior Architecture</title>
+<meta name="description" content="The Domus studio was founded in 2014 on a belief that a room must be legible before it is decorated. Discover our story, values, and team." />
+<link rel="canonical" href="https://www.thedomus.studio/about.html" />
+<meta property="og:title" content="The Studio — The Domus" />
+<meta property="og:description" content="Our story, values, and the people behind The Domus interior architecture studio." />
+<meta property="og:image" content="assets/images/about.webp" />
 <link rel="icon" href="assets/images/favicon.png" type="image/png" />
 <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/mobile.css">
 <link rel="stylesheet" href="css/animations.css" />
 <link rel="stylesheet" href="css/responsive.css" />
+<link rel="stylesheet" href="css/project-detail.css" />
 </head>
 <body>
 
@@ -33,27 +35,29 @@
         Projects
         <svg class="dropdown-chevron" viewBox="0 0 10 6" width="10" height="6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <div class="mega-dropdown" id="projects-mega" role="region" aria-label="Projects menu">
+            <div class="mega-dropdown" id="projects-mega" role="region" aria-label="Projects menu">
         <div class="mega-inner">
+          <!-- LEFT: project list -->
           <div class="mega-links">
-            <a href="projects.html?type=residential" class="mega-link" data-img="assets/images/Cam 1_R1.webp">
-              <span class="mega-link-num">01</span>Residential Interiors
+            <span class="mega-links-label">Our Projects</span>
+            <a href="domus-prive.html" class="mega-link" data-key="prive">
+              <span class="mega-link-num">01</span>The Domus Prive
             </a>
-            <a href="projects.html?type=hospitality" class="mega-link" data-img="assets/images/Cam 6_R1.webp">
-              <span class="mega-link-num">02</span>Hospitality Design
+            <a href="domus-west.html" class="mega-link" data-key="west">
+              <span class="mega-link-num">02</span>The Domus 26 West
             </a>
-            <a href="projects.html?type=villas" class="mega-link" data-img="assets/images/Cam 4_R1.webp">
-              <span class="mega-link-num">03</span>Private Villas
-            </a>
-            <a href="projects.html?type=lofts" class="mega-link" data-img="assets/images/Cam 3_R1.webp">
-              <span class="mega-link-num">04</span>Urban Lofts
+            <a href="domus-east.html" class="mega-link" data-key="east">
+              <span class="mega-link-num">03</span>The Domus 26 East
             </a>
             <a href="projects.html" class="mega-link mega-link-all">
               View All Projects →
             </a>
           </div>
+          <!-- RIGHT: stacked crossfade images -->
           <div class="mega-image-col">
-            <img src="assets/images/Cam 1_R1.webp" alt="Featured project" class="mega-img" id="mega-featured-img" />
+            <img src="assets/images/prive-main.webp" alt="The Domus Prive" class="mega-img is-active" data-key="prive" />
+            <img src="assets/images/domus-west.webp" alt="The Domus 26 West" class="mega-img"           data-key="west" />
+            <img src="assets/images/domus-east.webp" alt="The Domus 26 East" class="mega-img"           data-key="east" />
           </div>
         </div>
       </div>
@@ -81,181 +85,295 @@
 </header>
 
 <nav class="mobile-nav" aria-label="Mobile navigation">
-  <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="services.html" class="active">Life at The Domus</a><a href="contact.html">Contact</a>
+  <a href="index.html">Home</a><a href="about.html">About</a>
+  <div class="mobile-nav-item-wrap">
+    <a href="projects.html">Projects</a>
+    <button class="mobile-nav-toggle" aria-expanded="false" aria-label="Toggle projects menu">
+      <svg viewBox="0 0 10 6" width="12" height="8" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+  <div class="mobile-sub-links">
+    <a href="domus-prive.html" class="mobile-sub-link">The Domus Prive</a>
+    <a href="domus-west.html" class="mobile-sub-link">The Domus 26 West</a>
+    <a href="domus-east.html" class="mobile-sub-link">The Domus 26 East</a>
+  </div><a href="services.html" class="active">Life at The Domus</a><a href="contact.html">Contact</a>
   <div class="mobile-nav-footer">Est. 2014 — Mumbai</div>
 </nav>
 
 <main id="main">
 
-  <!-- Page Hero -->
-  <section class="page-hero" aria-label="Services page header">
-    <div class="page-hero-image">
-      <img src="assets/images/interior.webp" alt="" aria-hidden="true" loading="eager" />
-    </div>
-    <div class="page-hero-content container">
-      <span class="eyebrow">What We Do</span>
-      <h1 style="font-size:var(--step-h1);margin-top:0.8rem;max-width:24rem;" data-split="words">Three disciplines. One commitment.</h1>
-    </div>
-  </section>
+  <!-- Custom 3-Column Services Hero -->
+  <section class="services-hero" aria-label="Services page header">
+    <div class="container services-hero-grid">
+      
+      <!-- LEFT COLUMN -->
+      <div class="services-hero-left" data-reveal>
+        <span class="eyebrow gold-eyebrow">WHAT WE DO</span>
+        <h1 class="services-hero-title">
+          Three disciplines.<br>One commitment.
+        </h1>
+        <p class="services-hero-desc">
+          We combine architectural design, technical construction, and precision delivery under a single cohesive studio workflow to craft timeless residential projects.
+        </p>
+        <a href="#residential" class="services-hero-link">
+          EXPLORE OUR APPROACH <span class="arrow">→</span>
+        </a>
+      </div>
 
-  <!-- Service 01 — Residential -->
-  <section class="section-pad bg-white" id="residential" aria-labelledby="residential-heading">
-    <div class="container split">
-      <div class="split-media">
-        <div class="media-block" data-reveal="scale">
-          <img src="assets/images/Cam 1_R1.webp" alt="Residential interior — living space with natural light" loading="lazy" />
-          <span class="media-caption">Residence Alta — Alibaug</span>
+      <!-- CENTER COLUMN (ARTWORK) -->
+      <div class="services-hero-center" data-reveal="scale">
+        <div class="artwork-frame">
+          <img src="assets/images/interior.webp" alt="Domus interior architecture study" class="artwork-img" loading="eager" />
         </div>
       </div>
-      <div>
-        <span class="eyebrow">01</span>
-        <h2 id="residential-heading" style="margin-top:1rem;" data-reveal>Residential Interiors</h2>
-        <p style="margin-top:1.5rem;color:var(--charcoal-dim);max-width:36rem;line-height:1.85;" data-reveal>
-          Full interior architecture for private homes — from spatial planning through material selection,
-          bespoke joinery design, and final styling. We work on new builds and renovations of all scales,
-          from a 1,200 sq.ft city apartment to a 10,000 sq.ft coastal estate.
-        </p>
-        <p style="margin-top:1rem;color:var(--charcoal-dim);max-width:36rem;line-height:1.85;" data-reveal>
-          Every residential commission begins with an extended site and life-study. We spend time
-          understanding how a client actually lives before drawing a single line.
-        </p>
-        <ul style="margin-top:2.05rem;display:flex;flex-direction:column;gap:0.9rem;" data-reveal-stagger>
-          <li style="display:flex;gap:1rem;align-items:flex-start;font-size:0.95rem;color:var(--charcoal-mid);">
-            <span style="color:var(--gold);font-family:var(--font-mono);font-size:0.68rem;flex-shrink:0;padding-top:0.15rem;">→</span>
-            Spatial planning &amp; layout optimisation
-          </li>
-          <li style="display:flex;gap:1rem;align-items:flex-start;font-size:0.95rem;color:var(--charcoal-mid);">
-            <span style="color:var(--gold);font-family:var(--font-mono);font-size:0.68rem;flex-shrink:0;padding-top:0.15rem;">→</span>
-            Material palette development &amp; sourcing
-          </li>
-          <li style="display:flex;gap:1rem;align-items:flex-start;font-size:0.95rem;color:var(--charcoal-mid);">
-            <span style="color:var(--gold);font-family:var(--font-mono);font-size:0.68rem;flex-shrink:0;padding-top:0.15rem;">→</span>
-            Bespoke furniture &amp; joinery design
-          </li>
-          <li style="display:flex;gap:1rem;align-items:flex-start;font-size:0.95rem;color:var(--charcoal-mid);">
-            <span style="color:var(--gold);font-family:var(--font-mono);font-size:0.68rem;flex-shrink:0;padding-top:0.15rem;">→</span>
-            Lighting design &amp; specification
-          </li>
-          <li style="display:flex;gap:1rem;align-items:flex-start;font-size:0.95rem;color:var(--charcoal-mid);">
-            <span style="color:var(--gold);font-family:var(--font-mono);font-size:0.68rem;flex-shrink:0;padding-top:0.15rem;">→</span>
-            Site execution &amp; artisan management
-          </li>
-        </ul>
-        <div style="margin-top:2.5rem;" data-reveal>
-          <a href="contact.html" class="btn btn-primary magnetic ripple-el">Begin a Residential Project</a>
+
+      <!-- RIGHT COLUMN (DISCIPLINES) -->
+      <div class="services-hero-right" data-reveal-stagger>
+        <div class="discipline-item">
+          <span class="discipline-num">01</span>
+          <div class="discipline-content">
+            <h3 class="discipline-title">DESIGN</h3>
+            <p class="discipline-text">Thoughtful ideas. Timeless spaces.</p>
+          </div>
+        </div>
+        
+        <div class="discipline-item">
+          <span class="discipline-num">02</span>
+          <div class="discipline-content">
+            <h3 class="discipline-title">BUILD</h3>
+            <p class="discipline-text">Precision execution. Lasting quality.</p>
+          </div>
+        </div>
+        
+        <div class="discipline-item">
+          <span class="discipline-num">03</span>
+          <div class="discipline-content">
+            <h3 class="discipline-title">DELIVER</h3>
+            <p class="discipline-text">On promise. Every time.</p>
+          </div>
         </div>
       </div>
+
     </div>
   </section>
 
-  <div class="divider" aria-hidden="true"></div>
+  <!-- UGC Section (Real Lives. Real Spaces) -->
+  <section class="ugc-section">
+      <div class="ugc-container">
+          <h2 class="ugc-heading">Real Lives. Real Spaces.</h2>
 
-  <!-- Service 02 — Hospitality -->
-  <section class="section-pad bg-warm" id="hospitality" aria-labelledby="hospitality-heading">
-    <div class="container split reverse">
-      <div class="split-media">
-        <div class="media-block" data-reveal="scale">
-          <img src="assets/images/Cam 6_R1.webp" alt="Hospitality interior — boutique hotel lobby" loading="lazy" />
-          <span class="media-caption">Sable Bay Inn — Goa</span>
-        </div>
+          <div class="ugc-carousel" id="ugcCarousel">
+
+              <div class="ugc-item" data-index="0">
+                  <video class="ugc-video" muted loop autoplay playsinline preload="auto">
+                      <source src="assets/videos/sabapa-review.mp4" type="video/mp4">
+                  </video>
+              </div>
+
+              <div class="ugc-item" data-index="1">
+                  <video class="ugc-video" muted loop autoplay playsinline preload="auto">
+                      <source src="assets/videos/happy-homeowner.mp4" type="video/mp4">
+                  </video>
+              </div>
+
+              <div class="ugc-item" data-index="2">
+                  <video class="ugc-video" muted loop autoplay playsinline preload="auto">
+                      <source src="assets/videos/dream-home-reality.mp4" type="video/mp4">
+                  </video>
+              </div>
+
+          </div>
       </div>
-      <div>
-        <span class="eyebrow">02</span>
-        <h2 id="hospitality-heading" style="margin-top:1rem;" data-reveal>Hospitality Design</h2>
-        <p style="margin-top:1.5rem;color:var(--charcoal-dim);max-width:36rem;line-height:1.85;" data-reveal>
-          Interiors for boutique hotels and restaurants, built around guest flow, material longevity,
-          and sensory sequencing. We believe hospitality spaces should feel distinctive, not merely
-          comfortable — guests should remember a specific quality of light or a particular material
-          transition, not a generic "luxury" mood.
-        </p>
-        <ul style="margin-top:2.05rem;display:flex;flex-direction:column;gap:0.9rem;" data-reveal-stagger>
-          <li style="display:flex;gap:1rem;align-items:flex-start;font-size:0.95rem;color:var(--charcoal-mid);">
-            <span style="color:var(--gold);font-family:var(--font-mono);font-size:0.68rem;flex-shrink:0;padding-top:0.15rem;">→</span>
-            Boutique hotels (8–40 keys)
-          </li>
-          <li style="display:flex;gap:1rem;align-items:flex-start;font-size:0.95rem;color:var(--charcoal-mid);">
-            <span style="color:var(--gold);font-family:var(--font-mono);font-size:0.68rem;flex-shrink:0;padding-top:0.15rem;">→</span>
-            Restaurant &amp; bar interiors
-          </li>
-          <li style="display:flex;gap:1rem;align-items:flex-start;font-size:0.95rem;color:var(--charcoal-mid);">
-            <span style="color:var(--gold);font-family:var(--font-mono);font-size:0.68rem;flex-shrink:0;padding-top:0.15rem;">→</span>
-            Guest-flow sequencing &amp; wayfinding
-          </li>
-          <li style="display:flex;gap:1rem;align-items:flex-start;font-size:0.95rem;color:var(--charcoal-mid);">
-            <span style="color:var(--gold);font-family:var(--font-mono);font-size:0.68rem;flex-shrink:0;padding-top:0.15rem;">→</span>
-            Material selection for durability &amp; atmosphere
-          </li>
-        </ul>
-        <div style="margin-top:2.5rem;" data-reveal>
-          <a href="contact.html" class="btn btn-ghost magnetic">Begin a Hospitality Project</a>
-        </div>
+  </section>
+
+  <div class="ugc-modal" id="ugcModal">
+      <div class="ugc-overlay"></div>
+      <div class="ugc-modal-content">
+          <button class="ugc-close">&times;</button>
+          <button class="ugc-prev">&#10094;</button>
+
+          <video id="ugcModalVideo" controls playsinline></video>
+
+          <button class="ugc-next">&#10095;</button>
       </div>
+  </div>
+
+<!-- Services Intro -->
+  <section class="services-intro" data-reveal>
+    <div class="container services-intro-content">
+      <span class="eyebrow gold-eyebrow">LIFE AT THE DOMUS</span>
+      <h2 class="services-intro-title">Spaces designed to be lived.</h2>
+      <p class="services-intro-desc">Residential, hospitality and material expertise brought together with intention.</p>
     </div>
   </section>
 
-  <div class="divider" aria-hidden="true"></div>
+  <!-- Editorial Services List -->
+  <section class="services-list-section">
+    <div class="container services-list-container">
 
-  <!-- Service 03 — Material Consultancy -->
-  <section class="section-pad bg-white" id="materials" aria-labelledby="materials-heading">
-    <div class="container split">
-      <div class="split-media">
-        <div class="media-block" data-reveal="scale">
-          <img src="assets/images/View 2.webp" alt="Material study — plaster and stone samples" loading="lazy" />
-          <span class="media-caption">Material Lab — Byculla Studio</span>
+      <!-- Service 01 — Residential -->
+      <div class="service-block" id="residential">
+        <div class="service-media" data-reveal="fade-up">
+          <div class="service-image-wrap">
+            <img src="assets/images/Cam 1_R1.webp" alt="Residential Interiors" class="service-img" loading="lazy" />
+          </div>
+          <span class="service-caption">Residence Alta — Alibaug</span>
+        </div>
+        
+        <div class="service-info" data-reveal="fade-up">
+          <span class="service-num">01</span>
+          <h3 class="service-title">Residential Interiors</h3>
+          <p class="service-description">
+            Full interior architecture for private homes — from spatial planning through material selection, bespoke joinery design, and final styling.
+          </p>
+          <ul class="service-features" data-reveal-stagger>
+            <li><span>→</span> Spatial planning &amp; layout optimisation</li>
+            <li><span>→</span> Material palette sourcing &amp; styling</li>
+            <li><span>→</span> Bespoke furniture &amp; joinery design</li>
+            <li><span>→</span> Lighting design &amp; specification</li>
+          </ul>
+          <a href="contact.html" class="service-link">
+            BEGIN A RESIDENTIAL PROJECT <span class="arrow">→</span>
+          </a>
         </div>
       </div>
-      <div>
-        <span class="eyebrow">03</span>
-        <h2 id="materials-heading" style="margin-top:1rem;" data-reveal>Material Consultancy</h2>
-        <p style="margin-top:1.5rem;color:var(--charcoal-dim);max-width:36rem;line-height:1.85;" data-reveal>
-          Independent material selection and sourcing for architects and other design practices.
-          We maintain a curated network of suppliers across India for natural stone, specialist plaster,
-          timber, hardware, and fabric — each verified for provenance, quality, and longevity.
-        </p>
-        <p style="margin-top:1rem;color:var(--charcoal-dim);max-width:36rem;line-height:1.85;" data-reveal>
-          Our Material Lab in Byculla allows us to physically test finishes under different light conditions
-          before specifying them. Clients and collaborators are welcome by appointment.
-        </p>
-        <ul style="margin-top:2.05rem;display:flex;flex-direction:column;gap:0.9rem;" data-reveal-stagger>
-          <li style="display:flex;gap:1rem;align-items:flex-start;font-size:0.95rem;color:var(--charcoal-mid);">
-            <span style="color:var(--gold);font-family:var(--font-mono);font-size:0.68rem;flex-shrink:0;padding-top:0.15rem;">→</span>
-            Specification review &amp; provenance verification
-          </li>
-          <li style="display:flex;gap:1rem;align-items:flex-start;font-size:0.95rem;color:var(--charcoal-mid);">
-            <span style="color:var(--gold);font-family:var(--font-mono);font-size:0.68rem;flex-shrink:0;padding-top:0.15rem;">→</span>
-            Supplier network access &amp; introductions
-          </li>
-          <li style="display:flex;gap:1rem;align-items:flex-start;font-size:0.95rem;color:var(--charcoal-mid);">
-            <span style="color:var(--gold);font-family:var(--font-mono);font-size:0.68rem;flex-shrink:0;padding-top:0.15rem;">→</span>
-            On-site material review sessions
-          </li>
-          <li style="display:flex;gap:1rem;align-items:flex-start;font-size:0.95rem;color:var(--charcoal-mid);">
-            <span style="color:var(--gold);font-family:var(--font-mono);font-size:0.68rem;flex-shrink:0;padding-top:0.15rem;">→</span>
-            Written material specifications &amp; schedules
-          </li>
-        </ul>
-        <div style="margin-top:2.5rem;" data-reveal>
-          <a href="contact.html" class="btn btn-primary magnetic ripple-el">Enquire about Consultancy</a>
+
+      <!-- Service 02 — Hospitality -->
+      <div class="service-block row-reverse" id="hospitality">
+        <div class="service-media" data-reveal="fade-up">
+          <div class="service-image-wrap">
+            <img src="assets/images/Cam 6_R1.webp" alt="Hospitality Design" class="service-img" loading="lazy" />
+          </div>
+          <span class="service-caption">Sable Bay Inn — Goa</span>
+        </div>
+        
+        <div class="service-info" data-reveal="fade-up">
+          <span class="service-num">02</span>
+          <h3 class="service-title">Hospitality Design</h3>
+          <p class="service-description">
+            Interiors for boutique hotels and restaurants, built around guest flow, material longevity, and sensory sequencing.
+          </p>
+          <ul class="service-features" data-reveal-stagger>
+            <li><span>→</span> Boutique hotels (8–40 keys)</li>
+            <li><span>→</span> Restaurant &amp; bar interiors</li>
+            <li><span>→</span> Guest-flow sequencing &amp; wayfinding</li>
+            <li><span>→</span> Durability &amp; atmosphere specification</li>
+          </ul>
+          <a href="contact.html" class="service-link">
+            BEGIN A HOSPITALITY PROJECT <span class="arrow">→</span>
+          </a>
         </div>
       </div>
+
+      <!-- Service 03 — Material Consultancy -->
+      <div class="service-block" id="materials">
+        <div class="service-media" data-reveal="fade-up">
+          <div class="service-image-wrap">
+            <img src="assets/images/View 2.webp" alt="Material Consultancy" class="service-img" loading="lazy" />
+          </div>
+          <span class="service-caption">Material Lab — Byculla Studio</span>
+        </div>
+        
+        <div class="service-info" data-reveal="fade-up">
+          <span class="service-num">03</span>
+          <h3 class="service-title">Material Consultancy</h3>
+          <p class="service-description">
+            Independent material selection and sourcing curating natural stone, specialist plaster, timber, and hardware longevity.
+          </p>
+          <ul class="service-features" data-reveal-stagger>
+            <li><span>→</span> Specification review &amp; provenance</li>
+            <li><span>→</span> Supplier network access &amp; intros</li>
+            <li><span>→</span> On-site material review sessions</li>
+            <li><span>→</span> Written specifications &amp; schedules</li>
+          </ul>
+          <a href="contact.html" class="service-link">
+            ENQUIRE ABOUT CONSULTANCY <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+
     </div>
   </section>
+
+  <!-- Services to Work Transition -->
+  <div class="services-work-transition container">
+    <div class="thin-divider"></div>
+    <span class="eyebrow transition-eyebrow">HOW WE WORK</span>
+  </div>
 
   <!-- Process -->
-  <section class="section-pad bg-stone" aria-labelledby="process-heading">
-    <div class="container">
-      <div class="section-head" data-reveal>
-        <span class="eyebrow">How We Work</span>
+  <section class="process-section" id="process" aria-labelledby="process-heading">
+    <div class="container process-container">
+      <div class="process-header-block" data-reveal>
         <h2 id="process-heading">Four stages. No shortcuts.</h2>
       </div>
-      <div class="process-list">
-        <div class="process-row"><span class="dot" aria-hidden="true"></span><div class="content"><span class="ptag">Stage 01</span><div><h3>Site &amp; Light Study</h3><p>We spend a full day on site across morning and evening light before any drawing begins.</p></div></div></div>
-        <div class="process-row"><span class="dot" aria-hidden="true"></span><div class="content"><span class="ptag">Stage 02</span><div><h3>Spatial Concept</h3><p>A single organising idea is developed and tested against every room in the brief.</p></div></div></div>
-        <div class="process-row"><span class="dot" aria-hidden="true"></span><div class="content"><span class="ptag">Stage 03</span><div><h3>Material Palette</h3><p>Physical swatches assembled and reviewed on site, never under studio lighting alone.</p></div></div></div>
-        <div class="process-row"><span class="dot" aria-hidden="true"></span><div class="content"><span class="ptag">Stage 04</span><div><h3>Execution &amp; Craft</h3><p>Our site team works alongside named artisans through to final handover.</p></div></div></div>
+
+      <div class="process-timeline-container">
+        <!-- Connecting timeline line -->
+        <div class="timeline-line"></div>
+
+        <!-- Stage 01 -->
+        <div class="process-stage-item" data-reveal="fade-up">
+          <div class="stage-timeline-dot"></div>
+          <div class="stage-number-col">
+            <span class="stage-large-num">01</span>
+          </div>
+          <div class="stage-content-col">
+            <span class="stage-label">STAGE 01</span>
+            <h3 class="stage-title">Site &amp; Light Study</h3>
+            <p class="stage-desc">We spend a full day on site across morning and evening light before any drawing begins.</p>
+          </div>
+          <div class="stage-empty-col"></div>
+        </div>
+
+        <!-- Stage 02 -->
+        <div class="process-stage-item" data-reveal="fade-up">
+          <div class="stage-timeline-dot"></div>
+          <div class="stage-number-col">
+            <span class="stage-large-num">02</span>
+          </div>
+          <div class="stage-content-col">
+            <span class="stage-label">STAGE 02</span>
+            <h3 class="stage-title">Spatial Concept</h3>
+            <p class="stage-desc">A single organising idea is developed and tested against every room in the brief.</p>
+          </div>
+          <div class="stage-empty-col"></div>
+        </div>
+
+        <!-- Stage 03 -->
+        <div class="process-stage-item" data-reveal="fade-up">
+          <div class="stage-timeline-dot"></div>
+          <div class="stage-number-col">
+            <span class="stage-large-num">03</span>
+          </div>
+          <div class="stage-content-col">
+            <span class="stage-label">STAGE 03</span>
+            <h3 class="stage-title">Material Palette</h3>
+            <p class="stage-desc">Physical swatches assembled and reviewed on site, never under studio lighting alone.</p>
+          </div>
+          <div class="stage-empty-col"></div>
+        </div>
+
+        <!-- Stage 04 -->
+        <div class="process-stage-item" data-reveal="fade-up">
+          <div class="stage-timeline-dot"></div>
+          <div class="stage-number-col">
+            <span class="stage-large-num">04</span>
+          </div>
+          <div class="stage-content-col">
+            <span class="stage-label">STAGE 04</span>
+            <h3 class="stage-title">Execution &amp; Craft</h3>
+            <p class="stage-desc">Our site team works alongside named artisans through to final handover.</p>
+          </div>
+          <div class="stage-empty-col"></div>
+        </div>
       </div>
+
+      <!-- Subtle horizontal transition divider at the end -->
+      <div class="process-end-divider"></div>
     </div>
   </section>
+
 
 </main>
 
@@ -264,7 +382,7 @@
     <div class="footer-top">
       <div class="footer-brand"><h3>The <em>Domus</em></h3><p>Interior architecture studio. Mumbai · Goa · Alibaug. Est. 2014.</p></div>
       <div class="footer-col"><h5>Studio</h5><ul><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html#residential">Residential</a></li><li><a href="services.html#hospitality">Hospitality</a></li><li><a href="services.html#materials">Material Consultancy</a></li></ul></div>
+      <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html#residential">Residential</a></li><li><a href="services.html#hospitality">Hospitality</a></li><li><a href="services.html#materials">Materials</a></li></ul></div>
       <div class="footer-col"><h5>Contact</h5><ul><li>studio@thedomus.in</li><li>+91 22 0000 0000</li><li>Byculla, Mumbai</li></ul></div>
     </div>
     <div class="footer-bottom">
@@ -281,5 +399,8 @@
 <script src="js/scroll.js"></script>
 <script src="js/animations.js"></script>
 <script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/project-detail.js"></script>
 </body>
 </html>
