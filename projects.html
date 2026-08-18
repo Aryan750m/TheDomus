@@ -463,108 +463,14 @@
   </div><a href="services.html">Life at The Domus</a><a href="contact.html">Contact</a>
   <div class="mobile-nav-footer">Est. 2014 — Mumbai</div>
 </nav>
-
-
-    <!-- ============================================================
-       ART OF DETAIL — HERO SECTION FOR PROJECTS PAGE
-    ============================================================ -->
-    <section class="art-hero" id="artHero">
-        <div class="art-hero__inner">
-
-            <!-- LEFT CONTENT -->
-            <div class="art-hero__content">
-                <div class="art-hero__badge">
-                    <span>Our Philosophy</span>
-                </div>
-
-                <h1 class="art-hero__title">
-                    <span class="art-hero__title--top">The Art</span>
-                    <span class="art-hero__title--bottom">of Detail</span>
-                </h1>
-
-                <p class="art-hero__text">
-                    At The Domus, we understand that true excellence lies in the meticulous
-                    attention to detail and the artistry of craftsmanship. Guided by a
-                    commitment to perfection, we craft not just homes but immersive
-                    experiences where every nuance is thoughtfully considered.
-                </p>
-
-                <div class="art-hero__actions">
-                    <a href="#projects" class="art-hero__btn">
-                        Discover More
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                            <polyline points="12 5 19 12 12 19" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-
-            <!-- RIGHT DECORATIVE ELEMENT -->
-            <div class="art-hero__visual">
-                <div class="art-hero__circle"></div>
-                <div class="art-hero__line"></div>
-                <div class="art-hero__dot-grid">
-                    <span></span><span></span><span></span>
-                    <span></span><span></span><span></span>
-                    <span></span><span></span><span></span>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="projects-intro section-shell" id="projects">
-        <div class="container-narrow projects-intro__inner">
-            <div class="section-label">Projects</div>
-            <h2 class="section-title">A curated collection of landmark living.</h2>
-            <p class="section-copy">
-                The Domus creates residences and commercial spaces that are shaped from the inside out.
-            </p>
-        </div>
-        <div class="projects-showcase">
-            <a class="project-showcase-card" href="domus-prive.html">
-                <img src="assets/images/domus-prive.webp" alt="The Domus Prive">
-                <div class="project-showcase-card__content">
-                    <span>Seawoods</span>
-                    <strong>The Domus Prive</strong>
-                    <div class="project-showcase-card__explore">
-                        Explore Project <span>&rarr;</span>
-                    </div>
-                </div>
-            </a>
-            <a class="project-showcase-card" href="domus-west.html">
-                <img src="assets/images/domus-west.webp" alt="The Domus 26 West">
-                <div class="project-showcase-card__content">
-                    <span>Ulwe, Wahal</span>
-                    <strong>The Domus 26 West</strong>
-                    <div class="project-showcase-card__explore">
-                        Explore Project <span>&rarr;</span>
-                    </div>
-                </div>
-            </a>
-            <a class="project-showcase-card" href="domus-east.html">
-                <img src="assets/images/domus-east.webp" alt="The Domus 26 East">
-                <div class="project-showcase-card__content">
-                    <span>Ulwe, Wahal</span>
-                    <strong>The Domus 26 East</strong>
-                    <div class="project-showcase-card__explore">
-                        Explore Project <span>&rarr;</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <section class="project-carousel desktop-proj-carousel">
+    <section class="project-carousel desktop-proj-carousel" id="projects">
         <div class="project-carousel__container">
 
             <button class="project-carousel__btn project-carousel__btn--prev">&#10094;</button>
 
             <div class="project-carousel__viewport">
                 <div class="project-carousel__header">
-                    <h2 class="project-carousel__heading">Projects</h2>
+                    <h2 class="project-carousel__heading">Explore our projects.</h2>
                     <div class="project-carousel__underline"></div>
 
                     <h3 class="project-carousel__title" id="projectTitle">
@@ -712,7 +618,9 @@
                 // calculate how much to shift so it sits in center of viewport
                 const viewportCenter = viewportWidth / 2;
 
-                const translateAmount = slideCenter - viewportCenter;
+                // Bias the active image slightly left to preserve a deliberate
+                // right-hand preview of the following project.
+                const translateAmount = slideCenter - viewportCenter + (viewportWidth * 0.12);
 
                 track.style.transform = `translateX(-${translateAmount}px)`;
             }
@@ -815,24 +723,6 @@
         }
 
         document.addEventListener('DOMContentLoaded', function () {
-            const artHero = document.getElementById('artHero');
-            if (artHero) {
-                // Use Intersection Observer for the reveal
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            artHero.classList.add('visible');
-                            observer.unobserve(artHero);
-                        }
-                    });
-                }, {
-                    threshold: 0.15,
-                    rootMargin: '0px 0px -40px 0px'
-                });
-
-                observer.observe(artHero);
-            }
-
             initProjectCarousel();
             initMobileCarousel();
         });

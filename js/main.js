@@ -527,16 +527,58 @@
     });
   }
 
+  /* =====================================================
+     FEATURED PROJECTS — restrained, touch-friendly carousel
+     ===================================================== */
+  function initProjectSlider() {
+    const slider = document.querySelector('.project-slider');
+    if (!slider) return;
+    const track = slider.querySelector('.project-slider-track');
+    const slides = Array.from(slider.querySelectorAll('.project-slide'));
+    const previous = slider.querySelector('.project-slider-prev');
+    const next = slider.querySelector('.project-slider-next');
+    const count = slider.querySelector('.project-slider-count');
+    if (!track || !slides.length || !previous || !next) return;
+
+    let active = 0;
+    let startX = null;
+    const update = () => {
+      const slideWidth = slides[0].getBoundingClientRect().width;
+      const gap = parseFloat(getComputedStyle(track).gap) || 0;
+      const translateX = (window.innerWidth - slideWidth) / 2 - active * (slideWidth + gap);
+      track.style.transform = `translateX(${translateX}px)`;
+      slides.forEach((slide, index) => slide.classList.toggle('is-active', index === active));
+      if (count) count.textContent = `${String(active + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+    };
+    const move = direction => { active = (active + direction + slides.length) % slides.length; update(); };
+    previous.addEventListener('click', () => move(-1));
+    next.addEventListener('click', () => move(1));
+    slider.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft') move(-1);
+      if (event.key === 'ArrowRight') move(1);
+    });
+    slider.tabIndex = 0;
+    slider.addEventListener('touchstart', event => { startX = event.touches[0].clientX; }, { passive: true });
+    slider.addEventListener('touchend', event => {
+      if (startX === null) return;
+      const distance = event.changedTouches[0].clientX - startX;
+      if (Math.abs(distance) > 45) move(distance < 0 ? 1 : -1);
+      startX = null;
+    });
+    window.addEventListener('resize', update, { passive: true });
+    update();
+  }
+
   // Initialize Scenes
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       initAboutScene();
-      initGalleryCarousel3D();
+      initProjectSlider();
       initMegaDropdown();
     });
   } else {
     initAboutScene();
-    initGalleryCarousel3D();
+    initProjectSlider();
     initMegaDropdown();
   }
 
