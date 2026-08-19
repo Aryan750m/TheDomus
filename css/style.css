@@ -63,9 +63,10 @@
   --radius-pill: 9999px;
 
   /* --- Typography Families --- */
-  --font-display: 'Cormorant Garamond', 'Garamond', 'Times New Roman', serif;
-  --font-body:    'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
-  --font-mono:    'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --font-display: "Chronicle Display", "Cormorant Garamond", "Garamond", "Times New Roman", serif;
+  --font-body:    "Ringside", "DM Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  --font-mono:    "Ringside", "DM Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  --font-sans:    "Ringside", "DM Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
 
   /* --- Font Weights --- */
   --weight-light:     300;
@@ -3634,12 +3635,18 @@ ul { list-style: none; }
   .about-panel {
     padding: clamp(1.5rem, 5vw, 3rem);
     border-radius: 30% 30% 0 0;
+    background-image: none !important;
+    background-color: var(--white) !important;
   }
   .about-content-col { width: 100%; }
   .about-panel-row {
     flex-direction: column;
     justify-content: center;
     gap: 1.5rem;
+  }
+  .pillars-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3.5rem !important;
   }
   .about-image-mob {
     display: block;

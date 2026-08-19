@@ -23,6 +23,12 @@
     --container-narrow: min(1120px, calc(100vw - 40px));
     --section-pad-y: clamp(72px, 9vw, 132px);
     --section-gap: clamp(24px, 3vw, 40px);
+
+    /* --- Typography Families --- */
+    --font-display: "Chronicle Display", "Cormorant Garamond", "Garamond", "Times New Roman", serif;
+    --font-body:    "Ringside", "DM Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    --font-mono:    "Ringside", "DM Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    --font-sans:    "Ringside", "DM Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
 }
 
 * {
@@ -39,7 +45,7 @@ html {
 html,
 body {
     min-height: 100%;
-    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     background:
@@ -77,7 +83,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family: var(--font-display);
     font-weight: 500;
     letter-spacing: 0.01em;
     line-height: 0.95;
@@ -453,7 +459,7 @@ footer {
 }
 
 .hero-headline {
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(0.95rem, 1vw, 1.25rem);
     font-weight: 500;
     line-height: 1;
@@ -519,7 +525,7 @@ footer {
 }
 
 .section-title {
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(2.8rem, 5vw, 5.6rem);
     font-weight: 500;
     line-height: 0.96;
@@ -1244,7 +1250,7 @@ footer {
     font-weight: 500;
     color: var(--text);
     text-decoration: none;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-display);
     letter-spacing: 0.02em;
     line-height: 1;
     transition: transform 0.2s ease, color 0.2s ease;
@@ -1377,7 +1383,7 @@ footer {
 
 
 .about-scene .about-title {
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family: var(--font-display);
     font-weight: 500;
     line-height: 0.9;
     font-size: clamp(2.8rem, 5vw, 5.2rem);
@@ -1393,7 +1399,7 @@ footer {
 }
 
 .about-scene .about-text {
-    font-family: Inter, sans-serif;
+    font-family: var(--font-body);
     font-size: 1rem;
     line-height: 1.85;
     max-width: 34rem;
@@ -1413,7 +1419,7 @@ footer {
     background: rgba(255, 255, 255, 0.92);
     color: var(--text);
     cursor: pointer;
-    font-family: Inter, sans-serif;
+    font-family: var(--font-body);
     letter-spacing: 0.04em;
 }
 
@@ -1482,7 +1488,7 @@ footer {
 }
 
 .about-title {
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family: var(--font-display);
     font-weight: 500;
     line-height: 0.92;
     font-size: clamp(3.5rem, 7vw, 7rem);
@@ -1492,7 +1498,7 @@ footer {
 }
 
 .about-subtitle {
-    font-family: Inter, sans-serif;
+    font-family: var(--font-body);
     font-weight: 500;
     font-size: clamp(1.3rem, 2vw, 2rem);
     color: var(--gold-deep);
@@ -1502,7 +1508,7 @@ footer {
 }
 
 .about-text {
-    font-family: Inter, sans-serif;
+    font-family: var(--font-body);
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.85;
@@ -1523,7 +1529,7 @@ footer {
     background: rgba(255, 255, 255, 0.92);
     color: var(--text);
     cursor: pointer;
-    font-family: Inter, sans-serif;
+    font-family: var(--font-body);
     letter-spacing: 0.04em;
 }
 
@@ -1582,7 +1588,7 @@ footer {
 
 /* HEADING */
 .gallery-heading {
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family: var(--font-display);
     font-weight: 500;
     font-size: clamp(3.5rem, 7vw, 6.8rem);
     color: var(--text);
@@ -1634,7 +1640,7 @@ footer {
     font-size: clamp(3.5rem, 6vw, 5rem);
     font-weight: 500;
     line-height: 0.9;
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family: var(--font-display);
     color: var(--text);
 }
 
@@ -1646,7 +1652,7 @@ footer {
     border-radius: 999px;
     font-size: 0.95rem;
     line-height: 1.3;
-    font-family: Inter, sans-serif;
+    font-family: var(--font-body);
     font-weight: 500;
     color: var(--text);
 }
@@ -1836,14 +1842,14 @@ footer {
 .contact-heading h1 {
     font-size: 85px;
     font-weight: 400;
-    font-family: "Arya", sans-serif;
+    font-family: var(--font-display);
     line-height: 1;
 }
 
 .contact-heading p {
     font-size: 24px;
     margin-top: 10px;
-    font-family: "Pragati Narrow", sans-serif;
+    font-family: var(--font-body);
     line-height: 1.4;
 }
 
@@ -1871,7 +1877,7 @@ footer {
     color: #004D40;
     font-size: 37px;
     font-weight: 700;
-    font-family: 'Pragati Narrow', sans-serif;
+    font-family: var(--font-body);
 }
 
 .form-row {
@@ -1893,7 +1899,7 @@ footer {
 label {
     font-size: 24px;
     margin-bottom: 8px;
-    font-family: 'Pragati Narrow', sans-serif;
+    font-family: var(--font-body);
     font-weight: 500;
     line-height: 1;
 }
@@ -1927,7 +1933,7 @@ textarea {
     border: none;
     cursor: pointer;
     float: right;
-    font-family: 'Pragati Narrow', sans-serif;
+    font-family: var(--font-body);
 }
 
 .send-btn:hover {
@@ -1947,7 +1953,7 @@ textarea {
 .contact-info h3 {
     font-size: 24px;
     margin-bottom: 16px;
-    font-family: 'Pragati Narrow', sans-serif;
+    font-family: var(--font-body);
 }
 
 .info-box {
@@ -1958,7 +1964,7 @@ textarea {
     border-radius: 22px;
     margin-bottom: 20px;
     gap: 15px;
-    font-family: 'Pragati Narrow', sans-serif;
+    font-family: var(--font-body);
     line-height: 0.9;
 }
 
@@ -1974,7 +1980,7 @@ textarea {
 .info-box p {
     margin-top: 5px;
     font-size: 20px;
-    font-family: 'Pragati Narrow', sans-serif;
+    font-family: var(--font-body);
     font-weight: 500;
     letter-spacing: 1.2px;
     color: #004D40;
@@ -2025,14 +2031,14 @@ textarea {
     font-size: 24px;
     color: white;
     opacity: 0.9;
-    font-family: 'Pragati Narrow', sans-serif;
+    font-family: var(--font-body);
     margin-bottom: 0;
 }
 
 .who-title {
     font-size: 66px;
     margin-bottom: 0px;
-    font-family: 'Arya', sans-serif;
+    font-family: var(--font-display);
     font-weight: 400;
     line-height: 1.4;
 }
@@ -2041,7 +2047,7 @@ textarea {
     font-size: 24px;
     line-height: 1.7;
     opacity: 0.95;
-    font-family: 'Pragati Narrow', sans-serif;
+    font-family: var(--font-body);
     font-weight: 400;
     color: white;
 }
@@ -2079,7 +2085,7 @@ textarea {
 .vm-title {
     font-size: 78px;
     font-weight: 700;
-    font-family: 'Arya', sans-serif;
+    font-family: var(--font-display);
     color: #C9C9C9;
     margin-bottom: 0px;
     margin-top: 22%;
@@ -2089,7 +2095,7 @@ textarea {
     font-size: 26px;
     line-height: 1.5;
     color: #000;
-    font-family: 'Pragati Narrow', sans-serif;
+    font-family: var(--font-body);
     font-weight: 400;
     padding-left: 6.5rem;
 }
@@ -2118,7 +2124,7 @@ textarea {
 }
 
 .values-heading {
-    font-family: 'Arya', sans-serif;
+    font-family: var(--font-display);
     font-size: 96px;
     font-weight: 400;
     color: #cfcfcf;
@@ -2161,7 +2167,7 @@ textarea {
 }
 
 .value-item span {
-    font-family: 'Arya', sans-serif;
+    font-family: var(--font-display);
     font-size: 36px;
     color: #ffffff;
     letter-spacing: 0.5px;
@@ -2230,7 +2236,7 @@ textarea {
 
 /* HEADING */
 .legacy-heading {
-    font-family: 'Arya', sans-serif;
+    font-family: var(--font-display);
     font-size: 36px;
     font-weight: 600;
     color: #fff;
@@ -2242,7 +2248,7 @@ textarea {
     font-size: 24px;
     line-height: 1.8;
     color: #ffffff;
-    font-family: 'Pragati Narrow', sans-serif;
+    font-family: var(--font-body);
     font-weight: 600;
 }
 
@@ -2426,7 +2432,7 @@ textarea {
 }
 
 .hero-eyebrow {
-    font-family: 'Pragati Narrow', sans-serif;
+    font-family: var(--font-body);
     font-weight: 600;
     display: block;
     font-size: 15px;
@@ -2439,12 +2445,12 @@ textarea {
     line-height: 0.8;
     font-weight: 500;
     margin: 0;
-    font-family: 'Arya', sans-serif;
+    font-family: var(--font-display);
     font-size: 65px;
 }
 
 .sub-title {
-    font-family: 'Pragati Narrow', sans-serif;
+    font-family: var(--font-body);
     font-size: 22px;
     line-height: 1.4;
     margin-top: 20px;
@@ -2559,7 +2565,7 @@ textarea {
 
 /* RIGHT CONTENT */
 .about-content2 h2 {
-    font-family: 'Arya', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
     line-height: 1;
     font-size: 60px;
@@ -2570,7 +2576,7 @@ textarea {
 }
 
 .about-content2 p {
-    font-family: 'Pragati Narrow', sans-serif;
+    font-family: var(--font-body);
     font-size: 20px;
     font-weight: 400;
     line-height: 1.3;
@@ -2638,7 +2644,7 @@ textarea {
     color: #C9C9C9;
     margin-bottom: 40px;
     text-align: center;
-    font-family: 'Arya', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
 }
 
@@ -2664,7 +2670,7 @@ textarea {
     font-size: 30px;
     min-width: 220px;
     text-align: center;
-    font-family: 'Pragati Narrow', sans-serif;
+    font-family: var(--font-body);
     font-weight: 600;
     line-height: 1;
 }
@@ -2673,7 +2679,7 @@ textarea {
     color: #898686;
     font-weight: 700;
     width: 250px;
-    font-family: 'Arya', sans-serif;
+    font-family: var(--font-display);
     font-size: 30px;
     line-height: 1;
 }
@@ -2737,7 +2743,7 @@ textarea {
     color: #cfcfcf;
     margin-bottom: 10rem;
     text-align: center;
-    font-family: 'Arya', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
 }
 
@@ -2763,7 +2769,7 @@ body>section.amenities-section>div>div.amenities-center>div>div:nth-child(1)>img
 .amenity-card p {
     margin-top: 7px;
     font-size: 25px;
-    font-family: 'Arya', sans-serif;
+    font-family: var(--font-display);
     line-height: 1
 }
 
@@ -3104,7 +3110,7 @@ body>section.amenities-section>div>div.amenities-center>div>div:nth-child(1)>img
 }
 
 .project-carousel__heading {
-    font-family: 'Arya', sans-serif;
+    font-family: var(--font-display);
     font-size: clamp(40px, 5vw, 48px);
     color: white;
     margin-bottom: 8px;
@@ -3113,7 +3119,7 @@ body>section.amenities-section>div>div.amenities-center>div>div:nth-child(1)>img
 }
 
 .project-carousel__title {
-    font-family: 'Arya', sans-serif;
+    font-family: var(--font-display);
     font-size: clamp(30px, 5vw, 32px);
     color: white;
     /* margin-bottom: 12px; */
@@ -3121,7 +3127,7 @@ body>section.amenities-section>div>div.amenities-center>div>div:nth-child(1)>img
 }
 
 .project-carousel__cta {
-    font-family: 'Pragati Narrow', sans-serif;
+    font-family: var(--font-body);
     font-size: clamp(18px, 3vw, 18px);
     color: white;
     cursor: pointer;
@@ -3193,14 +3199,14 @@ body>section.amenities-section>div>div.amenities-center>div>div:nth-child(1)>img
 .brochure-left h2 {
     font-size: 26px;
     line-height: 1;
-    font-family: 'Arya', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
     color: #898686;
     margin-bottom: 10px;
 }
 
 .sub-text {
-    font-family: 'Pragati Narrow', sans-serif;
+    font-family: var(--font-body);
     font-weight: 500;
     letter-spacing: 0;
     font-size: 16px;
@@ -3355,7 +3361,7 @@ body>section.amenities-section>div>div.amenities-center>div>div:nth-child(1)>img
     }
 
     .about-subtitle {
-        font-family: 'Arya', sans-serif;
+        font-family: var(--font-display);
         font-weight: 400;
         font-size: 26px;
         line-height: 1;
@@ -3584,7 +3590,7 @@ body>section.amenities-section>div>div.amenities-center>div>div:nth-child(1)>img
         font-size: 16px;
         min-width: 150px;
         text-align: center;
-        font-family: 'Pragati Narrow', sans-serif;
+        font-family: var(--font-body);
         font-weight: 500;
         line-height: 1;
     }
@@ -3715,7 +3721,7 @@ body>section.amenities-section>div>div.amenities-center>div>div:nth-child(1)>img
     }
 
     .mobile-carousel__heading {
-        font-family: 'Arya', sans-serif;
+        font-family: var(--font-display);
         font-size: 40px;
         color: white;
         border-bottom: 2px solid white;
@@ -3724,14 +3730,14 @@ body>section.amenities-section>div>div.amenities-center>div>div:nth-child(1)>img
     }
 
     .mobile-carousel__title {
-        font-family: 'Arya', sans-serif;
+        font-family: var(--font-display);
         font-size: 28px;
         color: white;
         margin-top: 15px;
     }
 
     .mobile-carousel__cta {
-        font-family: 'Pragati Narrow', sans-serif;
+        font-family: var(--font-body);
         font-size: 18px;
         color: white;
         border: 1px solid white;
@@ -4145,7 +4151,7 @@ section {
 .ugc-heading {
     text-align: center;
     margin-bottom: 30px;
-    font-family: 'Arya', sans-serif;
+    font-family: var(--font-display);
     font-size: 40px;
 }
 
@@ -4316,7 +4322,7 @@ section {
 .ugc-heading {
     text-align: center;
     margin-bottom: 30px;
-    font-family: 'Arya', sans-serif;
+    font-family: var(--font-display);
     font-size: 40px;
 }
 
@@ -4731,7 +4737,7 @@ section {
 .stat-number-large {
     font-size: clamp(110px, 15vw, 250px);
     font-weight: 300;
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family: var(--font-display);
     color: var(--text);
     letter-spacing: -0.04em;
     line-height: 1;
@@ -4739,7 +4745,7 @@ section {
 
 .stat-number-plus {
     font-size: clamp(60px, 8vw, 120px);
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family: var(--font-display);
     color: var(--gold);
     margin-left: 8px;
     font-weight: 300;
@@ -4753,7 +4759,7 @@ section {
 }
 
 .stat-label-line-1 {
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-body);
     font-size: clamp(1rem, 1.5vw, 1.35rem);
     font-weight: 600;
     text-transform: uppercase;
@@ -4762,7 +4768,7 @@ section {
 }
 
 .stat-label-line-2 {
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(1.4rem, 2vw, 1.85rem);
     font-style: italic;
     font-weight: 400;
@@ -4807,7 +4813,7 @@ section {
 }
 
 .premium-cta-title {
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family: var(--font-display);
     font-size: clamp(2.2rem, 4vw, 3.8rem);
     font-weight: 300;
     color: #faf9f7;
@@ -4816,7 +4822,7 @@ section {
 }
 
 .premium-cta-btn {
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-body);
     font-size: 0.78rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -4896,7 +4902,7 @@ section {
 }
 
 .project-showcase-card__content span {
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-body);
     font-size: 0.74rem !important;
     letter-spacing: 0.16em !important;
     text-transform: uppercase;
@@ -4906,7 +4912,7 @@ section {
 }
 
 .project-showcase-card__content strong {
-    font-family: "Cormorant Garamond", Georgia, serif !important;
+    font-family: var(--font-display) !important;
     font-size: clamp(1.4rem, 2.2vw, 2.1rem) !important;
     font-weight: 400 !important;
     color: #ffffff !important;
@@ -4916,7 +4922,7 @@ section {
 /* Explore Project CTA */
 .project-showcase-card__explore {
     margin-top: 14px;
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-body);
     font-size: 0.72rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -4995,7 +5001,7 @@ section {
 }
 
 .footer-explore-links a {
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-body);
     font-size: 0.74rem;
     font-weight: 500;
     text-transform: uppercase;
@@ -5018,7 +5024,7 @@ section {
 }
 
 .footer-col h4 {
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-body);
     font-size: 0.74rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -5029,7 +5035,7 @@ section {
 
 .footer-col p,
 .footer-col a {
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-body);
     font-size: 0.88rem;
     color: var(--text-muted);
     line-height: 1.6;
@@ -5045,7 +5051,7 @@ section {
 }
 
 .footer-social-links a {
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-body);
     font-size: 0.88rem;
     font-weight: 500;
     color: var(--gold-deep);
@@ -5066,7 +5072,7 @@ section {
 }
 
 .copyright-text {
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-body);
     font-size: 0.76rem;
     color: var(--text-soft);
     margin: 0;

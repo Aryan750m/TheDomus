@@ -196,7 +196,7 @@ img, video {
   }
   .ugc-heading {
     font-size: clamp(1.8rem, 8vw, 2.4rem) !important;
-    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-family: var(--font-display) !important;
     margin-bottom: 20px !important;
   }
   .ugc-carousel {
