@@ -2248,9 +2248,9 @@ ul { list-style: none; }
 .pillar figure { margin: 0 0 1.75rem; overflow: hidden; aspect-ratio: .78; background: var(--stone); }
 .pillar--design { margin-top: 3.5rem; }
 .pillar--quality { margin-top: 1.25rem; }
-.pillar img, .dossier img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .8s var(--ease-out); }
-.pillar:hover img, .dossier:hover img { transform: scale(1.035); }
-.pillar-copy span, .project-slide-caption span, .dossier small { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+.pillar img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .8s var(--ease-out); }
+.pillar:hover img { transform: scale(1.035); }
+.pillar-copy span, .project-slide-caption span { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
 .pillar-copy h3 { margin: .75rem 0; font-size: clamp(1.7rem, 2.3vw, 2.4rem); font-weight: 400; }
 .pillar-copy p { color: var(--charcoal-dim); font-size: .9rem; max-width: 26ch; }
 .featured-projects { padding-block: clamp(5.5rem, 10vw, 10rem); background: var(--stone); overflow: hidden; }
@@ -2272,14 +2272,119 @@ ul { list-style: none; }
 .project-slider-controls button { border: 1px solid var(--border-dark); background: transparent; border-radius: 50%; width: 2.75rem; height: 2.75rem; color: var(--charcoal); cursor: pointer; transition: background .25s, color .25s; }
 .project-slider-controls button:hover { background: var(--charcoal); color: var(--white); }
 .project-slider-count { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .14em; min-width: 4.5rem; text-align: center; }
-.dossier-grid { display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: 1.5rem; align-items: center; }
-.dossier { display: block; overflow: hidden; padding-bottom: .8rem; border-bottom: 1px solid var(--border); }
-.dossier img { aspect-ratio: 4 / 5; margin-bottom: 1rem; }
-.dossier--feature img { aspect-ratio: 4 / 3; }
-.dossier span { display: block; font-family: var(--font-display); font-size: 1.6rem; margin-bottom: .6rem; }
-.dossier small { color: var(--charcoal-dim); }
+.dossier-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.dossier-item {
+  display: block;
+  position: relative;
+}
+.dossier-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.dossier-image-wrap {
+  overflow: hidden;
+  position: relative;
+  background: var(--stone);
+}
+.dossier-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s var(--ease-out);
+}
+.dossier-link:hover .dossier-image-wrap img {
+  transform: scale(1.025);
+}
+.dossier-item--prive {
+  width: 62%;
+  margin-left: auto;
+  margin-bottom: clamp(8.75rem, 12vw, 12.5rem);
+}
+.dossier-item--prive .dossier-image-wrap {
+  aspect-ratio: 16 / 10;
+}
+.dossier-item--west {
+  width: 46%;
+  margin-right: auto;
+  margin-bottom: clamp(8.75rem, 12vw, 12.5rem);
+}
+.dossier-item--west .dossier-image-wrap {
+  aspect-ratio: 16 / 10;
+}
+.dossier-item--east {
+  width: 46%;
+  margin-left: auto;
+  margin-bottom: clamp(6.25rem, 10vw, 10rem);
+}
+.dossier-item--east .dossier-image-wrap {
+  aspect-ratio: 16 / 10;
+}
+.dossier-content {
+  padding-top: 1.5rem;
+}
+.dossier-number {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5rem;
+}
+.dossier-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--charcoal);
+  margin-bottom: 0.75rem;
+}
+.dossier-cta {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--charcoal-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--border-gold);
+  transition: color 0.3s, border-color 0.3s;
+}
+.dossier-link:hover .dossier-cta {
+  color: var(--charcoal);
+  border-bottom-color: var(--gold);
+}
+
+.project-dossiers .editorial-section-head {
+  text-align: left;
+  margin-bottom: clamp(6rem, 9vw, 9.5rem);
+}
+.project-dossiers .editorial-section-head h2 {
+  font-size: clamp(3.5rem, 5.8vw, 5.6rem);
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 1.02;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+.project-dossiers .editorial-section-head .section-desc {
+  max-width: 480px;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--charcoal-dim);
+}
+
 @media (max-width: 768px) {
-  .pillars-grid, .dossier-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .pillars-grid { grid-template-columns: 1fr; gap: 3rem; }
   .pillar--design, .pillar--quality { margin-top: 0; }
   .pillar figure { aspect-ratio: 4 / 3; }
   .featured-projects-head { display: block; }
@@ -2287,7 +2392,35 @@ ul { list-style: none; }
   .project-slider-track { gap: 5vw; padding-inline: 8vw; }
   .project-slide { flex-basis: 84vw; }
   .project-slide > img { aspect-ratio: 4 / 3; }
-  .dossier--feature img, .dossier img { aspect-ratio: 4 / 3; }
+
+  /* Mobile Dossiers Sequential Overrides */
+  .project-dossiers {
+    padding-block: clamp(4.5rem, 8vw, 6rem);
+  }
+  .project-dossiers .editorial-section-head {
+    margin-bottom: 3.5rem;
+  }
+  .project-dossiers .editorial-section-head h2 {
+    font-size: clamp(2.5rem, 9vw, 3.25rem);
+  }
+  .dossier-item {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: clamp(3.75rem, 8vw, 5rem) !important;
+  }
+  .dossier-item:last-child {
+    margin-bottom: 0 !important;
+  }
+  .dossier-image-wrap {
+    aspect-ratio: 4 / 3 !important;
+  }
+  .dossier-content {
+    padding-top: 1.25rem;
+  }
+  .dossier-title {
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+  }
 }
 .mobile-action-bar { display: none; }
 @media (max-width: 600px) {
