@@ -2272,14 +2272,82 @@ ul { list-style: none; }
 .project-slider-controls button { border: 1px solid var(--border-dark); background: transparent; border-radius: 50%; width: 2.75rem; height: 2.75rem; color: var(--charcoal); cursor: pointer; transition: background .25s, color .25s; }
 .project-slider-controls button:hover { background: var(--charcoal); color: var(--white); }
 .project-slider-count { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .14em; min-width: 4.5rem; text-align: center; }
+.project-dossiers {
+  padding-block: clamp(6.25rem, 11.5vw, 11.25rem);
+  background: var(--white);
+  overflow: hidden;
+}
+.dossier-row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: clamp(1.5rem, 3vw, 3rem);
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+.dossiers-intro-row {
+  margin-bottom: clamp(6.25rem, 10vw, 10rem); /* 100-160px after intro */
+}
+.dossiers-intro-row .dossier-eyebrow {
+  grid-column: 1 / 4;
+  grid-row: 1;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+.dossiers-intro-row .dossiers-heading {
+  grid-column: 1 / 8;
+  grid-row: 2;
+  font-family: var(--font-display);
+  font-size: clamp(3.75rem, 6.4vw, 5.75rem); /* 72px to 96px on desktop */
+  font-weight: 300;
+  line-height: 1.02;
+  color: var(--charcoal);
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+.dossiers-intro-row .dossiers-desc {
+  grid-column: 3 / 8;
+  grid-row: 3;
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.2vw, 1.15rem); /* 16px to 18px */
+  line-height: 1.75;
+  color: var(--charcoal-dim);
+  max-width: 520px; /* max-width 420-520px */
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+
 .dossier-list {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
+.dossier-item-row {
+  margin-bottom: clamp(7.5rem, 12vw, 11.25rem); /* 120-180px gap between projects */
+}
+.dossier-item-row:last-child {
+  margin-bottom: 0;
+}
+
+/* 12-Column Grid Item Spans */
+.dossier-item--prive {
+  grid-column: 6 / 13; /* columns 6-12 (spans 7 columns to the right) */
+}
+.dossier-item--west {
+  grid-column: 1 / 7; /* columns 1-6 (spans 6 columns to the left) */
+}
+.dossier-item--east {
+  grid-column: 7 / 13; /* columns 7-12 (spans 6 columns to the right) */
+}
+
+/* Dossier Components */
 .dossier-item {
   display: block;
-  position: relative;
+  width: 100%;
 }
 .dossier-link {
   display: block;
@@ -2290,6 +2358,7 @@ ul { list-style: none; }
   overflow: hidden;
   position: relative;
   background: var(--stone);
+  aspect-ratio: 16 / 10;
 }
 .dossier-image-wrap img {
   width: 100%;
@@ -2299,35 +2368,20 @@ ul { list-style: none; }
   transition: transform 0.8s var(--ease-out);
 }
 .dossier-link:hover .dossier-image-wrap img {
-  transform: scale(1.025);
-}
-.dossier-item--prive {
-  width: 62%;
-  margin-left: auto;
-  margin-bottom: clamp(8.75rem, 12vw, 12.5rem);
-}
-.dossier-item--prive .dossier-image-wrap {
-  aspect-ratio: 16 / 10;
-}
-.dossier-item--west {
-  width: 46%;
-  margin-right: auto;
-  margin-bottom: clamp(8.75rem, 12vw, 12.5rem);
-}
-.dossier-item--west .dossier-image-wrap {
-  aspect-ratio: 16 / 10;
-}
-.dossier-item--east {
-  width: 46%;
-  margin-left: auto;
-  margin-bottom: clamp(6.25rem, 10vw, 10rem);
-}
-.dossier-item--east .dossier-image-wrap {
-  aspect-ratio: 16 / 10;
+  transform: scale(1.02); /* 1.00 -> 1.02 scale over 800ms */
 }
 .dossier-content {
   padding-top: 1.5rem;
+  border-top: 1px solid var(--border); /* Subtle divider rule between image and text */
+  margin-top: 1.5rem;
+  box-sizing: border-box;
 }
+
+/* Project 01 (Prive) Caption Constraint */
+.dossier-item--prive .dossier-content {
+  max-width: 71.4%; /* columns 6-10 (5 columns width out of 7, 5/7 = 71.4%) */
+}
+
 .dossier-number {
   display: block;
   font-family: var(--font-mono);
@@ -2340,10 +2394,11 @@ ul { list-style: none; }
 }
 .dossier-title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  font-size: clamp(2rem, 3.2vw, 2.75rem); /* 34px to 46px on desktop */
   font-weight: 300;
-  line-height: 1.1;
+  line-height: 1.12;
   color: var(--charcoal);
+  margin-top: 0;
   margin-bottom: 0.75rem;
 }
 .dossier-cta {
@@ -2363,63 +2418,96 @@ ul { list-style: none; }
   border-bottom-color: var(--gold);
 }
 
-.project-dossiers .editorial-section-head {
-  text-align: left;
-  margin-bottom: clamp(6rem, 9vw, 9.5rem);
-}
-.project-dossiers .editorial-section-head h2 {
-  font-size: clamp(3.5rem, 5.8vw, 5.6rem);
-  font-family: var(--font-display);
-  font-weight: 300;
-  line-height: 1.02;
-  margin-top: 1rem;
-  margin-bottom: 1.5rem;
-}
-.project-dossiers .editorial-section-head .section-desc {
-  max-width: 480px;
-  font-family: var(--font-body);
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: var(--charcoal-dim);
-}
+@media (max-width: 1024px) {
+  .featured-projects-head { width: min(100% - 4rem, 1440px); }
+  .featured-projects .project-slider-track { padding-left: 0; }
+  .featured-projects .project-slide { flex-basis: 90vw; }
+  .featured-projects .project-slide > img { height: clamp(28rem, 45vw, 36rem); }
 
+  /* Tablet Dossiers Adaptation */
+  .dossier-row {
+    column-gap: 2rem;
+  }
+  .dossiers-intro-row .dossiers-heading {
+    grid-column: 1 / 10;
+  }
+  .dossiers-intro-row .dossiers-desc {
+    grid-column: 3 / 11;
+  }
+  .dossier-item--prive {
+    grid-column: 5 / 13; /* slightly wider on tablet */
+  }
+  .dossier-item--prive .dossier-content {
+    max-width: 100%;
+  }
+  .dossier-item--west {
+    grid-column: 1 / 8;
+  }
+  .dossier-item--east {
+    grid-column: 6 / 13;
+  }
+}
 @media (max-width: 768px) {
-  .pillars-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .pillar--design, .pillar--quality { margin-top: 0; }
-  .pillar figure { aspect-ratio: 4 / 3; }
-  .featured-projects-head { display: block; }
-  .featured-projects-head .domus-editorial-link { margin-top: 1.5rem; }
-  .project-slider-track { gap: 5vw; padding-inline: 8vw; }
-  .project-slide { flex-basis: 84vw; }
-  .project-slide > img { aspect-ratio: 4 / 3; }
+  .domus-pillars { padding: 4.5rem 0 5rem; }
+  .domus-pillars .editorial-section-head { margin-bottom: 3rem; }
+  .domus-pillars .pillar--design, .domus-pillars .pillar--quality { margin-top: 0; }
+  .domus-pillars .pillar figure { aspect-ratio: 4 / 3; }
+  .featured-projects { padding: 4.5rem 0 4rem; }
+  .featured-projects-head { width: auto; margin: 0 var(--gutter) 2.5rem; }
+  .featured-projects-head .domus-editorial-link { display: inline-flex; margin-top: 1.35rem; }
+  .featured-projects .project-slider-track {
+    padding-inline: 0;
+    gap: 16px;
+  }
+  .featured-projects .project-slide {
+    flex-basis: 90vw;
+    max-width: 100%;
+  }
+  .featured-projects .project-slide > img {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
 
-  /* Mobile Dossiers Sequential Overrides */
-  .project-dossiers {
-    padding-block: clamp(4.5rem, 8vw, 6rem);
+  /* Mobile Dossiers Stack Overrides */
+  .dossier-row {
+    display: block !important;
+    padding-inline: var(--gutter);
   }
-  .project-dossiers .editorial-section-head {
-    margin-bottom: 3.5rem;
+  .dossiers-intro-row {
+    margin-bottom: 4rem;
   }
-  .project-dossiers .editorial-section-head h2 {
-    font-size: clamp(2.5rem, 9vw, 3.25rem);
+  .dossier-eyebrow,
+  .dossiers-heading,
+  .dossiers-desc {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .dossiers-desc {
+    margin-top: 1.25rem;
+  }
+  .dossier-item-row {
+    margin-bottom: clamp(3.75rem, 8vw, 5rem); /* 60px to 100px */
+  }
+  .dossier-item-row:last-child {
+    margin-bottom: 0;
   }
   .dossier-item {
     width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    margin-bottom: clamp(3.75rem, 8vw, 5rem) !important;
-  }
-  .dossier-item:last-child {
-    margin-bottom: 0 !important;
+    max-width: 100% !important;
   }
   .dossier-image-wrap {
     aspect-ratio: 4 / 3 !important;
   }
   .dossier-content {
+    margin-top: 1.25rem;
     padding-top: 1.25rem;
+    max-width: 100% !important;
   }
   .dossier-title {
-    font-size: clamp(1.6rem, 5vw, 2.2rem);
+    font-size: clamp(1.8rem, 5.5vw, 2.25rem);
   }
 }
 .mobile-action-bar { display: none; }
