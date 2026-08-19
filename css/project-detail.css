@@ -42,6 +42,18 @@ html {
     background: var(--bg);
 }
 
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Fixed navbar offset for smooth scroll target sections */
+:target,
+section[id] {
+    scroll-margin-top: clamp(65px, 8vh, 100px);
+}
+
 html,
 body {
     min-height: 100%;

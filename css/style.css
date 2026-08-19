@@ -134,6 +134,23 @@ html {
   -ms-overflow-style: none;     /* IE / Edge */
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Fixed navbar offset for smooth scroll target sections */
+:target,
+section[id],
+[id="about-panel"],
+[id="residential"],
+[id="hospitality"],
+[id="materials"],
+[id="projects"] {
+  scroll-margin-top: clamp(65px, 8vh, 100px);
+}
+
 /* Hide WebKit scrollbar (Chrome, Safari) */
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {

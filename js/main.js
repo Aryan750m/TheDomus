@@ -182,14 +182,18 @@
      ===================================================== */
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
-      const id     = link.getAttribute('href');
-      if (!id || id.length < 2) return;
-      const target = document.querySelector(id);
-      if (target) {
-        e.preventDefault();
-        const headerH = document.querySelector('.site-header')?.offsetHeight || 80;
-        const top     = target.getBoundingClientRect().top + window.scrollY - headerH - 20;
-        window.scrollTo({ top, behavior: 'smooth' });
+      try {
+        const id     = link.getAttribute('href');
+        if (!id || id.length < 2) return;
+        const target = document.querySelector(id);
+        if (target) {
+          e.preventDefault();
+          const headerH = document.querySelector('.site-header')?.offsetHeight || 80;
+          const top     = target.getBoundingClientRect().top + window.scrollY - headerH - 20;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      } catch (err) {
+        console.warn("Smooth scroll interceptor error, using browser native fallback:", err);
       }
     });
   });
