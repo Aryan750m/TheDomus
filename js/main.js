@@ -11,21 +11,42 @@
      ===================================================== */
   const loader   = document.querySelector('.loader');
   const loaderBrand = loader?.querySelector('.loader-brand span');
+  let loaderHidden = false;
 
   function hideLoader() {
-    if (!loader) return;
+    if (!loader || loaderHidden) return;
+    loaderHidden = true;
     loader.classList.add('hidden');
   }
 
-  window.addEventListener('load', () => {
-    // Phase 1: brand word already animating via CSS keyframe
-    // Phase 2: hide loader
-    const delay = Math.max(1600, performance.now() < 1600 ? 1600 - performance.now() : 0);
-    setTimeout(hideLoader, delay);
-  });
+  // Multi-phase loader trigger with smart state checks and progressive fallback timeouts
+  function initLoader() {
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      // If already parsed or loaded, hide with a small smooth delay (500ms) to allow brand fade-in keyframe to complete
+      setTimeout(hideLoader, 500);
+    } else {
+      window.addEventListener('load', () => {
+        const delay = Math.max(500, performance.now() < 1200 ? 1200 - performance.now() : 0);
+        setTimeout(hideLoader, delay);
+      });
+      document.addEventListener('DOMContentLoaded', () => {
+        // Fallback: hide loader 1.0s after DOM is parsed if load event hasn't fired yet
+        setTimeout(hideLoader, 1000);
+      });
+    }
 
-  // Failsafe: if load event never fires (blocked asset), still hide
-  setTimeout(hideLoader, 4000);
+    // Tight failsafe: guarantee page visibility after 1.5s max from script execution
+    setTimeout(hideLoader, 1500);
+
+    // Scroll fallback: immediately reveal the page if the user scrolls
+    const onScroll = () => {
+      hideLoader();
+      window.removeEventListener('scroll', onScroll);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  initLoader();
 
   /* =====================================================
      MOBILE NAVIGATION
@@ -113,9 +134,12 @@
       });
     });
 
-    // Remove transition overlay on page show (back button)
-    window.addEventListener('pageshow', () => {
+    // Remove transition overlay on page show (back button / bfcache restore)
+    window.addEventListener('pageshow', (e) => {
       transitionEl.classList.remove('active');
+      if (e.persisted) {
+        hideLoader();
+      }
     });
   }
 
