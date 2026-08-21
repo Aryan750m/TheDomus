@@ -1,283 +1,1477 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The Studio — The Domus Interior Architecture</title>
-<meta name="description" content="The Domus studio was founded in 2014 on a belief that a room must be legible before it is decorated. Discover our story, values, and team." />
-<link rel="canonical" href="https://www.thedomus.studio/about.html" />
-<meta property="og:title" content="The Studio — The Domus" />
-<meta property="og:description" content="Our story, values, and the people behind The Domus interior architecture studio." />
-<meta property="og:image" content="assets/images/about.webp" />
-<link rel="icon" href="assets/images/favicon.png" type="image/png" />
-<link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/mobile.css">
-<link rel="stylesheet" href="css/animations.css" />
-<link rel="stylesheet" href="css/responsive.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Studio — The Domus Interior Architecture</title>
+  <meta name="description"
+    content="Discover The Domus — an interior architecture studio founded on restraint, material honesty, craft and spaces designed for living." />
+  <link rel="canonical" href="https://www.thedomus.studio/about.html" />
+  <meta property="og:title" content="The Studio — The Domus" />
+  <meta property="og:description"
+    content="Our story, values, and the people behind The Domus interior architecture studio." />
+  <meta property="og:image" content="assets/images/about.webp" />
+  <link rel="icon" href="assets/images/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/mobile.css">
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <!-- Nexus System Template fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <!-- Nexus System styles scoped to .nexus-embed -->
+  <link rel="stylesheet" href="css/templatemo-629-nexus-style.css" />
+  <style id="about-page-overrides">
+    /* =====================================================
+     THE DOMUS — About Page Premium Redesign System
+     ===================================================== */
+    .about-page {
+      /* Page local variables for custom overrides */
+      --bg-dark: #1C1C1E;
+      --bg-light: #FAFAF8;
+      --text-dark: #1C1C1E;
+      --text-light: #FAFAF8;
+      --text-muted: #6E6E73;
+      --accent-gold: #B89A5C;
+      --border-light: rgba(28, 28, 30, 0.1);
+      --border-dark: rgba(250, 250, 248, 0.15);
+    }
+
+    /* Prevent broken image outline/icons from disrupting aesthetics */
+    .about-page img {
+      background: #e7e4dd;
+    }
+
+    .about-page img[src] {
+      object-position: center;
+    }
+
+    /* =====================================================
+     01 — CINEMATIC HERO
+     ===================================================== */
+    .about-page .about-hero {
+      height: 90vh;
+      min-height: 680px;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      align-items: end;
+      background-color: #dedbd3;
+      color: var(--white);
+    }
+
+    .about-page .about-hero-media {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 110%;
+      /* Overflow for smooth parallax */
+      top: -5%;
+      z-index: 1;
+    }
+
+    .about-page .about-hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-page .about-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(20, 20, 20, 0.2) 0%, rgba(20, 20, 20, 0.05) 50%, rgba(20, 20, 20, 0.65) 100%);
+      z-index: 2;
+    }
+
+    .about-page .about-hero-content {
+      position: relative;
+      z-index: 3;
+      padding-bottom: clamp(6rem, 12vh, 9rem);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: flex-end;
+    }
+
+    .about-page .about-hero-content h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6.2vw, 6.2rem) !important;
+      line-height: 0.95;
+      letter-spacing: -0.045em;
+      margin-top: 1.2rem !important;
+      margin-bottom: 2rem !important;
+      max-width: 900px !important;
+      color: var(--white);
+    }
+
+    .about-page .about-hero-footer {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .about-page .about-hero-footer .meta-item-divider {
+      color: var(--accent-gold);
+    }
+
+    .about-page .scroll-indicator-wrap {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      height: 48px;
+      width: 1px;
+      overflow: hidden;
+      opacity: 0.7;
+    }
+
+    .about-page .scroll-indicator-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, var(--white) 50%, transparent);
+      animation: railMove 2.2s cubic-bezier(.16, .84, .44, 1) infinite;
+    }
+
+    /* =====================================================
+     02 — STUDIO STORY
+     ===================================================== */
+    .about-page .story-section {
+      padding-block: var(--section-pad);
+    }
+
+    .about-page .story-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--gutter);
+      align-items: center;
+    }
+
+    .about-page .story-visuals {
+      grid-column: 1 / 8;
+      position: relative;
+      padding-bottom: 12%;
+    }
+
+    .about-page .story-main-wrap {
+      width: 82%;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: var(--stone-mid);
+    }
+
+    .about-page .story-main-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s var(--ease-out);
+    }
+
+    .about-page .story-detail-wrap {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 44%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: var(--stone-mid);
+      border: 12px solid var(--white);
+      box-shadow: var(--shadow-lg);
+      z-index: 2;
+    }
+
+    .about-page .story-detail-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-page .story-copy {
+      grid-column: 8 / 13;
+      padding-left: 1.5rem;
+    }
+
+    .about-page .story-copy h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 4.2vw, 4.4rem);
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-top: 0.5rem;
+    }
+
+    .about-page .story-copy .intro {
+      font-size: clamp(1rem, 1.3vw, 1.25rem);
+      line-height: 1.7;
+      color: var(--charcoal-mid);
+      margin-bottom: 1.5rem;
+    }
+
+    .about-page .story-copy .body-copy {
+      font-size: var(--step-body);
+      line-height: 1.8;
+      color: var(--charcoal-dim);
+      margin-bottom: 1rem;
+    }
+
+    /* Elegant statistics */
+    .about-page .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      padding-block: 1.8rem;
+    }
+
+    .about-page .about-stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .about-page .about-stat .num {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 3.5vw, 3.8rem);
+      line-height: 1;
+      color: var(--text-dark);
+      font-weight: 300;
+    }
+
+    .about-page .about-stat .label {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      letter-spacing: var(--tracking-label);
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.6rem;
+    }
+
+    /* =====================================================
+     03 — PHILOSOPHY / PRINCIPLES
+     ===================================================== */
+    .about-page .principles-section {
+      padding-block: var(--section-pad);
+      background: var(--stone);
+    }
+
+    .about-page .principles-head {
+      max-width: 800px;
+      margin-bottom: clamp(4rem, 7vw, 6rem);
+    }
+
+    .about-page .principles-head h2 {
+      font-size: clamp(2.5rem, 4.8vw, 4.8rem);
+      line-height: 0.98;
+      letter-spacing: -0.035em;
+      margin-top: 0.5rem;
+    }
+
+    .about-page .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      margin-inline: calc(var(--gutter) * -0.5);
+      /* Seamless frame appearance */
+    }
+
+    .about-page .principle {
+      border-right: 1px solid var(--border-light);
+      padding: 3rem 1.8rem 4rem;
+      position: relative;
+      overflow: hidden;
+      transition: background-color 0.6s var(--ease-out);
+    }
+
+    .about-page .principle:last-child {
+      border-right: none;
+    }
+
+    .about-page .principle-inner {
+      position: relative;
+      z-index: 2;
+      transition: transform 0.5s var(--ease-out);
+    }
+
+    .about-page .principle-index {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: var(--weight-medium);
+      letter-spacing: 0.15em;
+      color: var(--accent-gold);
+      display: block;
+      transition: transform 0.5s var(--ease-out), color 0.5s var(--ease-out);
+    }
+
+    .about-page .principle-mark {
+      display: block;
+      width: 6px;
+      height: 6px;
+      background: var(--border-light);
+      margin-block: 2.5rem 1.8rem;
+      transition: background-color 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+    }
+
+    .about-page .principle h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      margin-bottom: 1rem;
+      transition: transform 0.5s var(--ease-out);
+    }
+
+    .about-page .principle p {
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: var(--charcoal-dim);
+      max-width: 250px;
+      transition: color 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+    }
+
+    /* Philosophy Hover Interaction */
+    .about-page .principle:hover {
+      background-color: var(--white);
+    }
+
+    .about-page .principle:hover .principle-inner {
+      transform: translateX(8px);
+    }
+
+    .about-page .principle:hover .principle-index {
+      color: var(--charcoal);
+      transform: translateY(-2px);
+    }
+
+    .about-page .principle:hover .principle-mark {
+      background-color: var(--accent-gold);
+      transform: scale(1.6);
+    }
+
+    .about-page .principle:hover p {
+      color: var(--charcoal);
+    }
+
+    /* =====================================================
+     04 — LARGE PHILOSOPHY STATEMENT
+     ===================================================== */
+    .about-page .quote-section {
+      padding-block: clamp(8rem, 16vh, 14rem);
+      background: var(--bg-dark);
+      color: var(--text-light);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .about-page .quote-container {
+      max-width: 1050px !important;
+      margin-inline: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .about-page .quote-section blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4.2vw, 4.2rem);
+      line-height: 1.1;
+      font-weight: 300;
+      font-style: italic;
+      letter-spacing: -0.025em;
+      margin-bottom: 3rem;
+      position: relative;
+      transition: transform 0.1s ease-out;
+    }
+
+    .about-page .quote-attribution {
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      letter-spacing: var(--tracking-button);
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      font-style: normal;
+      display: block;
+    }
+
+    /* =====================================================
+     05 — HISTORY TIMELINE
+     ===================================================== */
+    .about-page .history-section {
+      padding-block: var(--section-pad);
+    }
+
+    .about-page .history-layout {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: var(--gutter);
+    }
+
+    .about-page .history-title {
+      position: sticky;
+      top: 120px;
+      height: fit-content;
+    }
+
+    .about-page .history-title h2 {
+      font-size: clamp(2.5rem, 4.5vw, 4.4rem);
+      line-height: 1.0;
+      letter-spacing: -0.035em;
+      margin-top: 0.5rem;
+    }
+
+    .about-page .timeline-wrapper {
+      position: relative;
+      padding-left: 2.5rem;
+    }
+
+    .about-page .timeline-line {
+      position: absolute;
+      left: 3px;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: var(--border-light);
+    }
+
+    .about-page .timeline-line-progress {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 0%;
+      background: var(--accent-gold);
+      transition: height 0.1s linear;
+    }
+
+    .about-page .timeline-items {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+    }
+
+    .about-page .timeline-item {
+      position: relative;
+      transition: opacity 0.5s ease;
+    }
+
+    .about-page .timeline-dot {
+      position: absolute;
+      left: -2.5rem;
+      top: 8px;
+      transform: translateX(-50%);
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--mist);
+      border: 1px solid var(--white);
+      transition: background-color 0.5s var(--ease-out), transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+      z-index: 2;
+    }
+
+    .about-page .timeline-content {
+      transform: translateY(10px);
+      opacity: 0.5;
+      transition: transform 0.8s var(--ease-out), opacity 0.8s var(--ease-out);
+    }
+
+    .about-page .timeline-item.in-view .timeline-content {
+      transform: translateY(0);
+      opacity: 0.75;
+    }
+
+    .about-page .timeline-item.active .timeline-dot {
+      background-color: var(--accent-gold);
+      transform: translateX(-50%) scale(1.6);
+      box-shadow: 0 0 10px rgba(184, 154, 92, 0.3);
+    }
+
+    .about-page .timeline-item.active .timeline-content {
+      opacity: 1;
+    }
+
+    .about-page .timeline-item .yr {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 3.2vw, 3.4rem);
+      line-height: 1;
+      font-weight: 300;
+      color: var(--accent-gold);
+      display: block;
+      margin-bottom: 0.8rem;
+    }
+
+    .about-page .timeline-item h4 {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: var(--weight-medium);
+      letter-spacing: var(--tracking-tight);
+      margin-bottom: 0.4rem;
+      color: var(--text-dark);
+    }
+
+    .about-page .timeline-item p {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--charcoal-dim);
+      max-width: 520px;
+    }
+
+    /* =====================================================
+     06 — PEOPLE / TEAM
+     ===================================================== */
+    .about-page .people-section {
+      padding-block: var(--section-pad);
+      background: var(--stone);
+    }
+
+    .about-page .people-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gutter);
+      align-items: end;
+      margin-bottom: clamp(4rem, 8vw, 6rem);
+    }
+
+    .about-page .people-head h2 {
+      font-size: clamp(2.5rem, 4.5vw, 4.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.035em;
+      margin-top: 0.5rem;
+    }
+
+    .about-page .people-head-right {
+      font-size: clamp(1rem, 1.3vw, 1.2rem);
+      line-height: 1.7;
+      color: var(--charcoal-dim);
+      max-width: 480px;
+      justify-self: end;
+    }
+
+    .about-page .people-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .about-page .person {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .about-page .person-image {
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      background-color: var(--stone-mid);
+      position: relative;
+    }
+
+    .about-page .person-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: transform 1.2s var(--ease-out), filter 1.2s var(--ease-out);
+    }
+
+    /* Editorial CSS Monograms for Missing Team Photos */
+    .about-page .person-monogram-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--stone-mid) 0%, var(--mist) 100%);
+      border: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .about-page .person-monogram-placeholder::after {
+      content: '';
+      position: absolute;
+      inset: 12px;
+      border: 1px dashed rgba(28, 28, 30, 0.08);
+    }
+
+    .about-page .monogram-text {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 5vw, 4.8rem);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      color: rgba(28, 28, 30, 0.25);
+      transition: color 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    }
+
+    .about-page .person-info {
+      padding-block: 1.4rem 0.5rem;
+    }
+
+    .about-page .person h3 {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: var(--weight-medium);
+      letter-spacing: var(--tracking-tight);
+    }
+
+    .about-page .person .role {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      letter-spacing: var(--tracking-label);
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+
+    /* Grayscale hover reveal */
+    .about-page .person:hover .person-image img {
+      transform: scale(1.06);
+      filter: grayscale(0%);
+    }
+
+    .about-page .person:hover .monogram-text {
+      color: var(--accent-gold);
+      transform: scale(1.05);
+    }
+
+    /* =====================================================
+     07 — FINAL CTA
+     ===================================================== */
+    .about-page .final-cta {
+      padding-block: clamp(8rem, 15vh, 12rem);
+      text-align: center;
+      background: var(--white);
+    }
+
+    .about-page .final-cta h2 {
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 6vw, 6.2rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      max-width: 800px;
+      margin: 0.5rem auto 1.5rem;
+    }
+
+    .about-page .final-cta p {
+      font-size: clamp(1rem, 1.25vw, 1.2rem);
+      line-height: 1.7;
+      color: var(--charcoal-dim);
+      max-width: 480px;
+      margin: 0 auto 3rem;
+    }
+
+    .about-page .final-cta .cta-actions {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .about-page .final-cta .btn {
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: var(--weight-medium);
+      letter-spacing: var(--tracking-button);
+      padding: 1.1rem 2.8rem;
+      border-radius: var(--radius-pill);
+      transition: all 0.4s var(--ease-out);
+    }
+
+    .about-page .final-cta .btn-primary {
+      background: var(--charcoal);
+      color: var(--white);
+      border: 1px solid var(--charcoal);
+    }
+
+    .about-page .final-cta .btn-primary:hover {
+      background: transparent;
+      color: var(--charcoal);
+    }
+
+    .about-page .final-cta .btn-ghost {
+      border: 1px solid var(--border-light);
+      color: var(--charcoal);
+    }
+
+    .about-page .final-cta .btn-ghost:hover {
+      background: var(--stone);
+      border-color: var(--charcoal);
+    }
+
+    /* =====================================================
+     RESPONSIVE BREAKPOINTS
+     ===================================================== */
+    @media (max-width: 1024px) {
+      .about-page .story-grid {
+        gap: 2rem;
+      }
+
+      .about-page .story-copy {
+        padding-left: 0;
+      }
+
+      .about-page .principles-grid {
+        grid-template-columns: repeat(2, 1fr);
+        margin-inline: 0;
+      }
+
+      .about-page .principle {
+        border-right: none;
+        border-bottom: 1px solid var(--border-light);
+        padding: 2.5rem 1.2rem;
+      }
+
+      .about-page .principle:nth-child(odd) {
+        border-right: 1px solid var(--border-light);
+      }
+
+      .about-page .principle:nth-child(3),
+      .about-page .principle:nth-child(4) {
+        border-bottom: none;
+      }
+
+      .about-page .people-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-page .story-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-page .story-visuals {
+        grid-column: 1 / -1;
+        width: 100%;
+        padding-bottom: 8%;
+      }
+
+      .about-page .story-copy {
+        grid-column: 1 / -1;
+        width: 100%;
+        margin-top: 2rem;
+      }
+
+      .about-page .history-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .about-page .history-title {
+        position: relative;
+        top: 0;
+      }
+
+      .about-page .people-head {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .about-page .people-head-right {
+        justify-self: start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-page .about-hero {
+        height: 80svh;
+      }
+
+      .about-page .about-hero-content {
+        padding-bottom: 4rem;
+      }
+
+      .about-page .about-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding-block: 1.2rem;
+      }
+
+      .about-page .principles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-page .principle {
+        border-right: none !important;
+        border-bottom: 1px solid var(--border-light);
+      }
+
+      .about-page .principle:last-child {
+        border-bottom: none;
+      }
+
+      .about-page .people-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .about-page .person-image {
+        aspect-ratio: 4 / 5;
+      }
+    }
+  </style>
+
 </head>
+
 <body>
 
-<div class="loader" aria-hidden="true">
-  <div class="loader-brand"><span>The&nbsp;Domus</span></div>
-  <div class="loader-line"></div>
-  <div class="loader-sub">Interior Architecture Studio</div>
-</div>
-<div class="page-transition" aria-hidden="true"></div>
-<div class="scroll-progress" aria-hidden="true"></div>
+  <div class="loader" aria-hidden="true">
+    <div class="loader-brand"><span>The&nbsp;Domus</span></div>
+    <div class="loader-line"></div>
+    <div class="loader-sub">Interior Architecture Studio</div>
+  </div>
+  <div class="page-transition" aria-hidden="true"></div>
+  <!-- ====================================================
+     NEXUS SYSTEM TEMPLATE — embedded at DOM top
+     templatemo.com/tm-629-nexus-system
+     ==================================================== -->
+  <div class="nexus-embed">
 
-<header class="site-header" role="banner">
-  <nav class="nav-links nav-left" aria-label="Primary navigation left">
-    <a href="index.html">Home</a>
-    <a href="about.html" class="active">About</a>
-    <div class="nav-dropdown-wrap" id="projects-dropdown-wrap">
-      <a href="projects.html" class="nav-dropdown-trigger" id="projects-trigger" aria-haspopup="true" aria-expanded="false">
-        Projects
-        <svg class="dropdown-chevron" viewBox="0 0 10 6" width="10" height="6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-            <div class="mega-dropdown" id="projects-mega" role="region" aria-label="Projects menu">
-        <div class="mega-inner">
-          <!-- LEFT: project list -->
-          <div class="mega-links">
-            <span class="mega-links-label">Our Projects</span>
-            <a href="domus-prive.html" class="mega-link" data-key="prive">
-              <span class="mega-link-num">01</span>The Domus Prive
-            </a>
-            <a href="domus-west.html" class="mega-link" data-key="west">
-              <span class="mega-link-num">02</span>The Domus 26 West
-            </a>
-            <a href="domus-east.html" class="mega-link" data-key="east">
-              <span class="mega-link-num">03</span>The Domus 26 East
-            </a>
-            <a href="projects.html" class="mega-link mega-link-all">
-              View All Projects →
-            </a>
+    <div class="scroll-spacer" aria-hidden="true"></div>
+
+    <!-- card 1: the floating hero -->
+    <section class="zcard card-hero" data-card="1">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="glass-shape glass-a" aria-hidden="true"></div>
+      <div class="glass-shape glass-b" aria-hidden="true"></div>
+      <div class="glass-shape glass-c" aria-hidden="true"></div>
+      <div class="hero-stage">
+        <p class="hero-eyebrow">Modular Compute Systems</p>
+        <h1 class="hero-title">THE DOMUS</h1>
+        <p class="hero-sub">One chassis. Infinite configurations. Precision-engineered infrastructure for teams that
+          build at the edge of what hardware allows.</p>
+      </div>
+      <div class="hero-scroll-hint">Scroll to descend</div>
+    </section>
+
+    <!-- card 2: the engineered image overlay -->
+    <section class="zcard card-macro" data-card="2">
+      <img class="macro-img" src="assets/images/nexus-macro.jpg" alt="Macro view of the DOMUS core module">
+      <div class="macro-shade" aria-hidden="true"></div>
+      <div class="crosshair-v" aria-hidden="true"></div>
+      <div class="crosshair-h" aria-hidden="true"></div>
+      <div class="node-dot" aria-hidden="true"></div>
+      <div class="node-box">
+        <p class="node-box-tag">NODE / NX-07 TELEMETRY</p>
+        <div class="node-stat"><span>EFFICIENCY</span><span>98.4%</span></div>
+        <div class="node-stat"><span>THERMAL DELTA</span><span>-12.6 C</span></div>
+        <div class="node-stat"><span>SYNC LATENCY</span><span>0.8 ms</span></div>
+      </div>
+      <div class="macro-caption">
+        <span class="mono">02 / Engineered in the open</span>
+        <h2>Every micron is accounted for.</h2>
+      </div>
+    </section>
+
+    <!-- card 3: the kinetic accordion fold -->
+    <section class="zcard card-fold" data-card="3">
+      <div class="fold-head">
+        <h2>Four systems. One spine.</h2>
+        <span class="mono">03 / Hover or tap a column</span>
+      </div>
+      <div class="accordion" id="nexus-accordion">
+        <button class="slice" type="button" aria-expanded="false">
+          <img class="slice-img" src="assets/images/nexus-core.jpg" alt="Core processing array">
+          <div class="slice-shade" aria-hidden="true"></div>
+          <div class="slice-idle">
+            <span class="slice-num">A.01</span>
+            <span class="slice-idle-title">Core Array</span>
+            <span class="slice-num" aria-hidden="true">+</span>
           </div>
-          <!-- RIGHT: stacked crossfade images -->
-          <div class="mega-image-col">
-            <img src="assets/images/domus-prive-main.jpg" alt="The Domus Prive" class="mega-img is-active" data-key="prive" />
-            <img src="assets/images/domus-west-main.jpg" alt="The Domus 26 West" class="mega-img"           data-key="west" />
-            <img src="assets/images/domus-east.webp" alt="The Domus 26 East" class="mega-img"           data-key="east" />
+          <div class="slice-reveal">
+            <span class="mono">A.01 / Compute</span>
+            <h3>Core Array</h3>
+            <p>Sixty-four hot-swappable compute blades aligned on a single coherent fabric, tuned for sustained
+              full-load operation.</p>
+          </div>
+        </button>
+        <button class="slice" type="button" aria-expanded="false">
+          <img class="slice-img" src="assets/images/nexus-flux.jpg" alt="Liquid cooling fluidics loop">
+          <div class="slice-shade" aria-hidden="true"></div>
+          <div class="slice-idle">
+            <span class="slice-num">A.02</span>
+            <span class="slice-idle-title">Fluidics</span>
+            <span class="slice-num" aria-hidden="true">+</span>
+          </div>
+          <div class="slice-reveal">
+            <span class="mono">A.02 / Thermal</span>
+            <h3>Fluidics Loop</h3>
+            <p>A sealed dielectric loop moves heat away from silicon at the source, holding the entire rack within a two
+              degree band.</p>
+          </div>
+        </button>
+        <button class="slice" type="button" aria-expanded="false">
+          <img class="slice-img" src="assets/images/nexus-grid.jpg" alt="Power distribution grid">
+          <div class="slice-shade" aria-hidden="true"></div>
+          <div class="slice-idle">
+            <span class="slice-num">A.03</span>
+            <span class="slice-idle-title">Power Grid</span>
+            <span class="slice-num" aria-hidden="true">+</span>
+          </div>
+          <div class="slice-reveal">
+            <span class="mono">A.03 / Energy</span>
+            <h3>Power Grid</h3>
+            <p>Redundant busbars and solid-state switching deliver clean power with zero transfer time when a feed
+              drops.</p>
+          </div>
+        </button>
+        <button class="slice" type="button" aria-expanded="false">
+          <img class="slice-img" src="assets/images/nexus-sync.jpg" alt="Optical interconnect sync layer">
+          <div class="slice-shade" aria-hidden="true"></div>
+          <div class="slice-idle">
+            <span class="slice-num">A.04</span>
+            <span class="slice-idle-title">Sync Layer</span>
+            <span class="slice-num" aria-hidden="true">+</span>
+          </div>
+          <div class="slice-reveal">
+            <span class="mono">A.04 / Network</span>
+            <h3>Sync Layer</h3>
+            <p>Optical interconnects keep every node phase-locked, so distributed workloads behave like a single
+              machine.</p>
+          </div>
+        </button>
+      </div>
+    </section>
+
+    <!-- card 4: the matrix tabs and signature -->
+    <section class="zcard card-matrix" data-card="4">
+      <div class="matrix-left">
+        <p class="mono-tag">04 / Inside the platform</p>
+        <h2>Built as a matrix, not a stack.</h2>
+        <div class="matrix-tabs">
+          <button class="matrix-tab active" type="button" data-goto="core" aria-selected="true">
+            <span class="tab-line"><span class="tab-num">01.</span><span class="tab-name">CORE</span></span>
+            <p>The structural heart of the DOMUS. A milled aluminum frame that locates every module to within five
+              microns.</p>
+          </button>
+          <button class="matrix-tab" type="button" data-goto="fluidics" aria-selected="false">
+            <span class="tab-line"><span class="tab-num">02.</span><span class="tab-name">FLUIDICS</span></span>
+            <p>Quick-disconnect manifolds route coolant through the chassis without a single exposed line.</p>
+          </button>
+          <button class="matrix-tab" type="button" data-goto="sync" aria-selected="false">
+            <span class="tab-line"><span class="tab-num">03.</span><span class="tab-name">SYNC</span></span>
+            <p>A dedicated timing plane distributes a single clock to all nodes, end to end, rack to rack.</p>
+          </button>
+        </div>
+      </div>
+      <div class="matrix-right">
+        <img class="matrix-img active" data-panel="core" src="assets/images/domus-tab-core.jpg"
+          alt="The DOMUS core frame">
+        <img class="matrix-img" data-panel="fluidics" src="assets/images/domus-tab-fluidics.jpg"
+          alt="The DOMUS fluidics manifold">
+        <img class="matrix-img" data-panel="sync" src="assets/images/domus-tab-sync.jpg"
+          alt="The DOMUS sync timing plane">
+        <div class="matrix-img-shade" aria-hidden="true"></div>
+        <div class="matrix-caption" id="nexusMatrixCaption">FIG. 01 / CORE FRAME</div>
+      </div>
+    </section>
+
+
+  </div><!-- /.nexus-embed -->
+
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <header class="site-header" role="banner">
+    <nav class="nav-links nav-left" aria-label="Primary navigation left">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <div class="nav-dropdown-wrap" id="projects-dropdown-wrap">
+        <a href="projects.html" class="nav-dropdown-trigger" id="projects-trigger" aria-haspopup="true"
+          aria-expanded="false">
+          Projects
+          <svg class="dropdown-chevron" viewBox="0 0 10 6" width="10" height="6" fill="none" aria-hidden="true">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+        <div class="mega-dropdown" id="projects-mega" role="region" aria-label="Projects menu">
+          <div class="mega-inner">
+            <!-- LEFT: project list -->
+            <div class="mega-links">
+              <span class="mega-links-label">Our Projects</span>
+              <a href="domus-prive.html" class="mega-link" data-key="prive">
+                <span class="mega-link-num">01</span>The Domus Prive
+              </a>
+              <a href="domus-west.html" class="mega-link" data-key="west">
+                <span class="mega-link-num">02</span>The Domus 26 West
+              </a>
+              <a href="domus-east.html" class="mega-link" data-key="east">
+                <span class="mega-link-num">03</span>The Domus 26 East
+              </a>
+              <a href="projects.html" class="mega-link mega-link-all">
+                View All Projects →
+              </a>
+            </div>
+            <div class="mega-image-col">
+              <img src="assets/images/domus-prive-main.webp" alt="The Domus Prive" class="mega-img is-active"
+                data-key="prive" />
+              <img src="assets/images/domus-west-main.webp" alt="The Domus 26 West" class="mega-img" data-key="west" />
+              <img src="assets/images/domus-east.webp" alt="The Domus 26 East" class="mega-img" data-key="east" />
+            </div>
           </div>
         </div>
       </div>
+    </nav>
+
+    <a href="index.html" class="logo" aria-label="The Domus — Home">
+      <img src="assets/images/logo.webp" alt="The Domus Logo" class="logo-img" />
+    </a>
+
+    <div class="nav-right-wrap">
+      <nav class="nav-links nav-right" aria-label="Primary navigation right">
+        <a href="services.html">Life at The Domus</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-utilities">
+        <a href="contact.html" class="btn-pill-header" id="header-enquire">
+          Enquire
+        </a>
+      </div>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false" id="hamburger-btn">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </header>
+
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html">Home</a><a href="about.html" class="active">About</a>
+    <div class="mobile-nav-item-wrap">
+      <a href="projects.html">Projects</a>
+      <button class="mobile-nav-toggle" aria-expanded="false" aria-label="Toggle projects menu">
+        <svg viewBox="0 0 10 6" width="12" height="8" fill="none">
+          <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-sub-links">
+      <a href="domus-prive.html" class="mobile-sub-link">The Domus Prive</a>
+      <a href="domus-west.html" class="mobile-sub-link">The Domus 26 West</a>
+      <a href="domus-east.html" class="mobile-sub-link">The Domus 26 East</a>
+    </div><a href="services.html">Life at The Domus</a><a href="contact.html">Contact</a>
+    <div class="mobile-nav-footer">Est. 2014 — Mumbai</div>
   </nav>
 
-  <a href="index.html" class="logo" aria-label="The Domus — Home">
-    <img src="assets/images/logo.webp" alt="The Domus Logo" class="logo-img" />
-  </a>
+  <main id="main" class="about-page">
 
-  <div class="nav-right-wrap">
-    <nav class="nav-links nav-right" aria-label="Primary navigation right">
-      <a href="services.html">Life at The Domus</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div class="header-utilities">
-      <a href="contact.html" class="btn-pill-header" id="header-enquire">
-        Enquire
-      </a>
-    </div>
-    <button class="hamburger" aria-label="Open menu" aria-expanded="false" id="hamburger-btn">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
-
-<nav class="mobile-nav" aria-label="Mobile navigation">
-  <a href="index.html">Home</a><a href="about.html" class="active">About</a>
-  <div class="mobile-nav-item-wrap">
-    <a href="projects.html">Projects</a>
-    <button class="mobile-nav-toggle" aria-expanded="false" aria-label="Toggle projects menu">
-      <svg viewBox="0 0 10 6" width="12" height="8" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
-  </div>
-  <div class="mobile-sub-links">
-    <a href="domus-prive.html" class="mobile-sub-link">The Domus Prive</a>
-    <a href="domus-west.html" class="mobile-sub-link">The Domus 26 West</a>
-    <a href="domus-east.html" class="mobile-sub-link">The Domus 26 East</a>
-  </div><a href="services.html">Life at The Domus</a><a href="contact.html">Contact</a>
-  <div class="mobile-nav-footer">Est. 2014 — Mumbai</div>
-</nav>
-
-<main id="main">
-
-  <!-- Page Hero -->
-  <div class="page-hero" aria-label="Studio page header">
-    <div class="page-hero-image">
-      <img src="assets/images/domus-about-hero.jpg" alt="" aria-hidden="true" loading="eager" />
-    </div>
-    <div class="page-hero-content container">
-      <span class="eyebrow">The Studio</span>
-      <h1 style="font-size:var(--step-h1);margin-top:0.8rem;max-width:22rem;" data-split="words">
-        Restoring the discipline of interior design.
-      </h1>
-    </div>
-  </div>
-
-  <!-- Story split -->
-  <section class="section-pad bg-white" aria-labelledby="studio-story">
-    <div class="container split">
-      <div class="split-media">
-        <div class="media-block" data-reveal="scale">
-          <img src="assets/images/domus-about.jpg" alt="The Domus studio — design meeting" loading="lazy" />
-          <span class="media-caption">Studio — Byculla, Mumbai</span>
+    <!-- 01 — Cinematic Hero -->
+    <section class="about-hero" aria-label="The Domus studio hero">
+      <div class="about-hero-media" data-parallax="0.12">
+        <img src="assets/images/domus-about-hero.webp" alt="The Domus interior architecture studio hero"
+          loading="eager" />
+        <div class="about-hero-overlay"></div>
+      </div>
+      <div class="about-hero-content container">
+        <div class="hero-top-eyebrow">
+          <span class="eyebrow select-none">THE STUDIO</span>
         </div>
-        <div class="media-offset" data-reveal="scale">
-          <img src="assets/images/domus-about-lifestyle.jpg" alt="Material review session" loading="lazy" />
+        <h1 data-split="words">Restoring the discipline of interior design.</h1>
+
+        <div class="about-hero-footer">
+          <span class="meta-item">EST. 2014</span>
+          <span class="meta-item-divider">·</span>
+          <span class="meta-item">MUMBAI · GOA · ALIBAUG</span>
         </div>
       </div>
-      <div>
-        <span class="eyebrow">Our Story</span>
-        <h2 id="studio-story" data-reveal>Founded on a single conviction.</h2>
-        <span class="gold-rule"></span>
-        <p data-reveal style="color:var(--charcoal-dim);max-width:34rem;line-height:1.85;">
-          The Domus was founded in 2014 by Naveen Rao after eight years designing residential interiors for other studios. He observed a persistent tendency in Indian interior design to equate quality with quantity — more materials, more finishes, more decoration. The Domus was built as a deliberate correction.
-        </p>
-        <p data-reveal style="color:var(--charcoal-dim);max-width:34rem;line-height:1.85;margin-top:1rem;">
-          The studio's name is taken from the Latin word for a private dwelling — not a house in the commercial sense, but a specific kind of made place. The Domus designs spaces for living, not for display.
-        </p>
-        <div class="counters" data-reveal-stagger>
-          <div class="counter"><span class="num" data-count="120" data-suffix="+">0</span><span class="label">Residences</span></div>
-          <div class="counter"><span class="num" data-count="12">0</span><span class="label">Years</span></div>
-          <div class="counter"><span class="num" data-count="34" data-suffix="+">0</span><span class="label">Craftsmen</span></div>
+      <div class="scroll-indicator-wrap" aria-hidden="true">
+        <div class="scroll-indicator-line"></div>
+      </div>
+    </section>
+
+    <!-- 02 — Studio Story -->
+    <section class="story-section bg-white" aria-labelledby="studio-story">
+      <div class="container story-grid">
+        <!-- Asymmetric Image Blocks -->
+        <div class="story-visuals">
+          <div class="story-main-wrap clip-reveal" data-reveal>
+            <img src="assets/images/domus-about.webp" alt="The Domus studio in Byculla, Mumbai" loading="lazy" />
+          </div>
+          <div class="story-detail-wrap clip-reveal" data-reveal data-parallax="0.04">
+            <img src="assets/images/domus-about-lifestyle.webp" alt="Material review at The Domus" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Copy Block offset vertically -->
+        <div class="story-copy" data-reveal>
+          <span class="eyebrow">OUR STORY</span>
+          <h2 id="studio-story">Designed for living, not for display.</h2>
+          <span class="gold-rule"></span>
+          <p class="intro">
+            The Domus was founded in 2014 by Naveen Rao after eight years designing residential interiors for other
+            studios.
+          </p>
+          <p class="body-copy">
+            He observed a persistent tendency in Indian interior design to equate quality with quantity — more
+            materials, more finishes, more decoration. The Domus was built as a deliberate correction: fewer gestures,
+            better materials, and spaces that feel considered rather than decorated.
+          </p>
+          <p class="body-copy">
+            The studio's name comes from the Latin word for a private dwelling — a made place shaped around the rituals
+            of everyday life. That idea remains at the centre of every project we take on.
+          </p>
+
+          <!-- Stats wrapper with counter trigger -->
+          <div class="about-stats counter" data-reveal-stagger>
+            <div class="about-stat">
+              <span class="num" data-count="120" data-suffix="+">0</span>
+              <span class="label">Residences</span>
+            </div>
+            <div class="about-stat">
+              <span class="num" data-count="12">0</span>
+              <span class="label">Years</span>
+            </div>
+            <div class="about-stat">
+              <span class="num" data-count="34" data-suffix="+">0</span>
+              <span class="label">Craftsmen</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Values -->
-  <section class="section-pad-sm bg-white" aria-labelledby="values-heading">
+    <!-- 03 — Philosophy / Principles -->
+    <section class="principles-section" aria-labelledby="values-heading">
+      <div class="container">
+        <div class="principles-head" data-reveal>
+          <span class="eyebrow">What We Believe</span>
+          <h2 id="values-heading">Four things we will not compromise on.</h2>
+        </div>
+
+        <div class="principles-grid">
+          <article class="principle" data-reveal>
+            <div class="principle-inner">
+              <span class="principle-index">01</span>
+              <span class="principle-mark"></span>
+              <h3>Site before studio</h3>
+              <p>Every project begins with an extended site visit. We understand the light, proportion and context
+                before drawing the first line.</p>
+            </div>
+          </article>
+
+          <article class="principle" data-reveal>
+            <div class="principle-inner">
+              <span class="principle-index">02</span>
+              <span class="principle-mark"></span>
+              <h3>Material honesty</h3>
+              <p>We never specify a material to mimic another. Timber looks like timber; stone looks like stone.</p>
+            </div>
+          </article>
+
+          <article class="principle" data-reveal>
+            <div class="principle-inner">
+              <span class="principle-index">03</span>
+              <span class="principle-mark"></span>
+              <h3>Named craftsmen</h3>
+              <p>Every bespoke element is made by a named artisan whose workshop and process we know.</p>
+            </div>
+          </article>
+
+          <article class="principle" data-reveal>
+            <div class="principle-inner">
+              <span class="principle-index">04</span>
+              <span class="principle-mark"></span>
+              <h3>Slow design</h3>
+              <p>We maintain a small number of projects at any given time. Quality requires attention, not speed.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 — Large Philosophy Statement -->
+    <section class="quote-section" aria-label="Design philosophy">
+      <div class="quote-container container" data-reveal>
+        <blockquote data-parallax="0.02">“We begin every project by asking what the space demands — not what the client
+          wants to show.”</blockquote>
+        <cite class="quote-attribution">— Naveen Rao, Principal Designer</cite>
+      </div>
+    </section>
+
+    <!-- 05 — History Timeline -->
+    <section class="history-section bg-white" aria-labelledby="timeline-heading">
+      <div class="container history-layout">
+        <div class="history-title" data-reveal>
+          <span class="eyebrow">History</span>
+          <h2 id="timeline-heading">Twelve years in brief.</h2>
+        </div>
+
+        <div class="timeline-wrapper" data-reveal>
+          <div class="timeline-line">
+            <div class="timeline-line-progress"></div>
+          </div>
+
+          <div class="timeline-items">
+            <div class="timeline-item" data-year="2014">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="yr">2014</span>
+                <h4>Studio founded</h4>
+                <p>Began as a two-person practice in a converted mill house in Byculla, Mumbai.</p>
+              </div>
+            </div>
+            <div class="timeline-item" data-year="2016">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="yr">2016</span>
+                <h4>First industry award</h4>
+                <p>Recognised by the Indian Institute of Interior Designers for Residence Ferreira, Alibaug.</p>
+              </div>
+            </div>
+            <div class="timeline-item" data-year="2018">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="yr">2018</span>
+                <h4>Goa studio opened</h4>
+                <p>Second workspace opened to support growing coastal residential commissions.</p>
+              </div>
+            </div>
+            <div class="timeline-item" data-year="2019">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="yr">2019</span>
+                <h4>Hospitality wing</h4>
+                <p>Extended into boutique hospitality, starting with a nine-room coastal property in North Goa.</p>
+              </div>
+            </div>
+            <div class="timeline-item" data-year="2022">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="yr">2022</span>
+                <h4>Team reaches 12</h4>
+                <p>Deliberate decision to stop at twelve people — size is a design decision.</p>
+              </div>
+            </div>
+            <div class="timeline-item" data-year="2024">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="yr">2024</span>
+                <h4>Material lab established</h4>
+                <p>A dedicated space for testing plaster, stone and timber finishes before specification.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 — People -->
+    <section class="people-section" aria-labelledby="team-heading">
+      <div class="container">
+        <div class="people-head" data-reveal>
+          <div>
+            <span class="eyebrow">The People</span>
+            <h2 id="team-heading">Twelve designers.<br>One conviction.</h2>
+          </div>
+          <p class="people-head-right">A small, deliberate team who share a preference for considered work over volume.
+          </p>
+        </div>
+
+        <div class="people-grid" data-reveal-stagger>
+          <article class="person">
+            <div class="person-image clip-reveal">
+              <img src="assets/images/domus-about-naveen.webp" alt="Naveen Rao, Principal Designer" loading="lazy" />
+            </div>
+            <div class="person-info">
+              <h3>Naveen Rao</h3>
+              <p class="role">Principal Designer</p>
+            </div>
+          </article>
+
+          <article class="person">
+            <div class="person-image clip-reveal">
+              <div class="person-monogram-placeholder">
+                <span class="monogram-text">IV</span>
+              </div>
+            </div>
+            <div class="person-info">
+              <h3>Ishika Verma</h3>
+              <p class="role">Head of Materials</p>
+            </div>
+          </article>
+
+          <article class="person">
+            <div class="person-image clip-reveal">
+              <div class="person-monogram-placeholder">
+                <span class="monogram-text">OS</span>
+              </div>
+            </div>
+            <div class="person-info">
+              <h3>Omar Sheikh</h3>
+              <p class="role">Project Director</p>
+            </div>
+          </article>
+
+          <article class="person">
+            <div class="person-image clip-reveal">
+              <div class="person-monogram-placeholder">
+                <span class="monogram-text">PI</span>
+              </div>
+            </div>
+            <div class="person-info">
+              <h3>Priya Iyer</h3>
+              <p class="role">Studio Manager</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 — Final CTA -->
+    <section class="final-cta bg-white" data-reveal>
+      <div class="container">
+        <span class="eyebrow">WORK WITH US</span>
+        <h2>Ready to begin?</h2>
+        <p>We accept a limited number of new commissions each year. Reach out early.</p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn btn-primary magnetic ripple-el">START A PROJECT</a>
+          <a href="projects.html" class="btn btn-ghost magnetic">SEE OUR WORK</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
     <div class="container">
-      <div class="section-head" data-reveal>
-        <span class="eyebrow">What We Believe</span>
-        <h2 id="values-heading">Four things we will not compromise on.</h2>
-      </div>
-    </div>
-    <div class="swatch-board" data-reveal-stagger>
-      <div class="swatch">
-        <span class="idx">01</span>
-        <div class="chip gold"></div>
-        <div><h4>Site before studio</h4><p>Every project begins with an extended site visit. No design decisions are made before we understand the light.</p></div>
-      </div>
-      <div class="swatch">
-        <span class="idx">02</span>
-        <div class="chip mist"></div>
-        <div><h4>Material honesty</h4><p>We never specify a material to mimic another. Timber looks like timber; stone looks like stone.</p></div>
-      </div>
-      <div class="swatch">
-        <span class="idx">03</span>
-        <div class="chip stone"></div>
-        <div><h4>Named craftsmen</h4><p>Every bespoke element in a Domus project is made by a named artisan whose workshop we have visited.</p></div>
-      </div>
-      <div class="swatch">
-        <span class="idx">04</span>
-        <div class="chip oak"></div>
-        <div><h4>Slow design</h4><p>We maintain a small number of projects at any given time. Quality requires attention, not speed.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pull quote -->
-  <div class="pull-quote" data-reveal>
-    <blockquote>"We begin every project by asking what the space demands — not what the client wants to show."</blockquote>
-    <cite>— Naveen Rao, Principal Designer</cite>
-  </div>
-
-  <!-- Timeline -->
-  <section class="section-pad bg-stone" aria-labelledby="timeline-heading">
-    <div class="container">
-      <div class="section-head" data-reveal>
-        <span class="eyebrow">History</span>
-        <h2 id="timeline-heading">Twelve years in brief.</h2>
-      </div>
-      <div class="timeline" data-reveal>
-        <div class="timeline-row"><span class="yr">2014</span><div><h4>Studio founded</h4><p>Began as a two-person practice in a converted mill house in Byculla, Mumbai.</p></div></div>
-        <div class="timeline-row"><span class="yr">2016</span><div><h4>First industry award</h4><p>Recognised by the Indian Institute of Interior Designers for Residence Ferreira, Alibaug.</p></div></div>
-        <div class="timeline-row"><span class="yr">2018</span><div><h4>Goa studio opened</h4><p>Second workspace opened to support growing coastal residential commissions.</p></div></div>
-        <div class="timeline-row"><span class="yr">2019</span><div><h4>Hospitality wing</h4><p>Extended into boutique hospitality, starting with a nine-room coastal property in North Goa.</p></div></div>
-        <div class="timeline-row"><span class="yr">2022</span><div><h4>Team reaches 12</h4><p>Deliberate decision to stop at twelve people — size is a design decision.</p></div></div>
-        <div class="timeline-row"><span class="yr">2024</span><div><h4>Material lab established</h4><p>A dedicated space for testing plaster, stone, and timber finishes before specification.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Team -->
-  <section class="section-pad bg-white" aria-labelledby="team-heading">
-    <div class="container">
-      <div class="section-head" data-reveal>
-        <span class="eyebrow">The People</span>
-        <h2 id="team-heading">Twelve designers.<br>One conviction.</h2>
-        <p>A small, deliberate team who share a preference for considered work over volume.</p>
-      </div>
-      <div class="team-grid" data-reveal-stagger>
-        <div class="team-card">
-          <div class="team-photo">
-            <img src="assets/images/domus-about-naveen.jpg" alt="Naveen Rao, Principal Designer" loading="lazy" />
-            <div class="team-social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">ig</a></div>
-          </div>
-          <h4>Naveen Rao</h4><p class="role">Principal Designer</p>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3>The <em>Domus</em></h3>
+          <p>Interior architecture studio. Mumbai · Goa · Alibaug. Est. 2014.</p>
         </div>
-        <div class="team-card">
-          <div class="team-photo">
-            <div style="width:100%;height:100%;background:var(--stone);"></div>
-            <div class="team-social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">ig</a></div>
-          </div>
-          <h4>Ishika Verma</h4><p class="role">Head of Materials</p>
+        <div class="footer-col">
+          <h5>Studio</h5>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
         </div>
-        <div class="team-card">
-          <div class="team-photo">
-            <div style="width:100%;height:100%;background:var(--mist-light);"></div>
-            <div class="team-social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">ig</a></div>
-          </div>
-          <h4>Omar Sheikh</h4><p class="role">Project Director</p>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="services.html#residential">Residential</a></li>
+            <li><a href="services.html#hospitality">Hospitality</a></li>
+            <li><a href="services.html#materials">Materials</a></li>
+          </ul>
         </div>
-        <div class="team-card">
-          <div class="team-photo">
-            <div style="width:100%;height:100%;background:var(--gold-wash);border:1px solid var(--gold-pale);"></div>
-            <div class="team-social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">ig</a></div>
-          </div>
-          <h4>Priya Iyer</h4><p class="role">Studio Manager</p>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li>studio@thedomus.in</li>
+            <li>+91 22 0000 0000</li>
+            <li>Byculla, Mumbai</li>
+          </ul>
         </div>
       </div>
+      <div class="footer-bottom">
+        <span>© 2026 The Domus Interior Architecture. All rights reserved.</span>
+        <div class="footer-social"><a href="#" aria-label="Instagram">Instagram</a><a href="#"
+            aria-label="Pinterest">Pinterest</a><a href="#" aria-label="LinkedIn">LinkedIn</a></div>
+      </div>
     </div>
-  </section>
+  </footer>
 
-  <!-- CTA -->
-  <section class="section-pad bg-stone" style="text-align:center;" data-reveal>
-    <span class="eyebrow">Work with us</span>
-    <h2 style="margin-top:1rem;max-width:22rem;margin-inline:auto;">Ready to begin?</h2>
-    <p style="margin-top:1rem;color:var(--charcoal-dim);max-width:30rem;margin-inline:auto;line-height:1.8;">
-      We accept a limited number of new commissions each year. Reach out early.
-    </p>
-    <div style="margin-top:2.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-      <a href="contact.html" class="btn btn-primary magnetic ripple-el">Start a Project</a>
-      <a href="projects.html" class="btn btn-ghost magnetic">See Our Work</a>
-    </div>
-  </section>
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+  <script src="js/templatemo-629-nexus-script.js"></script>
+  <script src="js/noise.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/text-split.js"></script>
+  <script src="js/scroll.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
 
-</main>
+      /* ===========================================================
+         TIMELINE INTERACTION
+         =========================================================== */
+      const timelineSection = document.querySelector('.history-section');
+      const timelineLineProgress = document.querySelector('.timeline-line-progress');
+      const timelineItems = document.querySelectorAll('.timeline-item');
 
-<footer class="site-footer" role="contentinfo">
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand"><h3>The <em>Domus</em></h3><p>Interior architecture studio. Mumbai · Goa · Alibaug. Est. 2014.</p></div>
-      <div class="footer-col"><h5>Studio</h5><ul><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html#residential">Residential</a></li><li><a href="services.html#hospitality">Hospitality</a></li><li><a href="services.html#materials">Materials</a></li></ul></div>
-      <div class="footer-col"><h5>Contact</h5><ul><li>studio@thedomus.in</li><li>+91 22 0000 0000</li><li>Byculla, Mumbai</li></ul></div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 The Domus Interior Architecture. All rights reserved.</span>
-      <div class="footer-social"><a href="#" aria-label="Instagram">Instagram</a><a href="#" aria-label="Pinterest">Pinterest</a><a href="#" aria-label="LinkedIn">LinkedIn</a></div>
-    </div>
-  </div>
-</footer>
+      if (timelineSection && timelineLineProgress && timelineItems.length) {
+        const timelineObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              timelineItems.forEach(item => item.classList.remove('active'));
+              entry.target.classList.add('active');
+              entry.target.classList.add('in-view');
+            }
+          });
+        }, { rootMargin: '-30% 0px -40% 0px', threshold: 0.1 });
 
-<button class="back-to-top" aria-label="Back to top">↑</button>
-<script src="js/noise.js"></script>
-<script src="js/cursor.js"></script>
-<script src="js/text-split.js"></script>
-<script src="js/scroll.js"></script>
-<script src="js/animations.js"></script>
-<script src="js/main.js"></script>
+        timelineItems.forEach(item => timelineObserver.observe(item));
+
+        const updateTimelineLine = () => {
+          const vh = window.innerHeight;
+          const wrapper = document.querySelector('.timeline-wrapper');
+          if (!wrapper) return;
+          const wrapperRect = wrapper.getBoundingClientRect();
+          const relativeScroll = (vh * 0.55) - wrapperRect.top;
+          const totalHeight = wrapperRect.height;
+          const progress = Math.max(0, Math.min(1, relativeScroll / totalHeight));
+          timelineLineProgress.style.height = `${progress * 100}%`;
+        };
+
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          window.addEventListener('scroll', updateTimelineLine, { passive: true });
+          updateTimelineLine();
+        } else {
+          timelineLineProgress.style.height = '100%';
+          timelineItems.forEach(item => item.classList.add('active', 'in-view'));
+        }
+      }
+
+      /* ===========================================================
+         FALLBACK REVEAL — makes clip-reveal images visible once the
+         user has scrolled past the DOMUS 400vh spacer.
+         The IntersectionObserver in scroll.js may not re-fire reliably
+         after a long fixed-card scroll sequence, so we supplement it
+         with a scroll-based viewport check here.
+         =========================================================== */
+      const NEXUS_SPACER_H = window.innerHeight * 4; // 400vh
+
+      // All elements inside .about-page that need revealing
+      const revealTargets = document.querySelectorAll(
+        '.about-page [data-reveal], .about-page [data-reveal-stagger], .about-page .clip-reveal'
+      );
+
+      function checkReveal() {
+        const scrollY = window.scrollY || window.pageYOffset || 0;
+
+        // Only run once the user has scrolled past the DOMUS block
+        if (scrollY < NEXUS_SPACER_H - window.innerHeight) return;
+
+        const vTop = 0;
+        const vBottom = window.innerHeight;
+
+        revealTargets.forEach(el => {
+          if (el.classList.contains('in-view')) return; // already revealed
+          const rect = el.getBoundingClientRect();
+          // Element is at least partially within the viewport
+          if (rect.top < vBottom * 0.92 && rect.bottom > vTop) {
+            el.classList.add('in-view');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', checkReveal, { passive: true });
+      // Run once in case user is already past DOMUS on load/refresh
+      setTimeout(checkReveal, 200);
+    });
+  </script>
+
 </body>
+
 </html>
