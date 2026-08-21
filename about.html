@@ -259,23 +259,43 @@
     }
 
     /* =====================================================
-     03 — PHILOSOPHY / PRINCIPLES
+     03 — PHILOSOPHY / PRINCIPLES (REDESIGNED)
      ===================================================== */
     .about-page .principles-section {
-      padding-block: var(--section-pad);
-      background: var(--stone);
+      padding-block: clamp(100px, 12vw, 160px);
+      background: var(--bg-light); /* Matching off-white/warm ivory background of Domus */
+      position: relative;
     }
 
     .about-page .principles-head {
-      max-width: 800px;
-      margin-bottom: clamp(4rem, 7vw, 6rem);
+      max-width: 900px;
+      margin-bottom: clamp(4rem, 8vw, 6rem);
+      text-align: left;
+    }
+
+    .about-page .principles-head .eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      letter-spacing: var(--tracking-label);
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      display: inline-block;
+      margin-bottom: 12px;
     }
 
     .about-page .principles-head h2 {
-      font-size: clamp(2.5rem, 4.8vw, 4.8rem);
-      line-height: 0.98;
-      letter-spacing: -0.035em;
-      margin-top: 0.5rem;
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(2.4rem, 4.5vw, 4.8rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--text-dark);
+    }
+    
+    .about-page .principles-head h2 em {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 300;
     }
 
     .about-page .principles-grid {
@@ -283,16 +303,16 @@
       grid-template-columns: repeat(4, 1fr);
       border-top: 1px solid var(--border-light);
       border-bottom: 1px solid var(--border-light);
-      margin-inline: calc(var(--gutter) * -0.5);
-      /* Seamless frame appearance */
+      margin-inline: 0;
+      background: transparent;
     }
 
     .about-page .principle {
       border-right: 1px solid var(--border-light);
-      padding: 3rem 1.8rem 4rem;
+      padding: clamp(40px, 4vw, 64px) clamp(24px, 2.5vw, 40px);
       position: relative;
-      overflow: hidden;
-      transition: background-color 0.6s var(--ease-out);
+      background: transparent;
+      transition: background-color 0.5s var(--ease-out), transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
     }
 
     .about-page .principle:last-child {
@@ -302,64 +322,71 @@
     .about-page .principle-inner {
       position: relative;
       z-index: 2;
-      transition: transform 0.5s var(--ease-out);
+      display: flex;
+      flex-direction: column;
     }
 
     .about-page .principle-index {
-      font-family: var(--font-body);
-      font-size: 0.72rem;
-      font-weight: var(--weight-medium);
-      letter-spacing: 0.15em;
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 4.5vw, 5.2rem);
+      font-weight: 300;
       color: var(--accent-gold);
+      opacity: 0.15;
+      line-height: 0.85;
       display: block;
-      transition: transform 0.5s var(--ease-out), color 0.5s var(--ease-out);
+      margin-bottom: 24px;
+      transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
     }
 
     .about-page .principle-mark {
       display: block;
-      width: 6px;
-      height: 6px;
-      background: var(--border-light);
-      margin-block: 2.5rem 1.8rem;
-      transition: background-color 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+      width: 48px;
+      height: 1px;
+      background: var(--accent-gold);
+      margin-bottom: 28px;
+      opacity: 0.4;
+      transition: width 0.5s var(--ease-out), opacity 0.5s var(--ease-out);
     }
 
     .about-page .principle h3 {
       font-family: var(--font-display);
-      font-size: clamp(1.2rem, 2vw, 1.5rem);
-      margin-bottom: 1rem;
-      transition: transform 0.5s var(--ease-out);
+      font-weight: 400;
+      font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+      color: var(--text-dark);
+      margin-bottom: 16px;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
     }
 
     .about-page .principle p {
-      font-size: 0.82rem;
-      line-height: 1.7;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      line-height: 1.75;
       color: var(--charcoal-dim);
-      max-width: 250px;
-      transition: color 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+      margin: 0;
+      transition: color 0.5s var(--ease-out);
     }
 
-    /* Philosophy Hover Interaction */
+    /* Philosophy Hover Interaction - Redesigned to be Premium & Subdued */
     .about-page .principle:hover {
       background-color: var(--white);
-    }
-
-    .about-page .principle:hover .principle-inner {
-      transform: translateX(8px);
+      transform: translateY(-8px);
+      box-shadow: 0 24px 60px rgba(28, 28, 30, 0.05), 0 8px 24px rgba(184, 154, 92, 0.03);
+      z-index: 10;
     }
 
     .about-page .principle:hover .principle-index {
-      color: var(--charcoal);
-      transform: translateY(-2px);
+      opacity: 0.65;
+      transform: translateY(-4px);
     }
 
     .about-page .principle:hover .principle-mark {
-      background-color: var(--accent-gold);
-      transform: scale(1.6);
+      width: 72px;
+      opacity: 1;
     }
 
     .about-page .principle:hover p {
-      color: var(--charcoal);
+      color: var(--text-dark);
     }
 
     /* =====================================================
@@ -405,168 +432,271 @@
     }
 
     /* =====================================================
-     05 — HISTORY TIMELINE
+     05 — HISTORY TIMELINE (WORLD-CLASS INTERACTIVE SWITCHER)
      ===================================================== */
     .about-page .history-section {
-      padding-block: var(--section-pad);
+      padding-block: clamp(100px, 12vw, 160px);
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
     }
 
     .about-page .history-layout {
       display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: var(--gutter);
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: clamp(48px, 6vw, 96px);
+      align-items: start;
     }
 
-    .about-page .history-title {
-      position: sticky;
-      top: 120px;
-      height: fit-content;
+    .about-page .history-nav-col {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
     }
 
     .about-page .history-title h2 {
-      font-size: clamp(2.5rem, 4.5vw, 4.4rem);
-      line-height: 1.0;
-      letter-spacing: -0.035em;
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 4.5vw, 4.8rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
       margin-top: 0.5rem;
+      color: var(--text-dark);
     }
 
-    .about-page .timeline-wrapper {
-      position: relative;
-      padding-left: 2.5rem;
-    }
-
-    .about-page .timeline-line {
-      position: absolute;
-      left: 3px;
-      top: 8px;
-      bottom: 8px;
-      width: 1px;
-      background: var(--border-light);
-    }
-
-    .about-page .timeline-line-progress {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 0%;
-      background: var(--accent-gold);
-      transition: height 0.1s linear;
-    }
-
-    .about-page .timeline-items {
+    .about-page .history-year-tabs {
       display: flex;
       flex-direction: column;
-      gap: 3.5rem;
+      align-items: flex-start;
+      gap: 12px;
     }
 
-    .about-page .timeline-item {
-      position: relative;
-      transition: opacity 0.5s ease;
-    }
-
-    .about-page .timeline-dot {
-      position: absolute;
-      left: -2.5rem;
-      top: 8px;
-      transform: translateX(-50%);
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--mist);
-      border: 1px solid var(--white);
-      transition: background-color 0.5s var(--ease-out), transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
-      z-index: 2;
-    }
-
-    .about-page .timeline-content {
-      transform: translateY(10px);
-      opacity: 0.5;
-      transition: transform 0.8s var(--ease-out), opacity 0.8s var(--ease-out);
-    }
-
-    .about-page .timeline-item.in-view .timeline-content {
-      transform: translateY(0);
-      opacity: 0.75;
-    }
-
-    .about-page .timeline-item.active .timeline-dot {
-      background-color: var(--accent-gold);
-      transform: translateX(-50%) scale(1.6);
-      box-shadow: 0 0 10px rgba(184, 154, 92, 0.3);
-    }
-
-    .about-page .timeline-item.active .timeline-content {
-      opacity: 1;
-    }
-
-    .about-page .timeline-item .yr {
+    .about-page .history-tab {
+      background: none;
+      border: none;
       font-family: var(--font-display);
-      font-size: clamp(2.2rem, 3.2vw, 3.4rem);
+      font-size: clamp(2.8rem, 4.5vw, 5.2rem);
+      font-weight: 300;
+      line-height: 0.9;
+      color: var(--text-dark);
+      opacity: 0.15;
+      cursor: pointer;
+      padding: 0;
+      transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out), color 0.4s var(--ease-out);
+      transform-origin: left center;
+    }
+
+    .about-page .history-tab:hover {
+      opacity: 0.5;
+      transform: scale(1.03);
+    }
+
+    .about-page .history-tab.active {
+      opacity: 1;
+      color: var(--accent-gold);
+      transform: scale(1.08);
+    }
+
+    .about-page .history-panes-col {
+      position: relative;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: clamp(24px, 3.5vw, 48px);
+      height: 100%;
+    }
+
+    .about-page .history-pane-border {
+      width: 1px;
+      background: var(--border-light);
+      align-self: stretch;
+    }
+
+    .about-page .history-panes-wrapper {
+      position: relative;
+      min-height: 280px;
+    }
+
+    .about-page .history-pane {
+      display: none;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+    }
+
+    .about-page .history-pane.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .about-page .pane-grid-wrapper {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: clamp(32px, 4vw, 56px);
+      align-items: center;
+    }
+
+    .about-page .pane-text-side {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .about-page .pane-visual-side {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .about-page .pane-image-frame {
+      width: 100%;
+      aspect-ratio: 4 / 3.4;
+      overflow: hidden;
+      border: 1px solid rgba(28, 28, 30, 0.05);
+      position: relative;
+      background-color: var(--stone-mid);
+    }
+
+    .about-page .pane-image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s var(--ease-out);
+    }
+
+    .about-page .history-pane.active .pane-image-frame img {
+      transform: scale(1.03);
+    }
+
+    /* Architectural Metadata Dossier List */
+    .about-page .pane-meta-list {
+      margin-top: clamp(24px, 3.5vw, 36px);
+      border-top: 1px solid var(--border-light);
+      padding-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .about-page .pane-meta-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(28, 28, 30, 0.04);
+      padding-bottom: 8px;
+    }
+
+    .about-page .pane-meta-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .about-page .meta-label {
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      letter-spacing: var(--tracking-label);
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .about-page .meta-value {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .about-page .pane-num {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      letter-spacing: var(--tracking-label);
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 18px;
+    }
+
+    .about-page .pane-year-header {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 5vw, 6rem);
       line-height: 1;
       font-weight: 300;
       color: var(--accent-gold);
       display: block;
-      margin-bottom: 0.8rem;
+      margin-bottom: 12px;
+      opacity: 0.25;
     }
 
-    .about-page .timeline-item h4 {
-      font-family: var(--font-body);
-      font-size: 1.05rem;
-      font-weight: var(--weight-medium);
-      letter-spacing: var(--tracking-tight);
-      margin-bottom: 0.4rem;
+    .about-page .pane-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 400;
+      line-height: 1.15;
       color: var(--text-dark);
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
     }
 
-    .about-page .timeline-item p {
-      font-size: 0.85rem;
+    .about-page .pane-desc {
+      font-family: var(--font-body);
+      font-size: clamp(0.92rem, 1.05vw, 1.05rem);
       line-height: 1.7;
       color: var(--charcoal-dim);
-      max-width: 520px;
+      max-width: 48ch;
+      margin: 0;
     }
 
     /* =====================================================
-     06 — PEOPLE / TEAM
+     06 — PEOPLE / TEAM (REDESIGNED WORLD-CLASS ASYMMETRIC GRID)
      ===================================================== */
     .about-page .people-section {
-      padding-block: var(--section-pad);
+      padding-block: clamp(100px, 12vw, 160px);
       background: var(--stone);
-    }
-
-    .about-page .people-head {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--gutter);
-      align-items: end;
-      margin-bottom: clamp(4rem, 8vw, 6rem);
-    }
-
-    .about-page .people-head h2 {
-      font-size: clamp(2.5rem, 4.5vw, 4.4rem);
-      line-height: 0.98;
-      letter-spacing: -0.035em;
-      margin-top: 0.5rem;
-    }
-
-    .about-page .people-head-right {
-      font-size: clamp(1rem, 1.3vw, 1.2rem);
-      line-height: 1.7;
-      color: var(--charcoal-dim);
-      max-width: 480px;
-      justify-self: end;
     }
 
     .about-page .people-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px 32px;
+      align-items: stretch;
+    }
+
+    .about-page .people-editorial-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-right: 24px;
+    }
+
+    .about-page .people-editorial-card .eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      letter-spacing: var(--tracking-label);
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 12px;
+    }
+
+    .about-page .people-editorial-card h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 3.8vw, 3.8rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--text-dark);
+      margin-bottom: 24px;
+    }
+
+    .about-page .people-editorial-card p {
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: var(--charcoal-dim);
     }
 
     .about-page .person {
-      position: relative;
       display: flex;
       flex-direction: column;
+      background: transparent;
+      transition: transform 0.5s var(--ease-out);
     }
 
     .about-page .person-image {
@@ -574,6 +704,7 @@
       overflow: hidden;
       background-color: var(--stone-mid);
       position: relative;
+      border: 1px solid rgba(28, 28, 30, 0.05);
     }
 
     .about-page .person-image img {
@@ -584,43 +715,46 @@
       transition: transform 1.2s var(--ease-out), filter 1.2s var(--ease-out);
     }
 
-    /* Editorial CSS Monograms for Missing Team Photos */
+    /* Artistic Framed Monogram Placeholder */
     .about-page .person-monogram-placeholder {
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, var(--stone-mid) 0%, var(--mist) 100%);
-      border: 1px solid var(--border-light);
+      background: var(--mist-light);
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
+      transition: background-color 0.6s var(--ease-out);
     }
 
     .about-page .person-monogram-placeholder::after {
       content: '';
       position: absolute;
-      inset: 12px;
-      border: 1px dashed rgba(28, 28, 30, 0.08);
+      inset: 16px;
+      border: 1px solid rgba(184, 154, 92, 0.15);
+      transition: border-color 0.6s var(--ease-out);
     }
 
     .about-page .monogram-text {
       font-family: var(--font-display);
-      font-size: clamp(3rem, 5vw, 4.8rem);
+      font-style: italic;
+      font-size: clamp(3rem, 5vw, 4.4rem);
       font-weight: 300;
-      letter-spacing: 0.05em;
-      color: rgba(28, 28, 30, 0.25);
-      transition: color 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+      color: var(--accent-gold);
+      opacity: 0.65;
+      transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
     }
 
     .about-page .person-info {
-      padding-block: 1.4rem 0.5rem;
+      padding-block: 20px 0;
     }
 
     .about-page .person h3 {
-      font-family: var(--font-body);
-      font-size: 1.05rem;
-      font-weight: var(--weight-medium);
-      letter-spacing: var(--tracking-tight);
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(1.2rem, 1.8vw, 1.4rem);
+      color: var(--text-dark);
+      margin: 0 0 6px 0;
     }
 
     .about-page .person .role {
@@ -628,19 +762,88 @@
       font-size: 0.65rem;
       letter-spacing: var(--tracking-label);
       text-transform: uppercase;
-      color: var(--text-muted);
-      margin-top: 0.3rem;
+      color: var(--accent-gold);
+      margin: 0;
     }
 
-    /* Grayscale hover reveal */
+    /* Careers Tab Card Style */
+    .about-page .person-careers-card {
+      width: 100%;
+      height: 100%;
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(32px, 4vw, 48px) clamp(24px, 3vw, 36px);
+      box-sizing: border-box;
+      transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out), border-color 0.5s var(--ease-out);
+    }
+
+    .about-page .person-careers-card .careers-top h4 {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+      font-weight: 300;
+      color: var(--text-dark);
+      margin: 0 0 16px 0;
+      line-height: 1.25;
+    }
+
+    .about-page .person-careers-card .careers-top p {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--charcoal-dim);
+      margin: 0;
+    }
+
+    .about-page .person-careers-card .careers-link {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      letter-spacing: var(--tracking-button);
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-block;
+      margin-top: 24px;
+      transition: color 0.4s var(--ease-out);
+    }
+
+    .about-page .person-careers-card .careers-link:hover {
+      color: var(--text-dark);
+    }
+
+    /* Interaction Animations */
+    .about-page .person:hover {
+      transform: translateY(-6px);
+    }
+
     .about-page .person:hover .person-image img {
       transform: scale(1.06);
       filter: grayscale(0%);
     }
 
+    .about-page .person:hover .person-monogram-placeholder {
+      background: var(--white);
+    }
+
+    .about-page .person:hover .person-monogram-placeholder::after {
+      border-color: var(--accent-gold);
+    }
+
     .about-page .person:hover .monogram-text {
-      color: var(--accent-gold);
-      transform: scale(1.05);
+      opacity: 1;
+      transform: scale(1.03);
+    }
+
+    .about-page .person-careers-card-wrap:hover {
+      transform: translateY(-6px);
+    }
+
+    .about-page .person-careers-card-wrap:hover .person-careers-card {
+      border-color: var(--accent-gold);
+      box-shadow: 0 24px 60px rgba(28, 28, 30, 0.04);
     }
 
     /* =====================================================
@@ -742,6 +945,48 @@
 
       .about-page .people-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 40px 24px;
+      }
+      .about-page .people-editorial-card {
+        grid-column: 1 / -1;
+        padding-right: 0;
+        margin-bottom: 20px;
+      }
+      .about-page .history-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .about-page .history-year-tabs {
+        flex-direction: row;
+        width: 100%;
+        overflow-x: auto;
+        scrollbar-width: none;
+        gap: 28px;
+        -webkit-overflow-scrolling: touch;
+      }
+      .about-page .history-year-tabs::-webkit-scrollbar {
+        display: none;
+      }
+      .about-page .history-tab {
+        font-size: clamp(2rem, 3.8vw, 2.8rem);
+        flex: 0 0 auto;
+      }
+      .about-page .history-panes-col {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .about-page .history-pane-border {
+        display: none;
+      }
+      .about-page .history-panes-wrapper {
+        min-height: auto;
+      }
+      .about-page .pane-grid-wrapper {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .about-page .pane-image-frame {
+        aspect-ratio: 1.5;
       }
     }
 
@@ -763,8 +1008,7 @@
       }
 
       .about-page .history-layout {
-        grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 2rem;
       }
 
       .about-page .history-title {
@@ -965,11 +1209,11 @@
         </div>
       </div>
       <div class="matrix-right">
-        <img class="matrix-img active" data-panel="core" src="assets/images/domus-tab-core.jpg"
+        <img class="matrix-img active" data-panel="core" src="assets/images/nexus-tab-core.jpg"
           alt="The DOMUS core frame">
-        <img class="matrix-img" data-panel="fluidics" src="assets/images/domus-tab-fluidics.jpg"
+        <img class="matrix-img" data-panel="fluidics" src="assets/images/nexus-tab-fluidics.jpg"
           alt="The DOMUS fluidics manifold">
-        <img class="matrix-img" data-panel="sync" src="assets/images/domus-tab-sync.jpg"
+        <img class="matrix-img" data-panel="sync" src="assets/images/nexus-tab-sync.jpg"
           alt="The DOMUS sync timing plane">
         <div class="matrix-img-shade" aria-hidden="true"></div>
         <div class="matrix-caption" id="nexusMatrixCaption">FIG. 01 / CORE FRAME</div>
@@ -1016,7 +1260,7 @@
               <img src="assets/images/domus-prive-main.webp" alt="The Domus Prive" class="mega-img is-active"
                 data-key="prive" />
               <img src="assets/images/domus-west-main.webp" alt="The Domus 26 West" class="mega-img" data-key="west" />
-              <img src="assets/images/domus-east.webp" alt="The Domus 26 East" class="mega-img" data-key="east" />
+              <img src="assets/images/domus-hero.webp" alt="The Domus 26 East" class="mega-img" data-key="east" />
             </div>
           </div>
         </div>
@@ -1144,7 +1388,7 @@
       <div class="container">
         <div class="principles-head" data-reveal>
           <span class="eyebrow">What We Believe</span>
-          <h2 id="values-heading">Four things we will not compromise on.</h2>
+          <h2 id="values-heading">Four things we will <em>never</em> compromise on.</h2>
         </div>
 
         <div class="principles-grid">
@@ -1197,87 +1441,239 @@
       </div>
     </section>
 
-    <!-- 05 — History Timeline -->
+    <!-- 05 — History Timeline (Redesigned World-Class Interactive Switcher) -->
     <section class="history-section bg-white" aria-labelledby="timeline-heading">
       <div class="container history-layout">
-        <div class="history-title" data-reveal>
-          <span class="eyebrow">History</span>
-          <h2 id="timeline-heading">Twelve years in brief.</h2>
+        <!-- Left Side: Title & Year Tabs Stack -->
+        <div class="history-nav-col" data-reveal>
+          <div class="history-title">
+            <span class="eyebrow">History</span>
+            <h2 id="timeline-heading">Twelve years in brief.</h2>
+          </div>
+          <div class="history-year-tabs" role="tablist" aria-label="Timeline Years">
+            <button class="history-tab active" role="tab" aria-selected="true" data-tab="0">2014</button>
+            <button class="history-tab" role="tab" aria-selected="false" data-tab="1">2016</button>
+            <button class="history-tab" role="tab" aria-selected="false" data-tab="2">2018</button>
+            <button class="history-tab" role="tab" aria-selected="false" data-tab="3">2019</button>
+            <button class="history-tab" role="tab" aria-selected="false" data-tab="4">2022</button>
+            <button class="history-tab" role="tab" aria-selected="false" data-tab="5">2024</button>
+          </div>
         </div>
 
-        <div class="timeline-wrapper" data-reveal>
-          <div class="timeline-line">
-            <div class="timeline-line-progress"></div>
-          </div>
+        <!-- Right Side: Active Pane Display -->
+        <div class="history-panes-col" data-reveal>
+          <div class="history-pane-border" aria-hidden="true"></div>
+          
+          <div class="history-panes-wrapper">
+            <!-- Pane 01 -->
+            <article class="history-pane active" id="pane-0" role="tabpanel">
+              <div class="pane-grid-wrapper">
+                <div class="pane-text-side">
+                  <span class="pane-num">01 / 06</span>
+                  <span class="pane-year-header">2014</span>
+                  <h3 class="pane-title">Studio founded</h3>
+                  <p class="pane-desc">Began as a two-person practice in a converted mill house in Byculla, Mumbai.</p>
+                  
+                  <div class="pane-meta-list">
+                    <div class="pane-meta-item">
+                      <span class="meta-label">Location</span>
+                      <span class="meta-value">Byculla, Mumbai</span>
+                    </div>
+                    <div class="pane-meta-item">
+                      <span class="meta-label">Focus</span>
+                      <span class="meta-value">Residential architecture</span>
+                    </div>
+                    <div class="pane-meta-item">
+                      <span class="meta-label">Scale</span>
+                      <span class="meta-value">2 core practice members</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pane-visual-side">
+                  <div class="pane-image-frame">
+                    <img src="assets/images/domus-about.webp" alt="First Studio, Byculla, Mumbai" loading="lazy" />
+                  </div>
+                </div>
+              </div>
+            </article>
 
-          <div class="timeline-items">
-            <div class="timeline-item" data-year="2014">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <span class="yr">2014</span>
-                <h4>Studio founded</h4>
-                <p>Began as a two-person practice in a converted mill house in Byculla, Mumbai.</p>
+            <!-- Pane 02 -->
+            <article class="history-pane" id="pane-1" role="tabpanel">
+              <div class="pane-grid-wrapper">
+                <div class="pane-text-side">
+                  <span class="pane-num">02 / 06</span>
+                  <span class="pane-year-header">2016</span>
+                  <h3 class="pane-title">First industry award</h3>
+                  <p class="pane-desc">Recognised by the Indian Institute of Interior Designers for Residence Ferreira, Alibaug.</p>
+                  
+                  <div class="pane-meta-list">
+                    <div class="pane-meta-item">
+                      <span class="meta-label">Location</span>
+                      <span class="meta-value">Alibaug, Maharashtra</span>
+                    </div>
+                    <div class="pane-meta-item">
+                      <span class="meta-label">Focus</span>
+                      <span class="meta-value">Coastal villas</span>
+                    </div>
+                    <div class="pane-meta-item">
+                      <span class="meta-label">Recognition</span>
+                      <span class="meta-value">IIID Excellence Award</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pane-visual-side">
+                  <div class="pane-image-frame">
+                    <img src="assets/images/domus-art-of-detail.webp" alt="Residence Ferreira detail" loading="lazy" />
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="timeline-item" data-year="2016">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <span class="yr">2016</span>
-                <h4>First industry award</h4>
-                <p>Recognised by the Indian Institute of Interior Designers for Residence Ferreira, Alibaug.</p>
+            </article>
+
+            <!-- Pane 03 -->
+            <article class="history-pane" id="pane-2" role="tabpanel">
+              <div class="pane-grid-wrapper">
+                <div class="pane-text-side">
+                  <span class="pane-num">03 / 06</span>
+                  <span class="pane-year-header">2018</span>
+                  <h3 class="pane-title">Goa studio opened</h3>
+                  <p class="pane-desc">Second workspace opened to support growing coastal residential commissions.</p>
+                  
+                  <div class="pane-meta-list">
+                    <div class="pane-meta-item">
+                      <span class="meta-label">Location</span>
+                      <span class="meta-value">Assagao, North Goa</span>
+                    </div>
+                    <div class="pane-meta-item">
+                      <span class="meta-label">Focus</span>
+                      <span class="meta-value">Tropical modernism</span>
+                    </div>
+                    <div class="pane-meta-item">
+                      <span class="meta-label">Expansion</span>
+                      <span class="meta-value">Second design office</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pane-visual-side">
+                  <div class="pane-image-frame">
+                    <img src="assets/images/domus-about-lifestyle.webp" alt="Goa design workspace" loading="lazy" />
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="timeline-item" data-year="2018">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <span class="yr">2018</span>
-                <h4>Goa studio opened</h4>
-                <p>Second workspace opened to support growing coastal residential commissions.</p>
+            </article>
+
+            <!-- Pane 04 -->
+            <article class="history-pane" id="pane-3" role="tabpanel">
+              <div class="pane-grid-wrapper">
+                <div class="pane-text-side">
+                  <span class="pane-num">04 / 06</span>
+                  <span class="pane-year-header">2019</span>
+                  <h3 class="pane-title">Hospitality wing</h3>
+                  <p class="pane-desc">Extended into boutique hospitality, starting with a nine-room coastal property in North Goa.</p>
+                  
+                  <div class="pane-meta-list">
+                    <div class="pane-meta-item">
+                      <span class="meta-label">Location</span>
+                      <span class="meta-value">Mandrem, North Goa</span>
+                    </div>
+                    <div class="pane-meta-item">
+                      <span class="meta-label">Focus</span>
+                      <span class="meta-value">Boutique hospitality</span>
+                    </div>
+                    <div class="pane-meta-item">
+                      <span class="meta-label">Scale</span>
+                      <span class="meta-value">9-suite private resort</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pane-visual-side">
+                  <div class="pane-image-frame">
+                    <img src="assets/images/domus-interior-campaign.webp" alt="Boutique hospitality design" loading="lazy" />
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="timeline-item" data-year="2019">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <span class="yr">2019</span>
-                <h4>Hospitality wing</h4>
-                <p>Extended into boutique hospitality, starting with a nine-room coastal property in North Goa.</p>
+            </article>
+
+            <!-- Pane 05 -->
+            <article class="history-pane" id="pane-4" role="tabpanel">
+              <div class="pane-grid-wrapper">
+                <div class="pane-text-side">
+                  <span class="pane-num">05 / 06</span>
+                  <span class="pane-year-header">2022</span>
+                  <h3 class="pane-title">Team reaches 12</h3>
+                  <p class="pane-desc">Deliberate decision to stop at twelve people — size is a design decision.</p>
+                  
+                  <div class="pane-meta-list">
+                    <div class="pane-meta-item">
+                      <span class="meta-label">Location</span>
+                      <span class="meta-value">Mumbai / Goa</span>
+                    </div>
+                    <div class="pane-meta-item">
+                      <span class="meta-label">Focus</span>
+                      <span class="meta-value">Full service design</span>
+                    </div>
+                    <div class="pane-meta-item">
+                      <span class="meta-label">Scale</span>
+                      <span class="meta-value">Locked at 12 designers</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pane-visual-side">
+                  <div class="pane-image-frame">
+                    <img src="assets/images/domus-pillar-design.webp" alt="Studio design system" loading="lazy" />
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="timeline-item" data-year="2022">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <span class="yr">2022</span>
-                <h4>Team reaches 12</h4>
-                <p>Deliberate decision to stop at twelve people — size is a design decision.</p>
+            </article>
+
+            <!-- Pane 06 -->
+            <article class="history-pane" id="pane-5" role="tabpanel">
+              <div class="pane-grid-wrapper">
+                <div class="pane-text-side">
+                  <span class="pane-num">06 / 06</span>
+                  <span class="pane-year-header">2024</span>
+                  <h3 class="pane-title">Material lab established</h3>
+                  <p class="pane-desc">A dedicated space for testing plaster, stone and timber finishes before specification.</p>
+                  
+                  <div class="pane-meta-list">
+                    <div class="pane-meta-item">
+                      <span class="meta-label">Location</span>
+                      <span class="meta-value">Byculla, Mumbai</span>
+                    </div>
+                    <div class="pane-meta-item">
+                      <span class="meta-label">Focus</span>
+                      <span class="meta-value">Material prototyping</span>
+                    </div>
+                    <div class="pane-meta-item">
+                      <span class="meta-label">Scale</span>
+                      <span class="meta-value">Stone, plaster, timber</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pane-visual-side">
+                  <div class="pane-image-frame">
+                    <img src="assets/images/domus-services-material.webp" alt="Stone and plaster finishes" loading="lazy" />
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="timeline-item" data-year="2024">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <span class="yr">2024</span>
-                <h4>Material lab established</h4>
-                <p>A dedicated space for testing plaster, stone and timber finishes before specification.</p>
-              </div>
-            </div>
+            </article>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 06 — People -->
+    <!-- 06 — People / Team (Redesigned World-Class Asymmetric Grid) -->
     <section class="people-section" aria-labelledby="team-heading">
       <div class="container">
-        <div class="people-head" data-reveal>
-          <div>
+        <div class="people-grid">
+          <!-- Column 1, Row 1: Editorial Header Block -->
+          <article class="people-editorial-card" data-reveal>
             <span class="eyebrow">The People</span>
             <h2 id="team-heading">Twelve designers.<br>One conviction.</h2>
-          </div>
-          <p class="people-head-right">A small, deliberate team who share a preference for considered work over volume.
-          </p>
-        </div>
+            <p>A small, deliberate practice based in Mumbai, North Goa, and Alibaug, sharing a preference for considered architectural work over volume.</p>
+          </article>
 
-        <div class="people-grid" data-reveal-stagger>
-          <article class="person">
+          <!-- Column 2, Row 1: Naveen Rao -->
+          <article class="person" data-reveal>
             <div class="person-image clip-reveal">
               <img src="assets/images/domus-about-naveen.webp" alt="Naveen Rao, Principal Designer" loading="lazy" />
             </div>
@@ -1287,10 +1683,11 @@
             </div>
           </article>
 
-          <article class="person">
+          <!-- Column 3, Row 1: Ishika Verma -->
+          <article class="person" data-reveal>
             <div class="person-image clip-reveal">
               <div class="person-monogram-placeholder">
-                <span class="monogram-text">IV</span>
+                <span class="monogram-text">I.V.</span>
               </div>
             </div>
             <div class="person-info">
@@ -1299,10 +1696,11 @@
             </div>
           </article>
 
-          <article class="person">
+          <!-- Column 1, Row 2: Omar Sheikh -->
+          <article class="person" data-reveal>
             <div class="person-image clip-reveal">
               <div class="person-monogram-placeholder">
-                <span class="monogram-text">OS</span>
+                <span class="monogram-text">O.S.</span>
               </div>
             </div>
             <div class="person-info">
@@ -1311,15 +1709,27 @@
             </div>
           </article>
 
-          <article class="person">
+          <!-- Column 2, Row 2: Priya Iyer -->
+          <article class="person" data-reveal>
             <div class="person-image clip-reveal">
               <div class="person-monogram-placeholder">
-                <span class="monogram-text">PI</span>
+                <span class="monogram-text">P.I.</span>
               </div>
             </div>
             <div class="person-info">
               <h3>Priya Iyer</h3>
               <p class="role">Studio Manager</p>
+            </div>
+          </article>
+
+          <!-- Column 3, Row 2: Join Us / Careers card -->
+          <article class="person person-careers-card-wrap" data-reveal>
+            <div class="person-careers-card">
+              <div class="careers-top">
+                <h4>Join the practice</h4>
+                <p>We are always looking for architects and designers who share our commitment to restraint, material honesty, and quiet spaces.</p>
+              </div>
+              <a href="contact.html" class="careers-link">Send Portfolio →</a>
             </div>
           </article>
         </div>
@@ -1432,6 +1842,38 @@
           timelineItems.forEach(item => item.classList.add('active', 'in-view'));
         }
       }
+
+      /* ===========================================================
+         TIMELINE INTERACTIVE SWITCHER
+         =========================================================== */
+      const tabs = document.querySelectorAll('.history-tab');
+      const panes = document.querySelectorAll('.history-pane');
+
+      tabs.forEach(tab => {
+        const switchTab = () => {
+          if (tab.classList.contains('active')) return;
+          
+          const activeTab = document.querySelector('.history-tab.active');
+          if (activeTab) {
+            activeTab.classList.remove('active');
+            activeTab.setAttribute('aria-selected', 'false');
+          }
+          
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+          
+          const currentPane = document.querySelector('.history-pane.active');
+          const targetPane = document.getElementById(`pane-${tab.dataset.tab}`);
+          
+          if (currentPane && targetPane) {
+            currentPane.classList.remove('active');
+            targetPane.classList.add('active');
+          }
+        };
+
+        tab.addEventListener('click', switchTab);
+        tab.addEventListener('mouseenter', switchTab);
+      });
 
       /* ===========================================================
          FALLBACK REVEAL — makes clip-reveal images visible once the

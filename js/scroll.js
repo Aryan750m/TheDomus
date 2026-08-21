@@ -11,6 +11,58 @@
    - Horizontal scroll material reel
    ===================================================== */
 (() => {
+  /* =====================================================
+     PREMIUM INERTIAL SMOOTH SCROLL
+     — Skips Helix gallery (#stage) so it keeps its own
+       wheel-to-carousel behavior. No conflicts.
+     ===================================================== */
+  const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isTouch   = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+  if (!isReduced && !isTouch) {
+    let current = window.scrollY;
+    let target  = current;
+    let rafId   = null;
+
+    function lerp(a, b, t) { return a + (b - a) * t; }
+
+    function tick() {
+      current = lerp(current, target, 0.10);
+      if (Math.abs(target - current) < 0.5) {
+        current = target;
+        window.scrollTo(0, current);
+        rafId = null;
+        return;
+      }
+      window.scrollTo(0, current);
+      rafId = requestAnimationFrame(tick);
+    }
+
+    window.addEventListener('wheel', (e) => {
+      /* Let the Helix gallery handle its own wheel events */
+      if (e.target.closest('#stage')) return;
+      /* Also skip iframes, textareas, and any explicit scroll-container */
+      if (e.target.closest('iframe, textarea, [data-no-inertia]')) return;
+
+      e.preventDefault();
+
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      target += e.deltaY;
+      target  = Math.max(0, Math.min(target, maxScroll));
+
+      if (!rafId) rafId = requestAnimationFrame(tick);
+    }, { passive: false });
+
+    /* Keep target in sync when other things scroll the page
+       (anchor links, programmatic scrollTo, keyboard, etc.) */
+    window.addEventListener('scroll', () => {
+      if (!rafId) {
+        target  = window.scrollY;
+        current = target;
+      }
+    }, { passive: true });
+  }
+
   const header     = document.querySelector('.site-header');
   const backToTop  = document.querySelector('.back-to-top');
   const progressBar= document.querySelector('.scroll-progress');
