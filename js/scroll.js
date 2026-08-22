@@ -13,82 +13,91 @@
 (() => {
   /* =====================================================
      PREMIUM INERTIAL SMOOTH SCROLL
-     Works on all pages. Gives up control to any internal
-     scrollable element (gallery, modal, overflow container)
-     so there are zero conflicts site-wide.
+     Single-instance guard: never runs twice.
+     Safe across bfcache, modals, galleries, all pages.
      ===================================================== */
-  const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const isTouch   = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  if (!window.__domusScroll) {
+    window.__domusScroll = true;
 
-  if (!isReduced && !isTouch) {
-    let current = window.scrollY;
-    let target  = current;
-    let rafId   = null;
+    const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isTouch   = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-    /* Returns true if the wheel event should be handled by an
-       internal scroll container rather than our inertial engine. */
-    function shouldPassThrough(e) {
-      let el = e.target;
-      while (el && el !== document.body) {
-        /* Named containers that own their own scroll */
-        if (
-          el.id === 'stage'              ||   /* Helix 3-D gallery */
-          el.closest('#stage')           ||
-          el.classList.contains('p-gallery-viewport') ||
-          el.classList.contains('p-lightbox-inner')   ||
-          el.classList.contains('h-scroll-section')   ||
-          el.tagName === 'IFRAME'        ||
-          el.tagName === 'TEXTAREA'      ||
-          el.dataset.noInertia !== undefined
-        ) return true;
+    if (!isReduced && !isTouch) {
+      let current = window.scrollY;
+      let target  = current;
+      let rafId   = null;
 
-        /* Any element that is itself scrollable and has overflow to scroll */
-        if (el !== document.documentElement) {
-          const style = getComputedStyle(el);
-          const overflow = style.overflowY;
-          const isScrollable = (overflow === 'auto' || overflow === 'scroll');
-          if (isScrollable) {
-            const canScrollDown = e.deltaY > 0 && el.scrollTop < el.scrollHeight - el.clientHeight - 1;
-            const canScrollUp   = e.deltaY < 0 && el.scrollTop > 0;
-            if (canScrollDown || canScrollUp) return true;
-          }
+      /* Resync after bfcache restore (browser back/forward) */
+      window.addEventListener('pageshow', (e) => {
+        if (e.persisted) {
+          current = window.scrollY;
+          target  = current;
+          if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
         }
-        el = el.parentElement;
-      }
-      return false;
-    }
+      });
 
-    function tick() {
-      current += (target - current) * 0.11;
-      if (Math.abs(target - current) < 0.5) {
-        current = target;
+      /* True if the wheel target is inside a container that owns its own scroll */
+      function shouldPassThrough(target) {
+        let el = target;
+        while (el && el !== document.documentElement) {
+          const tag = el.tagName;
+          const id  = el.id;
+          /* Named elements that own their scroll */
+          if (id === 'stage' || id === 'drawer') return true;
+          if (tag === 'IFRAME' || tag === 'TEXTAREA') return true;
+          if (
+            el.classList.contains('p-gallery-viewport') ||
+            el.classList.contains('p-lightbox-inner')   ||
+            el.classList.contains('h-scroll-section')
+          ) return true;
+          el = el.parentElement;
+        }
+        return false;
+      }
+
+      function tick() {
+        current += (target - current) * 0.11;
+        if (Math.abs(target - current) < 0.5) {
+          current = target;
+          window.scrollTo(0, current);
+          rafId = null;
+          return;
+        }
         window.scrollTo(0, current);
-        rafId = null;
-        return;
+        rafId = requestAnimationFrame(tick);
       }
-      window.scrollTo(0, current);
-      rafId = requestAnimationFrame(tick);
+
+      window.addEventListener('wheel', (e) => {
+        /* Skip when body scroll is locked (modal / mobile nav / drawer) */
+        if (
+          document.body.style.overflow === 'hidden' ||
+          document.body.classList.contains('lock')   ||
+          document.body.classList.contains('no-scroll')
+        ) return;
+
+        if (shouldPassThrough(e.target)) return;
+
+        e.preventDefault();
+
+        /* Normalize deltaMode: 0=pixels, 1=lines, 2=pages */
+        let delta = e.deltaY;
+        if (e.deltaMode === 1) delta *= 32;
+        if (e.deltaMode === 2) delta *= window.innerHeight;
+
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        target += delta;
+        target  = Math.max(0, Math.min(target, maxScroll));
+        if (!rafId) rafId = requestAnimationFrame(tick);
+      }, { passive: false });
+
+      /* Sync when anchor links / keyboard / programmatic scrollTo moves the page */
+      window.addEventListener('scroll', () => {
+        if (!rafId) {
+          target  = window.scrollY;
+          current = target;
+        }
+      }, { passive: true });
     }
-
-    window.addEventListener('wheel', (e) => {
-      /* Do nothing if a modal/lightbox has locked body scroll */
-      if (document.body.style.overflow === 'hidden') return;
-      if (shouldPassThrough(e)) return;
-
-      e.preventDefault();
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      target += e.deltaY;
-      target  = Math.max(0, Math.min(target, maxScroll));
-      if (!rafId) rafId = requestAnimationFrame(tick);
-    }, { passive: false });
-
-    /* Sync when anchor links / programmatic scrolls move the page */
-    window.addEventListener('scroll', () => {
-      if (!rafId) {
-        target  = window.scrollY;
-        current = target;
-      }
-    }, { passive: true });
   }
 
   const header     = document.querySelector('.site-header');
