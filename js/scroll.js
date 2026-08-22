@@ -13,8 +13,9 @@
 (() => {
   /* =====================================================
      PREMIUM INERTIAL SMOOTH SCROLL
-     — Skips Helix gallery (#stage) so it keeps its own
-       wheel-to-carousel behavior. No conflicts.
+     Works on all pages. Gives up control to any internal
+     scrollable element (gallery, modal, overflow container)
+     so there are zero conflicts site-wide.
      ===================================================== */
   const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const isTouch   = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
@@ -24,10 +25,41 @@
     let target  = current;
     let rafId   = null;
 
-    function lerp(a, b, t) { return a + (b - a) * t; }
+    /* Returns true if the wheel event should be handled by an
+       internal scroll container rather than our inertial engine. */
+    function shouldPassThrough(e) {
+      let el = e.target;
+      while (el && el !== document.body) {
+        /* Named containers that own their own scroll */
+        if (
+          el.id === 'stage'              ||   /* Helix 3-D gallery */
+          el.closest('#stage')           ||
+          el.classList.contains('p-gallery-viewport') ||
+          el.classList.contains('p-lightbox-inner')   ||
+          el.classList.contains('h-scroll-section')   ||
+          el.tagName === 'IFRAME'        ||
+          el.tagName === 'TEXTAREA'      ||
+          el.dataset.noInertia !== undefined
+        ) return true;
+
+        /* Any element that is itself scrollable and has overflow to scroll */
+        if (el !== document.documentElement) {
+          const style = getComputedStyle(el);
+          const overflow = style.overflowY;
+          const isScrollable = (overflow === 'auto' || overflow === 'scroll');
+          if (isScrollable) {
+            const canScrollDown = e.deltaY > 0 && el.scrollTop < el.scrollHeight - el.clientHeight - 1;
+            const canScrollUp   = e.deltaY < 0 && el.scrollTop > 0;
+            if (canScrollDown || canScrollUp) return true;
+          }
+        }
+        el = el.parentElement;
+      }
+      return false;
+    }
 
     function tick() {
-      current = lerp(current, target, 0.10);
+      current += (target - current) * 0.11;
       if (Math.abs(target - current) < 0.5) {
         current = target;
         window.scrollTo(0, current);
@@ -39,22 +71,16 @@
     }
 
     window.addEventListener('wheel', (e) => {
-      /* Let the Helix gallery handle its own wheel events */
-      if (e.target.closest('#stage')) return;
-      /* Also skip iframes, textareas, and any explicit scroll-container */
-      if (e.target.closest('iframe, textarea, [data-no-inertia]')) return;
+      if (shouldPassThrough(e)) return;
 
       e.preventDefault();
-
       const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
       target += e.deltaY;
       target  = Math.max(0, Math.min(target, maxScroll));
-
       if (!rafId) rafId = requestAnimationFrame(tick);
     }, { passive: false });
 
-    /* Keep target in sync when other things scroll the page
-       (anchor links, programmatic scrollTo, keyboard, etc.) */
+    /* Sync when anchor links / programmatic scrolls move the page */
     window.addEventListener('scroll', () => {
       if (!rafId) {
         target  = window.scrollY;
