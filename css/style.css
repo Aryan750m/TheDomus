@@ -124,7 +124,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto; /* JS inertial engine in scroll.js handles smoothness */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   font-size: 16px;
@@ -134,11 +134,7 @@ html {
   -ms-overflow-style: none;     /* IE / Edge */
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto !important;
-  }
-}
+/* scroll-behavior: auto is already set above; reduced-motion users get native snap */
 
 /* Fixed navbar offset for smooth scroll target sections */
 :target,

@@ -16,7 +16,7 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: auto; } /* JS handles smoothness */
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
