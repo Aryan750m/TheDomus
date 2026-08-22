@@ -71,6 +71,8 @@
     }
 
     window.addEventListener('wheel', (e) => {
+      /* Do nothing if a modal/lightbox has locked body scroll */
+      if (document.body.style.overflow === 'hidden') return;
       if (shouldPassThrough(e)) return;
 
       e.preventDefault();
