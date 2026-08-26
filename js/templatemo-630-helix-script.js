@@ -36,7 +36,7 @@
             "<defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>" +
             "<stop offset='0' stop-color='" + a + "'/><stop offset='1' stop-color='" + b + "'/>" +
             "</linearGradient></defs><rect width='640' height='400' fill='url(%23g)'/>" +
-            "<text x='40' y='340' font-family='Georgia,serif' font-size='120' fill='rgba(255,255,255,.72)'>" +
+            "<text x='40' y='340' font-family='-apple-system,BlinkMacSystemFont,system-ui,sans-serif' font-size='120' fill='rgba(255,255,255,.72)'>" +
             (i < 9 ? "0" + (i + 1) : (i + 1)) + "</text></svg>\")";
     }
 

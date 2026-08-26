@@ -42,7 +42,7 @@ body {
     min-height: 100vh;
     background: var(--canvas);
     color: var(--ink);
-    font-family: 'Albert Sans', system-ui, sans-serif;
+    font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-weight: 300;
     overflow-x: hidden;
     position: relative;
@@ -102,7 +102,7 @@ body::after {
 }
 
 .brand {
-    font-family: 'Newsreader', serif;
+    font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-weight: 300;
     font-size: 1.06rem;
     letter-spacing: .16em;
@@ -290,7 +290,7 @@ body.lock .fab {
 .drawer a {
     color: var(--ink);
     text-decoration: none;
-    font-family: 'Newsreader', serif;
+    font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-size: 1.15rem;
     font-weight: 300;
     letter-spacing: .01em;
@@ -364,7 +364,7 @@ body.lock .fab {
     position: absolute;
     left: 0;
     bottom: -30px;
-    font-family: 'Newsreader', serif;
+    font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-style: italic;
     font-weight: 300;
     font-size: .9rem;
@@ -420,7 +420,7 @@ body.lock .fab {
 }
 
 .cap-no {
-    font-family: 'Newsreader', serif;
+    font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-style: italic;
     font-weight: 300;
     font-size: 1.15rem;
@@ -435,7 +435,7 @@ body.lock .fab {
 }
 
 .cap-title {
-    font-family: 'Newsreader', serif;
+    font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-weight: 300;
     font-size: 1.5rem;
     letter-spacing: -.02em;
@@ -646,7 +646,7 @@ body.lock .fab {
 }
 
 .panel h2 {
-    font-family: 'Newsreader', serif;
+    font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-weight: 300;
     font-size: .94rem;
     letter-spacing: .14em;
@@ -777,7 +777,7 @@ input[type=range]:focus-visible {
 }
 
 .sheet h2 {
-    font-family: 'Newsreader', serif;
+    font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-weight: 300;
     font-size: clamp(1.5rem, 3.4vw, 2rem);
     letter-spacing: -.02em;
@@ -818,7 +818,7 @@ input[type=range]:focus-visible {
 }
 
 .facts dd {
-    font-family: 'Newsreader', serif;
+    font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-weight: 300;
     font-size: 1.15rem;
     color: var(--ink)

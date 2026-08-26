@@ -23,8 +23,8 @@
   --p-gold:      #B89A5C;
   --p-gold-dim:  rgba(184, 154, 92, 0.18);
   --p-radius:    18px;  /* Lovera's rounded card radius */
-  --p-font-disp: "Chronicle Display", "Cormorant Garamond", "Garamond", "Times New Roman", serif;
-  --p-font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  --p-font-disp: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --p-font-sans: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --p-ease:      cubic-bezier(0.16, 1, 0.3, 1);
   --p-ease-in:   cubic-bezier(0.4, 0, 1, 1);
   --p-pad-x:     clamp(24px, 5.5vw, 88px);

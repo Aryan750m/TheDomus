@@ -1,13 +1,12 @@
 /* =====================================================
-   THE DOMUS — Core Stylesheet v3
+   THE DOMUS Ã¢â‚¬â€ Core Stylesheet v3
    WHITE LUXURY EDITION
    Design language: Scandinavian minimal, editorial,
-   luxury architecture magazine. Cormorant Garamond
-   headlines, DM Sans body, warm gold accents on
-   pure white with breathing room and soft shadows.
+   luxury architecture magazine. Apple-system typography,
+   warm gold accents on pure white with breathing room
+   and soft shadows.
    ===================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=Space+Mono:wght@400;700&display=swap');
 
 /* =====================================================
    DESIGN TOKENS
@@ -62,11 +61,11 @@
   --radius-lg:   12px;
   --radius-pill: 9999px;
 
-  /* --- Typography Families --- */
-  --font-display: "Chronicle Display", "Cormorant Garamond", "Garamond", "Times New Roman", serif;
-  --font-body:    "Ringside", "DM Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-  --font-mono:    "Ringside", "DM Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-  --font-sans:    "Ringside", "DM Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  /* --- Typography Families (Apple System Stack) --- */
+  --font-display: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body:    "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono:    "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-sans:    "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   /* --- Font Weights --- */
   --weight-light:     300;
@@ -128,7 +127,7 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   font-size: 16px;
-  /* Hide scrollbar — keep scroll functional */
+  /* Hide scrollbar Ã¢â‚¬â€ keep scroll functional */
   overflow-y: scroll;
   scrollbar-width: none;        /* Firefox */
   -ms-overflow-style: none;     /* IE / Edge */
@@ -189,10 +188,46 @@ button {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  font-weight: var(--weight-light);
+  font-weight: 700;
   line-height: var(--lh-heading);
   letter-spacing: var(--tracking-tight);
   color: var(--charcoal);
+}
+
+/* Apple-calibrated heading hierarchy */
+h1 {
+  font-size: clamp(2.5rem, 5.5vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.06;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  line-height: 1.12;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  line-height: 1.20;
+}
+
+h4 {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 600;
+  letter-spacing: -0.008em;
+  line-height: 1.30;
+}
+
+h5, h6 {
+  font-size: clamp(0.875rem, 1.1vw, 1rem);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.40;
 }
 
 ul { list-style: none; }
@@ -260,7 +295,7 @@ ul { list-style: none; }
 }
 .section-head.centered p { margin-inline: auto; }
 
-/* Horizontal rule — gold accent */
+/* Horizontal rule Ã¢â‚¬â€ gold accent */
 .gold-rule {
   display: block;
   width: 48px;
@@ -465,7 +500,7 @@ ul { list-style: none; }
 .cursor-label.visible { opacity: 1; }
 
 /* =====================================================
-   LOADER — white luxury
+   LOADER Ã¢â‚¬â€ white luxury
    ===================================================== */
 .loader {
   position: fixed;
@@ -531,7 +566,7 @@ ul { list-style: none; }
 }
 
 /* =====================================================
-   SITE HEADER — Dead-Center Logo Layout
+   SITE HEADER Ã¢â‚¬â€ Dead-Center Logo Layout
    ===================================================== */
 .site-header {
   position: fixed;
@@ -563,7 +598,7 @@ ul { list-style: none; }
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* Graceful fallback — backdrop-filter not supported */
+/* Graceful fallback Ã¢â‚¬â€ backdrop-filter not supported */
 @supports not (backdrop-filter: blur(1px)) {
   .site-header.scrolled {
     background: rgba(21, 21, 21, 0.95);
@@ -574,13 +609,13 @@ ul { list-style: none; }
 .nav-left {
   display: flex;
   align-items: center;
-  justify-content: flex-end;   /* push items right → toward logo */
+  justify-content: flex-end;   /* push items right Ã¢â€ â€™ toward logo */
   gap: 1.6rem;
 }
 
-/* Column 2: Logo — centered in its grid cell */
+/* Column 2: Logo Ã¢â‚¬â€ centered in its grid cell */
 .logo {
-  position: static;              /* out of absolute flow — sits in grid col 2 */
+  position: static;              /* out of absolute flow Ã¢â‚¬â€ sits in grid col 2 */
   justify-self: center;
   font-family: var(--font-display);
   font-size: 1.6rem;
@@ -603,11 +638,11 @@ ul { list-style: none; }
   color: var(--gold);
 }
 
-/* Column 3: Right Nav & Utilities — pushed toward logo */
+/* Column 3: Right Nav & Utilities Ã¢â‚¬â€ pushed toward logo */
 .nav-right-wrap {
   display: flex;
   align-items: center;
-  justify-content: flex-start;   /* hug the left edge of the right column → toward logo */
+  justify-content: flex-start;   /* hug the left edge of the right column Ã¢â€ â€™ toward logo */
   gap: 1.4rem;
 }
 .nav-right {
@@ -647,7 +682,7 @@ ul { list-style: none; }
 }
 
 /* =====================================================
-   MEGA DROPDOWN — Pixel-perfect Sobha-style
+   MEGA DROPDOWN Ã¢â‚¬â€ Pixel-perfect Sobha-style
    ===================================================== */
 .nav-dropdown-wrap {
   position: static;
@@ -676,10 +711,10 @@ ul { list-style: none; }
 }
 
 /* =======================================================
-   MEGA DROPDOWN — Floating luxury panel (like Sobha Properties)
+   MEGA DROPDOWN Ã¢â‚¬â€ Floating luxury panel (like Sobha Properties)
    ======================================================= */
 
-/* Dark overlay — below header, above page content */
+/* Dark overlay Ã¢â‚¬â€ below header, above page content */
 .mega-overlay {
   position: fixed;
   inset: 0;
@@ -731,7 +766,7 @@ ul { list-style: none; }
   gap: 0;
 }
 
-/* ── LEFT: project list column */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ LEFT: project list column */
 .mega-links {
   width: 290px;
   flex-shrink: 0;
@@ -784,7 +819,7 @@ ul { list-style: none; }
   content: none !important;
 }
 
-/* Active / hovered state — warm slide right */
+/* Active / hovered state Ã¢â‚¬â€ warm slide right */
 .mega-dropdown .mega-link:hover,
 .mega-dropdown .mega-link.is-active {
   color: #8a6b44 !important;
@@ -814,7 +849,7 @@ ul { list-style: none; }
 
 .mega-link-num { display: none !important; }
 
-/* ── RIGHT: image area with stacked crossfade images */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ RIGHT: image area with stacked crossfade images */
 .mega-image-col {
   flex: 1;
   position: relative;
@@ -823,7 +858,7 @@ ul { list-style: none; }
   padding: 24px;
 }
 
-/* Each image is absolutely stacked — crossfade via opacity */
+/* Each image is absolutely stacked Ã¢â‚¬â€ crossfade via opacity */
 .mega-img {
   position: absolute;
   top: 24px;
@@ -901,7 +936,7 @@ ul { list-style: none; }
 }
 
 
-/* ── Reduced motion — keep frosted effect, remove animation */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Reduced motion Ã¢â‚¬â€ keep frosted effect, remove animation */
 @media (prefers-reduced-motion: reduce) {
   .site-header {
     transition: none;
@@ -1049,13 +1084,13 @@ ul { list-style: none; }
 }
 
 /* =====================================================
-   HERO — SOBHA REALTY LUXURY STYLE (CENTERED VIDEO HERO)
+   HERO Ã¢â‚¬â€ SOBHA REALTY LUXURY STYLE (CENTERED VIDEO HERO)
    ===================================================== */
 .hero-sobha-style {
   position: relative;
   width: 100%;
   min-height: 100svh;
-  min-height: 100dvh;  /* dynamic viewport — accounts for mobile browser chrome */
+  min-height: 100dvh;  /* dynamic viewport Ã¢â‚¬â€ accounts for mobile browser chrome */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1209,7 +1244,7 @@ ul { list-style: none; }
 }
 
 /* =====================================================
-   ABOUT PANEL — SCROLL UP EXPAND PANEL (from backup)
+   ABOUT PANEL Ã¢â‚¬â€ SCROLL UP EXPAND PANEL (from backup)
    ===================================================== */
 .about-panel {
   position: absolute;
@@ -1555,7 +1590,7 @@ ul { list-style: none; }
 .media-offset img { width: 100%; height: 100%; object-fit: cover; }
 
 /* =====================================================
-   THE DOMUS INTRO — Premium editorial section
+   THE DOMUS INTRO Ã¢â‚¬â€ Premium editorial section
    ===================================================== */
 .domus-intro {
   padding-block: clamp(90px, 8vw, 120px);
@@ -1595,7 +1630,7 @@ ul { list-style: none; }
 }
 
 .domus-intro-content .eyebrow {
-  font-family: var(--font-sans, "Inter", sans-serif);
+  font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.18em;
@@ -1606,7 +1641,7 @@ ul { list-style: none; }
 }
 
 .domus-intro-headline {
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(38px, 3.8vw, 55px);
   font-weight: 400;
   line-height: 1.05;
@@ -1628,7 +1663,7 @@ ul { list-style: none; }
 }
 
 .domus-intro-body {
-  font-family: var(--font-sans, "Inter", sans-serif);
+  font-family: var(--font-sans);
   font-size: 15px;
   line-height: 1.7;
   color: var(--text-muted, rgba(30, 30, 30, 0.72));
@@ -1676,7 +1711,7 @@ ul { list-style: none; }
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  font-family: var(--font-sans, "Inter", sans-serif);
+  font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.14em;
@@ -1814,7 +1849,7 @@ ul { list-style: none; }
   margin-bottom: clamp(50px, 5vw, 70px);
 }
 .projects-intro .eyebrow {
-  font-family: var(--font-sans, "Inter", sans-serif);
+  font-family: var(--font-sans);
   font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.2em;
@@ -1824,7 +1859,7 @@ ul { list-style: none; }
   display: block;
 }
 .projects-intro h2 {
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(44px, 4vw, 56px);
   font-weight: 400;
   line-height: 1.05;
@@ -1834,7 +1869,7 @@ ul { list-style: none; }
   text-transform: none;
 }
 .projects-intro-desc {
-  font-family: var(--font-sans, "Inter", sans-serif);
+  font-family: var(--font-sans);
   font-size: 14px;
   line-height: 1.7;
   color: var(--text-muted, rgba(30, 30, 30, 0.72));
@@ -1904,7 +1939,7 @@ ul { list-style: none; }
   gap: 2px;
 }
 .project-num {
-  font-family: var(--font-sans, "Inter", sans-serif);
+  font-family: var(--font-sans);
   font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.14em;
@@ -1913,7 +1948,7 @@ ul { list-style: none; }
   margin-bottom: 3px;
 }
 .project-title {
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(15px, 1.4vw, 18px);
   font-weight: 400;
   color: var(--text, #1e1e1e);
@@ -1923,7 +1958,7 @@ ul { list-style: none; }
   line-height: 1.2;
 }
 .project-category {
-  font-family: var(--font-sans, "Inter", sans-serif);
+  font-family: var(--font-sans);
   font-size: 9px;
   font-weight: 400;
   letter-spacing: 0.14em;
@@ -1932,7 +1967,7 @@ ul { list-style: none; }
   margin-top: 2px;
 }
 .project-arrow {
-  font-family: var(--font-sans, "Inter", sans-serif);
+  font-family: var(--font-sans);
   font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.12em;
@@ -1955,7 +1990,7 @@ ul { list-style: none; }
 }
 
 /* =====================================================
-   SWATCH BOARD — Materials philosophy
+   SWATCH BOARD Ã¢â‚¬â€ Materials philosophy
    ===================================================== */
 .swatch-board {
   display: grid;
@@ -2157,7 +2192,7 @@ ul { list-style: none; }
   align-items: flex-start;
 }
 .philosophy-content .eyebrow {
-  font-family: var(--font-sans, "Inter", sans-serif);
+  font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.2em;
@@ -2167,7 +2202,7 @@ ul { list-style: none; }
   display: block;
 }
 .philosophy-quote {
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(40px, 3.8vw, 52px);
   font-weight: 400;
   line-height: 1.06;
@@ -2186,7 +2221,7 @@ ul { list-style: none; }
   flex-shrink: 0;
 }
 .philosophy-body {
-  font-family: var(--font-sans, "Inter", sans-serif);
+  font-family: var(--font-sans);
   font-size: 14px;
   line-height: 1.68;
   color: var(--text-muted, rgba(30, 30, 30, 0.72));
@@ -2221,7 +2256,7 @@ ul { list-style: none; }
 }
 
 /* =====================================================
-   FINAL CTA — concise closing invitation on the homepage
+   FINAL CTA Ã¢â‚¬â€ concise closing invitation on the homepage
    ===================================================== */
 .final-cta {
   background: var(--charcoal);
@@ -2235,9 +2270,10 @@ ul { list-style: none; }
 .final-cta .eyebrow { color: var(--gold); }
 .final-cta h2 {
   color: var(--white);
-  font-size: clamp(3.2rem, 7vw, 6.5rem);
-  font-weight: 300;
-  line-height: .98;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
   margin: 1.25rem 0;
 }
 .final-cta p {
@@ -2250,12 +2286,12 @@ ul { list-style: none; }
 }
 
 /* =====================================================
-   DOMUS HOMEPAGE — editorial pillars, projects, dossiers
+   DOMUS HOMEPAGE Ã¢â‚¬â€ editorial pillars, projects, dossiers
    ===================================================== */
 .domus-pillars, .project-dossiers { padding-block: clamp(5.5rem, 10vw, 10rem); background: var(--white); }
 .editorial-section-head { max-width: 42rem; margin-bottom: clamp(3.5rem, 6vw, 6rem); }
 .editorial-section-head.centered { margin-inline: auto; text-align: center; }
-.editorial-section-head h2, .featured-projects-head h2 { font-size: clamp(2.8rem, 5vw, 5.2rem); font-weight: 400; line-height: .98; margin-top: 1rem; }
+.editorial-section-head h2, .featured-projects-head h2 { font-size: clamp(2.5rem, 4.5vw, 4.5rem); font-weight: 500; line-height: 1.06; margin-top: 1rem; }
 .editorial-section-head p { max-width: 34rem; margin: 1.25rem auto 0; color: var(--charcoal-dim); }
 .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.5rem, 3.5vw, 4.5rem); align-items: start; }
 .pillar { border-top: 1px solid var(--border); padding-top: 1rem; }
@@ -2265,7 +2301,7 @@ ul { list-style: none; }
 .pillar img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .8s var(--ease-out); }
 .pillar:hover img { transform: scale(1.035); }
 .pillar-copy span, .project-slide-caption span { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
-.pillar-copy h3 { margin: .75rem 0; font-size: clamp(1.7rem, 2.3vw, 2.4rem); font-weight: 400; }
+.pillar-copy h3 { margin: .75rem 0; font-size: clamp(1.4rem, 1.8vw, 1.75rem); font-weight: 500; letter-spacing: -0.012em; }
 .pillar-copy p { color: var(--charcoal-dim); font-size: .9rem; max-width: 26ch; }
 .featured-projects { padding-block: clamp(5.5rem, 10vw, 10rem); background: var(--stone); overflow: hidden; }
 .featured-projects-head { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 2rem; margin-bottom: 3rem; }
@@ -2278,7 +2314,7 @@ ul { list-style: none; }
 .project-slide > img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; transform: scale(.92); transition: transform .7s var(--ease-out); }
 .project-slide.is-active > img { transform: scale(1); }
 .project-slide-caption { padding: 1.5rem 0 0; }
-.project-slide-caption h3 { font-size: clamp(2rem, 3.3vw, 3.5rem); font-weight: 400; margin: .5rem 0; }
+.project-slide-caption h3 { font-size: clamp(1.5rem, 2.5vw, 2.5rem); font-weight: 500; letter-spacing: -0.018em; line-height: 1.12; margin: .5rem 0; }
 .project-slide-caption p { max-width: 36rem; color: var(--charcoal-dim); margin-bottom: 1.1rem; }
 .project-slide-caption a { font-family: var(--font-mono); font-size: .65rem; text-transform: uppercase; letter-spacing: .14em; }
 .project-slide-caption b { color: var(--gold); font-size: 1rem; margin-left: .4rem; }
@@ -2316,9 +2352,10 @@ ul { list-style: none; }
   grid-column: 1 / 8;
   grid-row: 2;
   font-family: var(--font-display);
-  font-size: clamp(3.75rem, 6.4vw, 5.75rem); /* 72px to 96px on desktop */
-  font-weight: 300;
-  line-height: 1.02;
+  font-size: clamp(2.8rem, 5vw, 4.5rem); /* editorial section heading */
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
   color: var(--charcoal);
   margin-top: 0.5rem;
   margin-bottom: 0;
@@ -2569,7 +2606,7 @@ ul { list-style: none; }
 }
 
 /* =====================================================
-   HOMEPAGE — pillars and featured projects refinement
+   HOMEPAGE Ã¢â‚¬â€ pillars and featured projects refinement
    ===================================================== */
 .domus-pillars {
   padding: clamp(4.5rem, 7vw, 6.5rem) 0 clamp(5.5rem, 8vw, 8rem);
@@ -3512,11 +3549,11 @@ ul { list-style: none; }
 }
 
 /* ==========================================================
-   GLOBAL RESPONSIVE SYSTEM — THE DOMUS
+   GLOBAL RESPONSIVE SYSTEM Ã¢â‚¬â€ THE DOMUS
    Every section adapts. Content is never cropped.
    ========================================================== */
 
-/* ── SMALL DESKTOP / LAPTOP  (≤1280px) ─────────────────── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ SMALL DESKTOP / LAPTOP  (Ã¢â€°Â¤1280px) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1280px) {
   .mega-dropdown {
     width: 92vw;
@@ -3533,9 +3570,9 @@ ul { list-style: none; }
   }
 }
 
-/* ── LAPTOP / TABLET LANDSCAPE  (≤1024px) ──────────────── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ LAPTOP / TABLET LANDSCAPE  (Ã¢â€°Â¤1024px) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1024px) {
-  /* Header — reduce internal nav gaps at laptop size */
+  /* Header Ã¢â‚¬â€ reduce internal nav gaps at laptop size */
   .nav-left { gap: 1.2rem; }
   .nav-right { gap: 1rem; }
   .nav-right-wrap { gap: 1rem; }
@@ -3543,7 +3580,7 @@ ul { list-style: none; }
   /* Hide tertiary header utilities */
   .lang-pill { display: none; }
 
-  /* Mega dropdown — narrower */
+  /* Mega dropdown Ã¢â‚¬â€ narrower */
   .mega-dropdown {
     width: 96vw;
     height: 480px;
@@ -3553,25 +3590,25 @@ ul { list-style: none; }
     padding: 2rem 1.8rem 2rem 2.2rem;
   }
 
-  /* Philosophy — tighten gap */
+  /* Philosophy Ã¢â‚¬â€ tighten gap */
   .philosophy-grid { gap: 3rem; }
 
-  /* Awards 4→2 */
+  /* Awards 4Ã¢â€ â€™2 */
   .awards-grid { grid-template-columns: repeat(2, 1fr); }
   .award-card:nth-child(2)  { border-right: none; }
   .award-card:nth-child(3)  { border-top: 1px solid var(--border); }
   .award-card:nth-child(4)  { border-top: 1px solid var(--border); border-right: none; }
 
-  /* Team 4→2 */
+  /* Team 4Ã¢â€ â€™2 */
   .team-grid { grid-template-columns: repeat(2, 1fr); }
 
-  /* Project grid — maintain masonry at laptop */
+  /* Project grid Ã¢â‚¬â€ maintain masonry at laptop */
   .project-card:nth-child(1) { grid-column: 1 / 8; }
   .project-card:nth-child(2) { grid-column: 8 / 13; }
   .project-card:nth-child(3) { grid-column: 1 / 6; }
   .project-card:nth-child(4) { grid-column: 6 / 13; }
 
-  /* Footer 4→2 */
+  /* Footer 4Ã¢â€ â€™2 */
   .footer-top {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
@@ -3584,7 +3621,7 @@ ul { list-style: none; }
   .domus-intro-media img { aspect-ratio: 3 / 4; }
 }
 
-/* ── TABLET PORTRAIT  (≤768px) ─────────────────────────── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ TABLET PORTRAIT  (Ã¢â€°Â¤768px) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 768px) {
   /* Global spacing reduction */
   :root {
@@ -3592,7 +3629,7 @@ ul { list-style: none; }
     --section-pad-sm: clamp(2rem, 7vw, 4rem);
   }
 
-  /* ─ HEADER: switch to 2-column flex, logo centered */
+  /* Ã¢â€â‚¬ HEADER: switch to 2-column flex, logo centered */
   .site-header {
     display: flex;
     justify-content: space-between;
@@ -3613,7 +3650,7 @@ ul { list-style: none; }
     justify-content: flex-end;
   }
 
-  /* Logo — centered via absolute */
+  /* Logo Ã¢â‚¬â€ centered via absolute */
   .logo {
     position: absolute;
     left: 50%;
@@ -3633,7 +3670,7 @@ ul { list-style: none; }
     flex-shrink: 0;
   }
 
-  /* ─ HERO */
+  /* Ã¢â€â‚¬ HERO */
   .hero-sobha-style {
     height: 100svh;
     min-height: 500px;
@@ -3680,7 +3717,7 @@ ul { list-style: none; }
     font-size: clamp(2.2rem, 8vw, 3.5rem);
   }
 
-  /* ─ MEGA MENU: full-width on mobile */
+  /* Ã¢â€â‚¬ MEGA MENU: full-width on mobile */
   .mega-dropdown {
     width: 100vw;
     left: 0;
@@ -3718,7 +3755,7 @@ ul { list-style: none; }
     border-radius: 8px;
   }
 
-  /* ─ PROJECT GRID: 1 column */
+  /* Ã¢â€â‚¬ PROJECT GRID: 1 column */
   .project-grid { grid-template-columns: 1fr; gap: 24px; }
   .project-card:nth-child(1),
   .project-card:nth-child(2),
@@ -3731,7 +3768,7 @@ ul { list-style: none; }
   .project-card:nth-child(2) .media,
   .project-card:nth-child(3) .media { aspect-ratio: 4 / 3; }
 
-  /* ─ SPLIT LAYOUT (services / about pages) */
+  /* Ã¢â€â‚¬ SPLIT LAYOUT (services / about pages) */
   .split,
   .split.reverse {
     grid-template-columns: 1fr !important;
@@ -3741,16 +3778,16 @@ ul { list-style: none; }
   .split.reverse .split-media { order: -1; }
   .media-offset { display: none; }
 
-  /* ─ SWATCH BOARD 4→2 */
+  /* Ã¢â€â‚¬ SWATCH BOARD 4Ã¢â€ â€™2 */
   .swatch-board { grid-template-columns: repeat(2, 1fr); }
   .swatch:nth-child(even) { border-right: none; }
   .swatch:nth-child(n+3) { border-top: 1px solid var(--border); }
 
-  /* ─ SERVICES 3→2 at tablet (1 col deferred to ≤480px) */
+  /* Ã¢â€â‚¬ SERVICES 3Ã¢â€ â€™2 at tablet (1 col deferred to Ã¢â€°Â¤480px) */
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .service-card { min-height: auto; }
 
-  /* ─ PHILOSOPHY: stack */
+  /* Ã¢â€â‚¬ PHILOSOPHY: stack */
   .philosophy-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -3758,20 +3795,20 @@ ul { list-style: none; }
   .philo-float.f1 { aspect-ratio: 16 / 10; }
   .philo-float.f2 { display: none; }
 
-  /* ─ PROCESS */
+  /* Ã¢â€â‚¬ PROCESS */
   .process-row .content {
     grid-template-columns: 1fr;
     gap: 0.4rem;
   }
   .process-list { padding-left: 2.5rem; }
 
-  /* ─ AWARDS 4→2 */
+  /* Ã¢â€â‚¬ AWARDS 4Ã¢â€ â€™2 */
   .awards-grid { grid-template-columns: repeat(2, 1fr); }
   .award-card:nth-child(2)  { border-right: none; }
   .award-card:nth-child(3)  { border-top: 1px solid var(--border); }
   .award-card:nth-child(4)  { border-top: 1px solid var(--border); border-right: none; }
 
-  /* ─ TESTIMONIALS: single column */
+  /* Ã¢â€â‚¬ TESTIMONIALS: single column */
   .testimonial-slide {
     grid-template-columns: 1fr;
     gap: 1.2rem;
@@ -3779,16 +3816,16 @@ ul { list-style: none; }
   }
   .t-avatar { display: none; }
 
-  /* ─ COUNTERS */
+  /* Ã¢â€â‚¬ COUNTERS */
   .counters { gap: 2rem; }
 
-  /* ─ CONTACT: 2 columns stays on tablet (≤480px collapses to 1) */
+  /* Ã¢â€â‚¬ CONTACT: 2 columns stays on tablet (Ã¢â€°Â¤480px collapses to 1) */
   .contact-grid { gap: clamp(2rem, 5vw, 4rem); }
 
-  /* ─ TEAM 4→2 */
+  /* Ã¢â€â‚¬ TEAM 4Ã¢â€ â€™2 */
   .team-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
 
-  /* ─ FOOTER 4→2 */
+  /* Ã¢â€â‚¬ FOOTER 4Ã¢â€ â€™2 */
   .footer-top {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
@@ -3797,27 +3834,27 @@ ul { list-style: none; }
   /* Brand spans full width */
   .footer-brand { grid-column: 1 / -1; }
 
-  /* ─ HORIZONTAL REEL */
+  /* Ã¢â€â‚¬ HORIZONTAL REEL */
   .h-scroll-item { width: 78vw; height: 55vh; }
 
-  /* ─ 3D CAROUSEL */
+  /* Ã¢â€â‚¬ 3D CAROUSEL */
   .carousel-3d-stage  { height: 340px; }
   .carousel-3d-slide  { width: 220px; height: 290px; }
 
-  /* ─ PULL QUOTE */
+  /* Ã¢â€â‚¬ PULL QUOTE */
   .pull-quote {
     padding: var(--section-pad-sm) var(--gutter);
   }
   .pull-quote blockquote { font-size: clamp(1.4rem, 5vw, 2.2rem); }
 
-  /* ─ MAP placeholder */
+  /* Ã¢â€â‚¬ MAP placeholder */
   .map-placeholder { aspect-ratio: 16/9; }
 
-  /* ─ SECTION HEAD max-width on mobile */
+  /* Ã¢â€â‚¬ SECTION HEAD max-width on mobile */
   .section-head { max-width: 100%; }
 }
 
-/* ── LARGE MOBILE  (≤480px) ────────────────────────────── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ LARGE MOBILE  (Ã¢â€°Â¤480px) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 480px) {
   /* Hero */
   .hero-headline-sobha { font-size: clamp(2.4rem, 11vw, 3.6rem); }
@@ -3837,15 +3874,15 @@ ul { list-style: none; }
   /* Contact grid collapses from 2 to 1 column on mobile */
   .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
 
-  /* Swatch 2→1 */
+  /* Swatch 2Ã¢â€ â€™1 */
   .swatch-board { grid-template-columns: 1fr; }
   .swatch { border-right: none; }
   .swatch:not(:last-child) { border-bottom: 1px solid var(--border); }
   .swatch:nth-child(n+3) { border-top: none; }
 
-  /* Awards 2→2 stays (readable on 480) */
+  /* Awards 2Ã¢â€ â€™2 stays (readable on 480) */
 
-  /* Team 2→1 */
+  /* Team 2Ã¢â€ â€™1 */
   .team-grid { grid-template-columns: 1fr; }
 
   /* Footer stack completely */
@@ -3862,7 +3899,7 @@ ul { list-style: none; }
   /* Mobile nav font size */
   .mobile-nav a { font-size: clamp(1.8rem, 8vw, 2.4rem); }
 
-  /* Awards 2→2 (fine at 480px) */
+  /* Awards 2Ã¢â€ â€™2 (fine at 480px) */
   /* Services stays 1 col */
 
   /* Process tighter */
@@ -3879,7 +3916,7 @@ ul { list-style: none; }
   .domus-stats { gap: 1.8rem; }
 }
 
-/* ── SMALL MOBILE  (≤360px) ────────────────────────────── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ SMALL MOBILE  (Ã¢â€°Â¤360px) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 360px) {
   .hero-headline-sobha { font-size: clamp(2rem, 12vw, 3rem); }
 
@@ -3894,7 +3931,7 @@ ul { list-style: none; }
   .mobile-nav a { font-size: clamp(1.5rem, 9vw, 2rem); }
 }
 
-/* ── SHORT VIEWPORT HEIGHT — laptops 1366×768, 1280×720 ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ SHORT VIEWPORT HEIGHT Ã¢â‚¬â€ laptops 1366Ãƒâ€”768, 1280Ãƒâ€”720 Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-height: 720px) {
   /* Reduce hero from full-viewport to comfortable */
   .hero-sobha-style {
@@ -3917,7 +3954,7 @@ ul { list-style: none; }
   .about-panel { padding: clamp(1.2rem, 3vw, 2.5rem); }
 }
 
-/* ── LANDSCAPE MOBILE / VERY SHORT HEIGHT (≤560px tall) ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ LANDSCAPE MOBILE / VERY SHORT HEIGHT (Ã¢â€°Â¤560px tall) Ã¢â€â‚¬Ã¢â€â‚¬ */
 /* RULE: Never hide content. Reduce spacing and size only.
    If content doesn't fit one viewport, the user scrolls. That is OK. */
 @media (max-height: 560px) {
@@ -3927,27 +3964,27 @@ ul { list-style: none; }
     padding-block: 3.5rem 2rem;
   }
 
-  /* Reduce hero headline — keep it readable not huge */
+  /* Reduce hero headline Ã¢â‚¬â€ keep it readable not huge */
   .hero-headline-sobha {
     font-size: clamp(1.8rem, 7vh, 3rem);
     margin-bottom: 0.6rem;
   }
 
-  /* Sub-text stays visible — reduce spacing only, NOT hidden */
+  /* Sub-text stays visible Ã¢â‚¬â€ reduce spacing only, NOT hidden */
   .hero-sub-sobha {
     font-size: clamp(0.85rem, 2vh, 1rem);
     margin-bottom: 1.2rem;
     line-height: 1.45;
   }
 
-  /* Center container — remove top margin */
+  /* Center container Ã¢â‚¬â€ remove top margin */
   .hero-center-container { margin-top: 0; }
 
-  /* about-panel: a scroll-triggered overlay that fills inset:0 — hides
+  /* about-panel: a scroll-triggered overlay that fills inset:0 Ã¢â‚¬â€ hides
      hero content when open on landscape. Layout-necessary hide only. */
   .about-panel { display: none; }
 
-  /* Process — tighter rows */
+  /* Process Ã¢â‚¬â€ tighter rows */
   .process-row { padding-bottom: 1.5rem; }
 
   /* Carousel */
@@ -3956,7 +3993,7 @@ ul { list-style: none; }
 }
 
 /* =====================================================
-   SERVICES HERO — PREMIUM 3-COLUMN LAYOUT
+   SERVICES HERO Ã¢â‚¬â€ PREMIUM 3-COLUMN LAYOUT
    ===================================================== */
 .services-hero {
   background: var(--stone);
@@ -3996,11 +4033,11 @@ ul { list-style: none; }
 .services-hero-title {
   font-size: clamp(2.3rem, 3.8vw, 3.4rem);
   line-height: 1.15;
-  font-family: var(--font-serif);
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.018em;
   margin-bottom: 2rem;
   color: var(--text);
-  letter-spacing: -0.01em;
 }
 
 .services-hero-desc {
@@ -4175,13 +4212,12 @@ ul { list-style: none; }
 }
 
 
-/* Override standard mobile nav link styles for nested sub-links */
 .mobile-nav .mobile-sub-links a.mobile-sub-link {
   font-family: var(--font-sans) !important;
-  font-size: clamp(0.9rem, 4vw, 1.15rem) !important;
-  font-weight: 600 !important;
+  font-size: clamp(0.85rem, 3.5vw, 1rem) !important;
+  font-weight: 500 !important;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.10em;
   color: var(--charcoal-dim) !important;
   padding: 0.35rem 0 !important;
   border-bottom: none !important;

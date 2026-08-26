@@ -1,6 +1,6 @@
 # The Domus
 
-A five-page marketing site for **The Domus**, a fictional luxury interior-architecture
+A four-page marketing site for **The Domus**, a fictional luxury interior-architecture
 studio. Built with hand-written HTML5, CSS3 and vanilla JavaScript — no frameworks,
 no build step.
 
@@ -16,7 +16,6 @@ layouts were copied. See `progress.md` for the full development log.
 Domus/
 ├── index.html          Homepage — all core sections
 ├── about.html           Studio history, timeline, team
-├── projects.html        Full project grid with filtering
 ├── services.html         Three service pillars + process
 ├── contact.html          Enquiry form + studio details
 ├── css/
