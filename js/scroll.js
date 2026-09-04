@@ -43,12 +43,14 @@
           const tag = el.tagName;
           const id  = el.id;
           /* Named elements that own their scroll */
-          if (id === 'stage' || id === 'drawer') return true;
+          if (id === 'stage' || id === 'drawer' || id === 'domusChatbotWindow') return true;
           if (tag === 'IFRAME' || tag === 'TEXTAREA') return true;
           if (
             el.classList.contains('p-gallery-viewport') ||
             el.classList.contains('p-lightbox-inner')   ||
-            el.classList.contains('h-scroll-section')
+            el.classList.contains('h-scroll-section')   ||
+            el.classList.contains('domus-chatbot-window') ||
+            el.classList.contains('domus-chat-messages')
           ) return true;
           el = el.parentElement;
         }
