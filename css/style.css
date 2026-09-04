@@ -3447,112 +3447,163 @@ ul { list-style: none; }
 /* =====================================================
    FOOTER
    ===================================================== */
+/* =====================================================
+   FOOTER — LUXURY ARCHITECTURAL REFINEMENT
+   ===================================================== */
 .site-footer {
-  background: var(--charcoal);
-  color: rgba(255,255,255,0.7);
-  padding-top: var(--section-pad);
-  padding-bottom: 3rem;
+  background: #0B0908;
+  color: #AAA39B;
+  padding-top: clamp(4.5rem, 8vw, 6.5rem);
+  padding-bottom: 0;
+  position: relative;
+  overflow: hidden;
 }
+
 .footer-top {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1fr;
-  gap: 3rem;
-  margin-bottom: 5rem;
+  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: clamp(3.5rem, 6vw, 5rem);
 }
+
 .footer-brand h3 {
   font-family: var(--font-display);
-  font-size: 1.8rem;
-  font-weight: 400;
-  color: var(--white);
+  font-size: 1.85rem;
+  font-weight: 500;
+  color: #F5F1EA;
   margin-bottom: 1rem;
+  letter-spacing: -0.015em;
 }
+
 .footer-brand p {
+  font-family: var(--font-body);
   font-size: 0.88rem;
-  color: rgba(255,255,255,0.5);
+  color: #AAA39B;
   max-width: 24rem;
-  line-height: 1.8;
+  line-height: 1.75;
 }
-.footer-brand em { color: var(--gold); font-style: italic; }
+
+.footer-brand em {
+  color: #C8A45D;
+  font-style: italic;
+}
 
 /* Newsletter */
 .newsletter {
   display: flex;
   gap: 0;
   margin-top: 1.8rem;
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  overflow: hidden;
+  max-width: 24rem;
+  background: rgba(255, 255, 255, 0.03);
 }
+
 .newsletter input {
   flex: 1;
   background: transparent;
   border: none;
-  padding: 0.8rem 1rem;
+  padding: 0.85rem 1rem;
   font-family: var(--font-body);
   font-size: 0.85rem;
-  color: var(--white);
+  color: #E8E1D8;
   outline: none;
 }
-.newsletter input::placeholder { color: rgba(255,255,255,0.35); }
+
+.newsletter input::placeholder {
+  color: #8D877F;
+}
+
 .newsletter button {
-  padding: 0.8rem 1.2rem;
-  background: var(--gold);
-  color: var(--white);
+  padding: 0.85rem 1.35rem;
+  background: #C8A45D;
+  color: #0B0908;
   font-family: var(--font-mono);
   font-size: 0.65rem;
+  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
   white-space: nowrap;
   border: none;
 }
-.newsletter button:hover { background: var(--gold-light); }
+
+.newsletter button:hover {
+  background: #dfb96f;
+}
 
 .footer-col h5 {
   font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.16em;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
+  color: #8D877F;
   margin-bottom: 1.4rem;
-  font-weight: 400;
+  font-weight: 500;
 }
-.footer-col ul { display: flex; flex-direction: column; gap: 0.8rem; }
-.footer-col li, .footer-col a {
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col li,
+.footer-col a {
+  font-family: var(--font-body);
   font-size: 0.88rem;
-  color: rgba(255,255,255,0.55);
-  transition: color 0.3s;
+  color: #AAA39B;
+  transition: color 0.3s ease;
+  line-height: 1.6;
 }
-.footer-col a:hover { color: var(--gold); }
+
+.footer-col a:hover {
+  color: #C8A45D;
+}
 
 .footer-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-block: 2rem 2.2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  background: #080706;
+  margin-inline: calc(-1 * var(--gutter));
+  padding-inline: var(--gutter);
   flex-wrap: wrap;
   gap: 1rem;
 }
+
 .footer-bottom span {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.10em;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
+  color: #8D877F;
 }
+
 .footer-social {
   display: flex;
   gap: 1.8rem;
 }
+
 .footer-social a {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.12em;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
-  transition: color 0.3s;
+  color: #AAA39B;
+  transition: color 0.3s ease;
 }
-.footer-social a:hover { color: var(--gold); }
+
+.footer-social a:hover {
+  color: #C8A45D;
+}
 
 /* =====================================================
    BACK TO TOP
@@ -3565,21 +3616,31 @@ ul { list-style: none; }
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--white);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-md);
-  color: var(--charcoal);
-  font-size: 1rem;
+  background: #F5F1EA;
+  color: #0B0908;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  font-size: 1.1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   opacity: 0;
   transform: translateY(10px);
-  transition: opacity 0.4s, transform 0.4s, background 0.3s;
+  transition: opacity 0.4s, transform 0.4s, background 0.3s, color 0.3s;
 }
-.back-to-top.visible { opacity: 1; transform: translateY(0); }
-.back-to-top:hover { background: var(--charcoal); color: var(--white); }
+
+.back-to-top.visible,
+.back-to-top.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: #C8A45D;
+  color: #0B0908;
+  transform: translateY(-3px);
+}
 
 /* =====================================================
    GRAIN CANVAS

@@ -452,23 +452,27 @@ img, video {
     width: 40px;
     height: 40px;
   }
-  /* Remove excess height on footer (project detail pages) */
+  /* Remove excess height on footer */
   .site-footer {
     min-height: auto !important;
-    padding-top: clamp(2.5rem, 7vw, 4rem) !important;
+    padding-top: clamp(3rem, 7vw, 4.5rem) !important;
   }
   .site-footer a, .footer-col a {
-    color: rgba(255, 255, 255, 0.7) !important;
+    color: #AAA39B !important;
   }
   .site-footer a:hover, .footer-col a:hover {
-    color: var(--gold) !important;
+    color: #C8A45D !important;
   }
   .footer-col h5 {
-    color: rgba(255, 255, 255, 0.4) !important;
+    color: #8D877F !important;
   }
-  /* Fix social links in project-detail footer */
+  /* Fix social links in footer */
   .footer-social a {
     padding: 0 !important;
+    color: #AAA39B !important;
+  }
+  .footer-social a:hover {
+    color: #C8A45D !important;
   }
 }
 
