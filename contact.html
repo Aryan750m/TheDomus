@@ -104,10 +104,10 @@
       <img src="assets/images/domus-contact.webp" alt="" aria-hidden="true" loading="eager" />
     </div>
     <div class="page-hero-content container">
-      <span class="eyebrow">Reach Out</span>
-      <h1 style="font-size:var(--step-h1);margin-top:0.8rem;max-width:24rem;" data-split="words">Let's begin.</h1>
-      <p style="margin-top:1rem;color:var(--charcoal-dim);max-width:32rem;">
-        We accept a limited number of new commissions each year. Tell us about your space and we will be in touch within one business day.
+      <span class="eyebrow">REACH OUT</span>
+      <h1 style="font-size:var(--step-h1);margin-top:0.8rem;max-width:32rem;" data-split="words">Contact us</h1>
+      <p style="margin-top:1rem;color:var(--charcoal-dim);max-width:32rem;font-size:1.15rem;line-height:1.6;">
+        Let's Build Something That Belongs.
       </p>
     </div>
   </section>
@@ -116,30 +116,32 @@
   <section class="section-pad bg-white" aria-labelledby="contact-form-heading">
     <div class="container contact-grid">
       <div data-reveal>
-        <h2 id="contact-form-heading" style="margin-bottom:2.5rem;">Start a Project</h2>
+        <h2 id="contact-form-heading" style="margin-bottom:2.5rem;">Get In Touch</h2>
         <form data-form novalidate>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+            <div class="field">
+              <input type="text" id="c-fname" placeholder=" " required autocomplete="given-name" />
+              <label for="c-fname">First Name*</label><span class="field-line"></span>
+            </div>
+            <div class="field">
+              <input type="text" id="c-lname" placeholder=" " required autocomplete="family-name" />
+              <label for="c-lname">Last Name*</label><span class="field-line"></span>
+            </div>
+          </div>
           <div class="field">
-            <input type="text" id="c-name" placeholder=" " required autocomplete="name" />
-            <label for="c-name">Full Name</label><span class="field-line"></span>
+            <input type="tel" id="c-phone" placeholder=" " required autocomplete="tel" />
+            <label for="c-phone">Phone Number*</label><span class="field-line"></span>
           </div>
           <div class="field">
             <input type="email" id="c-email" placeholder=" " required autocomplete="email" />
-            <label for="c-email">Email Address</label><span class="field-line"></span>
+            <label for="c-email">Email Id*</label><span class="field-line"></span>
           </div>
           <div class="field">
-            <input type="tel" id="c-phone" placeholder=" " autocomplete="tel" />
-            <label for="c-phone">Phone (optional)</label><span class="field-line"></span>
-          </div>
-          <div class="field">
-            <input type="text" id="c-project" placeholder=" " />
-            <label for="c-project">Project type &amp; location</label><span class="field-line"></span>
-          </div>
-          <div class="field">
-            <textarea rows="5" id="c-message" placeholder=" " required></textarea>
-            <label for="c-message">Tell us about your space</label><span class="field-line"></span>
+            <textarea rows="5" id="c-message" placeholder=" "></textarea>
+            <label for="c-message">Message</label><span class="field-line"></span>
           </div>
           <button type="submit" class="btn btn-primary magnetic ripple-el" id="contact-submit">
-            Send Enquiry
+            Send a Message
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.4"/></svg>
           </button>
           <p class="form-status" aria-live="polite" role="status" style="margin-top:1rem;"></p>
@@ -229,19 +231,23 @@
         </p>
       </div>
       <div class="footer-col">
-        <h5>Studio</h5>
+        <h5>Explore</h5>
         <ul>
+          <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="services.html">Life at The Domus</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Services</h5>
+        <h5>Projects</h5>
         <ul>
-          <li><a href="services.html#residential">Residential</a></li>
-          <li><a href="services.html#hospitality">Hospitality</a></li>
-          <li><a href="services.html#materials">Material Consultancy</a></li>
+          <li><a href="domus-prive.html">The Domus Prive</a></li>
+          <li><a href="domus-west.html">The Domus 26 West</a></li>
+          <li><a href="domus-east.html">The Domus 26 East</a></li>
         </ul>
       </div>
       <div class="footer-col">
